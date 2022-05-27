@@ -21,7 +21,7 @@
 			<ImportIBMSC amp="1">.IBMSC ファイルからインポート</ImportIBMSC>
 			<Save amp="4">保存 (S)</Save>
 			<SaveAs amp="10">名前をつけて保存 (A)</SaveAs>
-			<ExportIBMSC amp="18feaw">.IBMSC 形式にエクスポート (E)</ExportIBMSC>
+			<ExportIBMSC amp="18">.IBMSC 形式にエクスポート (E)</ExportIBMSC>
 			<Close amp="5">閉じる (C)</Close>
 			<Recent0>最近使ったファイル #0</Recent0>
 			<Recent1>最近使ったファイル #1</Recent1>
@@ -426,8 +426,8 @@
 		<ExtendBPM>拡張 BPM の最大使用数を1295個（01～ZZ拡張）にする。</ExtendBPM>
 		<ExtendSTOP>STOP の最大使用数を1295個（01～ZZ拡張）にする。</ExtendSTOP>
 		<DisplayAudioLines>プレビュー再生時、オーディオ線を表示する。</DisplayAudioLines>
-		<SnapToVerticalPositionTemplate>テンプレート位置移動時に垂直位置をスナップ</SnapToVerticalPositionTemplate>
-		<SnapToVerticalPositionPattern>配置貼り付け時に垂直位置をスナップ</SnapToVerticalPositionPattern>
+		<SnapToVerticalPositionTemplate>テンプレート位置移動時に垂直位置をスナップ。</SnapToVerticalPositionTemplate>
+		<SnapToVerticalPositionPattern>配置貼り付け時に垂直位置をスナップ。</SnapToVerticalPositionPattern>
 		
 		<MouseWheel>マウスホイール</MouseWheel>
 		<TextEncoding>文字コード</TextEncoding>
@@ -437,7 +437,7 @@
 		<MiddleButtonDrag>ドラッグ（つかんでスクロール）</MiddleButtonDrag>
 		<AutoFocusOnMouseEnter>マウスがエディットパネルに入ると自動でフォーカス。</AutoFocusOnMouseEnter>
 		<DisableFirstClick>エディットパネルがフォーカスされていない場合、1クリック目を無効化。</DisableFirstClick>
-		<StopPreviewOnClick>エディットパネル上をクリックするとプレビュー再生をストップ</StopPreviewOnClick>
+		<StopPreviewOnClick>エディットパネル上をクリックするとプレビュー再生をストップ。</StopPreviewOnClick>
 	</GeneralOptions>
 	<VisualOverrideOptions>
 		<Title>色分けオプション</Title>

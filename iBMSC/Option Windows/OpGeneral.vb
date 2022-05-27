@@ -112,32 +112,40 @@ Public Class OpGeneral
         'lpfa = Form1.lpfa
         'Dim xL() As String = Form1.lpgo
         Me.Text = Strings.fopGeneral.Title
+        Dim enc = System.Text.Encoding.Default
+        CTextEncoding.Items(0) = "System ANSI (" & enc.EncodingName & ")"
+        Label4.Text = Strings.fopGeneral.AssociateFileType
+        Label6.Text = Strings.fopGeneral.MaxGridPartition
+        Label8.Text = Strings.fopGeneral.MinimumJackThreshold
+        Label10.Text = Strings.fopGeneral.AutoLongNoteGap
+        Label11.Text = Strings.fopGeneral.TemporaryBMSFilename
+
+        cAutoSave.Text = Strings.fopGeneral.AutoSave
+        Label7.Text = Strings.fopGeneral.minutes
+        cBeep.Text = Strings.fopGeneral.BeepWhileSaved
+        cPreloadBMSStruct.Text = Strings.fopGeneral.Preload
+        cBpm1296.Text = Strings.fopGeneral.ExtendBPM
+        cStop1296.Text = Strings.fopGeneral.ExtendSTOP
+        cAudioLine.Text = Strings.fopGeneral.DisplayAudioLines
+        cTemplateSnapToVPosition.Text = Strings.fopGeneral.SnapToVerticalPositionTemplate
+        cPastePatternToVPosition.Text = Strings.fopGeneral.SnapToVerticalPositionPattern
+
         Label1.Text = Strings.fopGeneral.MouseWheel
         Label2.Text = Strings.fopGeneral.TextEncoding
-        'Label3.Text = Locale.fopGeneral.SortingMethod
         Label5.Text = Strings.fopGeneral.PageUpDown
         Label3.Text = Strings.fopGeneral.MiddleButton
-        Label4.Text = Strings.fopGeneral.AssociateFileType
+        rMiddleAuto.Text = Strings.fopGeneral.MiddleButtonAuto
+        rMiddleDrag.Text = Strings.fopGeneral.MiddleButtonDrag
+        cMEnterFocus.Text = Strings.fopGeneral.AutoFocusOnMouseEnter
+        cMClickFocus.Text = Strings.fopGeneral.DisableFirstClick
+        cMStopPreview.Text = Strings.fopGeneral.StopPreviewOnClick
+
+        'Label3.Text = Locale.fopGeneral.SortingMethod
         'CSortingMethod.Items.Item(0) = Locale.fopGeneral.sortBubble
         'CSortingMethod.Items.Item(1) = Locale.fopGeneral.sortInsertion
         'CSortingMethod.Items.Item(2) = Locale.fopGeneral.sortQuick
         'CSortingMethod.Items.Item(3) = Locale.fopGeneral.sortQuickD3
         'CSortingMethod.Items.Item(4) = Locale.fopGeneral.sortHeap
-        rMiddleAuto.Text = Strings.fopGeneral.MiddleButtonAuto
-        rMiddleDrag.Text = Strings.fopGeneral.MiddleButtonDrag
-        Label6.Text = Strings.fopGeneral.MaxGridPartition
-
-        cBeep.Text = Strings.fopGeneral.BeepWhileSaved
-        cBpm1296.Text = Strings.fopGeneral.ExtendBPM
-        cStop1296.Text = Strings.fopGeneral.ExtendSTOP
-        cMEnterFocus.Text = Strings.fopGeneral.AutoFocusOnMouseEnter
-        cMClickFocus.Text = Strings.fopGeneral.DisableFirstClick
-        cAutoSave.Text = Strings.fopGeneral.AutoSave
-        Label7.Text = Strings.fopGeneral.minutes
-        cMStopPreview.Text = Strings.fopGeneral.StopPreviewOnClick
-
-        Dim enc = System.Text.Encoding.Default
-        CTextEncoding.Items(0) = "System ANSI (" & enc.EncodingName & ")"
 
         OK_Button.Text = Strings.OK
         Cancel_Button.Text = Strings.Cancel
