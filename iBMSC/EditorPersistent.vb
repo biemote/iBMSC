@@ -385,14 +385,86 @@ Partial Public Class MainWindow
 
     Private Sub XMLLoadKeybinding(ByVal n As XmlElement)
         For xI = 0 To UBound(Keybindings)
-            If Keybindings(xI).OpVar = CInt(n.GetAttribute("OpVar")) Then
-                ' XMLLoadAttribute(n.GetAttribute("Name"), Keybindings(xI).OpName)
-                ' XMLLoadAttribute(n.GetAttribute("Description"), Keybindings(xI).Description)
-                Keybindings(xI).Combo = Split(n.GetAttribute("Combos"), ", ")
-                ' XMLLoadAttribute(n.GetAttribute("Category"), Keybindings(xI).Category)
+            If n.GetAttribute("OpVar") <> "" Then
+                If Keybindings(xI).OpVar = CInt(n.GetAttribute("OpVar")) Then
+                    ' XMLLoadAttribute(n.GetAttribute("Name"), Keybindings(xI).OpName)
+                    ' XMLLoadAttribute(n.GetAttribute("Description"), Keybindings(xI).Description)
+                    Keybindings(xI).Combo = Split(n.GetAttribute("Combos"), ", ")
+                    ' XMLLoadAttribute(n.GetAttribute("Category"), Keybindings(xI).Category)
 
-                RenameShortcut(Keybindings(xI))
-                Exit Sub
+                    RenameShortcut(Keybindings(xI))
+                    Exit Sub
+                End If
+            Else ' Keybinding migration from 3.5.5.10
+                Dim OpVar As Integer
+                Select Case n.GetAttribute("Name")
+                    Case "Move to A2" : OpVar = 0
+                    Case "Move to A3" : OpVar = 1
+                    Case "Move to A4" : OpVar = 2
+                    Case "Move to A5" : OpVar = 3
+                    Case "Move to A6" : OpVar = 4
+                    Case "Move to A7" : OpVar = 5
+                    Case "Move to A8" : OpVar = 6
+                    Case "Move to A1" : OpVar = 7
+                    Case "Move to D1" : OpVar = 10
+                    Case "Move to D2" : OpVar = 11
+                    Case "Move to D3" : OpVar = 12
+                    Case "Move to D4" : OpVar = 13
+                    Case "Move to D5" : OpVar = 14
+                    Case "Move to D6" : OpVar = 15
+                    Case "Move to D7" : OpVar = 16
+                    Case "Move to D8" : OpVar = 17
+                    Case "Move to P1" : OpVar = 20
+                    Case "Move to P2" : OpVar = 21
+                    Case "Move to P3" : OpVar = 22
+                    Case "Move to P4" : OpVar = 23
+                    Case "Move to P5" : OpVar = 24
+                    Case "Move to P6" : OpVar = 25
+                    Case "Move to P7" : OpVar = 26
+                    Case "Move to P8" : OpVar = 27
+                    Case "Move to P9" : OpVar = 28
+                    Case "Move to BGM" : OpVar = 100
+                    Case "Move to Template Position" : OpVar = 101
+                    Case "Disable vertical moves" : OpVar = 102
+                    Case "Snap to grid" : OpVar = 103
+                    Case "→ Long Note" : OpVar = 104
+                    Case "→ Short Note" : OpVar = 105
+                    Case "Long Note ↔ Short Note" : OpVar = 106
+                    Case "Auto Long Note" : OpVar = 107
+                    Case "Auto Long Note" : OpVar = 108
+                    Case "Check Technical Error" : OpVar = 109
+                    Case "#RANDOM Editor" : OpVar = 110
+                    Case "Undo" : OpVar = 111
+                    Case "Redo" : OpVar = 112
+                    Case "Cut" : OpVar = 113
+                    Case "Copy" : OpVar = 114
+                    Case "Paste" : OpVar = 115
+                    Case "Paste Pattern" : OpVar = 116
+                    Case "Select All" : OpVar = 117
+                    Case "Select all with hovered note label" : OpVar = 118
+                    Case "Move Note Up" : OpVar = 200
+                    Case "Move Note Down" : OpVar = 201
+                    Case "Move Note Left" : OpVar = 202
+                    Case "Move Note Right" : OpVar = 203
+                    Case "Insert Space/Define Measure" : OpVar = 204
+                    Case "Delete" : OpVar = 205
+                    Case "Home" : OpVar = 206
+                    Case "End" : OpVar = 207
+                    Case "PageUp" : OpVar = 208
+                    Case "PageDown" : OpVar = 209
+                    Case "Next" : OpVar = 210
+                    Case "TabBetweenFiles" : OpVar = 211
+                    Case "TabBetweenNotes" : OpVar = 212
+                    Case "Decrease Division" : OpVar = 213
+                    Case "Increase Division" : OpVar = 214
+                    Case "Set CGDivision" : OpVar = 215
+                    Case "Decrease CGHeight" : OpVar = 216
+                    Case "Increase CGHeight" : OpVar = 217
+                    Case "DecreaseCurrentWav" : OpVar = 218
+                    Case "IncreaseCurrentWav" : OpVar = 219
+                    Case "TBPreviewHighlighted_Click" : OpVar = 220
+                End Select
+                If Keybindings(xI).OpVar = OpVar Then Keybindings(xI).Combo = Split(n.GetAttribute("Combos"), ", ")
             End If
         Next
     End Sub
