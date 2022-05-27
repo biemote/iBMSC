@@ -11,6 +11,13 @@
 	<OK>확인</OK>
 	<Cancel>취소</Cancel>
 	<None>None</None>
+	<Beat>Beat</Beat>
+	<Beats>Beats</Beats>
+	<st>st</st>
+	<nd>nd</nd>
+	<rd>rd</rd>
+	<th>th</th>
+	
 	<Menu>
 		<File>
 			<Title amp="6">파일 (F)</Title>
@@ -129,9 +136,14 @@
 		<MeasureResolution>마디 해상도</MeasureResolution>
 		<AbsolutePosition>절대위치</AbsolutePosition>
 		<Length>길이</Length>
+		<Note>Note</Note>
 		<LongNote>롱노트</LongNote>
 		<Hidden>투명 노트</Hidden>
+		<Landmine>Landmine</Landmine>
+		<Comment>Comment</Comment>
+		<Approximate>Approx.</Approximate>
 		<Error>에러</Error>
+		<ErrorTechnical>Technical Error</ErrorTechnical>
 		<SelStart>시작점</SelStart>
 		<SelLength>범위 길이</SelLength>
 		<SelSplit>영역 위치</SelSplit>
@@ -282,6 +294,7 @@
 		<SaveOnExit>데이터가 변경됩니다. 저장하시겠습니까?</SaveOnExit>
 		<SaveOnExit1>종료할 때 저장할 것인지 묻기</SaveOnExit1>
 		<SaveOnExit2>작업관리자에서 종료해도 저장할 것인지 묻기</SaveOnExit2>
+		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
 		<PromptEnter>설정할 번호를 입력하세요.</PromptEnter>
 		<PromptEnterNumeric>값을 입력하세요.</PromptEnterNumeric>
 		<PromptEnterBPM>BPM을 입력하세요.</PromptEnterBPM>

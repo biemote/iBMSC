@@ -1,11 +1,15 @@
 Public Class Strings
-    ' TODO: Add all strings for new features here...
     Public Shared OK As String = "OK"
     Public Shared Cancel As String = "Cancel"
     Public Shared None As String = "None"
+    Public Shared Beat As String = "Beat"
+    Public Shared Beats As String = "Beats"
+    Public Shared st As String = "st"
+    Public Shared nd As String = "nd"
+    Public Shared rd As String = "rd"
+    Public Shared th As String = "th"
 
     Public Class StatusBar
-        Public Shared Bars As String = "Beats"
         Public Shared Length As String = "Length"
         Public Shared Note As String = "Note"
         Public Shared LongNote As String = "LongNote"
@@ -20,6 +24,7 @@ Public Class Strings
 
     Public Class Messages
         Public Shared Err As String = "Error"
+        ' Public Shared ErrTechnical As String = "Technical Error"
         Public Shared SaveOnExit As String = "Do you want to save changes?"
         Public Shared SaveOnExit1 As String = "You should tell me if you want to save changes before closing the computer. -_,-"
         Public Shared SaveOnExit2 As String = "You still need to tell me if you want to save changes even though you are closing the application with task manager. -_,-"
@@ -284,44 +289,44 @@ Public Class Strings
     End Class
 
     Public Class fFind
-            Public Shared NoteRange As String = "Note Range"
-            Public Shared MeasureRange As String = "Measure Range"
-            Public Shared LabelRange As String = "Label Range"
-            Public Shared ValueRange As String = "Value Range"
-            Public Shared to_ As String = "to"
-            Public Shared Selected As String = "Selected"
-            Public Shared UnSelected As String = "Unselected"
-            Public Shared ShortNote As String = "Short"
-            Public Shared LongNote As String = "Long"
-            Public Shared Hidden As String = "Hidden"
-            Public Shared Visible As String = "Visible"
-            Public Shared Column As String = "Column"
-            Public Shared SelectAll As String = "Select All"
-            Public Shared SelectInverse As String = "Select Inverse"
-            Public Shared UnselectAll As String = "Unselect All"
-            Public Shared Operation As String = "Operation"
-            Public Shared ReplaceWithLabel As String = "Replace with Label:"
-            Public Shared ReplaceWithValue As String = "Replace with Value:"
-            Public Shared Select_ As String = "Select"
-            Public Shared Unselect_ As String = "Unselect"
-            Public Shared Delete_ As String = "Delete"
-            Public Shared Close_ As String = "Close"
-        End Class
-
-        Public Class fImportSM
-            Public Shared Title As String = "Import *.SM file"
-            Public Shared Difficulty As String = "Difficulty"
-            Public Shared Note As String = "Please note that bg musics and STOP values will not be imported."
-        End Class
-
-        Public Class FileAssociation
-            Public Shared BMS As String = "Be-Music Script"
-            Public Shared BME As String = "Be-Music Extended Format"
-            Public Shared BML As String = "Be-Music Longnote Format"
-            Public Shared PMS As String = "Po-Mu Script"
-            Public Shared IBMSC As String = "iBMSC Binary Format"
-            Public Shared Open As String = "Open"
-            Public Shared Preview As String = "Preview"
-            Public Shared ViewCode As String = "View Code"
-        End Class
+        Public Shared NoteRange As String = "Note Range"
+        Public Shared MeasureRange As String = "Measure Range"
+        Public Shared LabelRange As String = "Label Range"
+        Public Shared ValueRange As String = "Value Range"
+        Public Shared to_ As String = "to"
+        Public Shared Selected As String = "Selected"
+        Public Shared UnSelected As String = "Unselected"
+        Public Shared ShortNote As String = "Short"
+        Public Shared LongNote As String = "Long"
+        Public Shared Hidden As String = "Hidden"
+        Public Shared Visible As String = "Visible"
+        Public Shared Column As String = "Column"
+        Public Shared SelectAll As String = "Select All"
+        Public Shared SelectInverse As String = "Select Inverse"
+        Public Shared UnselectAll As String = "Unselect All"
+        Public Shared Operation As String = "Operation"
+        Public Shared ReplaceWithLabel As String = "Replace with Label:"
+        Public Shared ReplaceWithValue As String = "Replace with Value:"
+        Public Shared Select_ As String = "Select"
+        Public Shared Unselect_ As String = "Unselect"
+        Public Shared Delete_ As String = "Delete"
+        Public Shared Close_ As String = "Close"
     End Class
+
+    Public Class fImportSM
+        Public Shared Title As String = "Import *.SM file"
+        Public Shared Difficulty As String = "Difficulty"
+        Public Shared Note As String = "Please note that bg musics and STOP values will not be imported."
+    End Class
+
+    Public Class FileAssociation
+        Public Shared BMS As String = "Be-Music Script"
+        Public Shared BME As String = "Be-Music Extended Format"
+        Public Shared BML As String = "Be-Music Longnote Format"
+        Public Shared PMS As String = "Po-Mu Script"
+        Public Shared IBMSC As String = "iBMSC Binary Format"
+        Public Shared Open As String = "Open"
+        Public Shared Preview As String = "Preview"
+        Public Shared ViewCode As String = "View Code"
+    End Class
+End Class

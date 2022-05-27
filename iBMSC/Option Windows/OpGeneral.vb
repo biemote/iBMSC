@@ -119,6 +119,8 @@ Public Class OpGeneral
         Label8.Text = Strings.fopGeneral.MinimumJackThreshold
         Label10.Text = Strings.fopGeneral.AutoLongNoteGap
         Label11.Text = Strings.fopGeneral.TemporaryBMSFilename
+        NLNGap_ValueChanged(Nothing, Nothing)
+        nJackTH_ValueChanged(Nothing, Nothing)
 
         cAutoSave.Text = Strings.fopGeneral.AutoSave
         Label7.Text = Strings.fopGeneral.minutes
@@ -377,24 +379,24 @@ Public Class OpGeneral
     Private Sub nJackTH_ValueChanged(sender As Object, e As EventArgs) Handles nJackTH.ValueChanged
         Select Case nJackTH.Value Mod 100
             Case 1, 21, 31, 41, 51, 61, 71, 81, 91
-                LabelTHJack.Text = "st"
+                LabelTHJack.Text = Strings.st
             Case 2, 22, 32, 42, 52, 62, 72, 82, 92
-                LabelTHJack.Text = "nd"
+                LabelTHJack.Text = Strings.nd
             Case 3, 23, 33, 43, 53, 63, 73, 83, 93
-                LabelTHJack.Text = "rd"
+                LabelTHJack.Text = Strings.rd
             Case Else
-                LabelTHJack.Text = "th"
+                LabelTHJack.Text = Strings.th
         End Select
     End Sub
 
     Private Sub NLNGap_ValueChanged(sender As Object, e As EventArgs) Handles NLNGap.ValueChanged
         Select Case NLNGap.Value
             Case Is > 1
-                LabelTHLN.Text = "bars"
+                LabelTHLN.Text = Strings.Beats
             Case Is > 0
-                LabelTHLN.Text = "bar"
+                LabelTHLN.Text = Strings.Beat
             Case 0
-                LabelTHLN.Text = "bars"
+                LabelTHLN.Text = Strings.Beats
         End Select
     End Sub
 End Class

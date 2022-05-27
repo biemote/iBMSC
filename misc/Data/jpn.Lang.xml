@@ -11,6 +11,13 @@
 	<OK>OK</OK>
 	<Cancel>キャンセル</Cancel>
 	<None>None</None>
+	<Beat>拍</Beat>
+	<Beats>拍</Beats>
+	<st>分</st>
+	<nd>分</nd>
+	<rd>分</rd>
+	<th>分</th>
+
 	<Menu>
 		<File>
 			<Title amp="6">ファイル (F)</Title>
@@ -129,9 +136,14 @@
 		<MeasureResolution>小節内での位置</MeasureResolution>
 		<AbsolutePosition>絶対的な位置</AbsolutePosition>
 		<Length>長さ</Length>
+		<Note>ノート</Note>
 		<LongNote>ロングノート</LongNote>
 		<Hidden>不可視オブジェ</Hidden>
+		<Landmine>地雷</Landmine>
+		<Comment>コメント</Comment>
+		<Approximate>約</Approximate>
 		<Error>エラー</Error>
+		<ErrorTechnical>技術的なエラー</ErrorTechnical>
 		<SelStart>開始位置</SelStart>
 		<SelLength>範囲の長さ</SelLength>
 		<SelSplit>スプリッタの位置</SelSplit>
@@ -283,6 +295,7 @@
 		<SaveOnExit>データは変更されています。保存しますか。</SaveOnExit>
 		<SaveOnExit1>シャットダウン時、保存するか確認する。</SaveOnExit1>
 		<SaveOnExit2>タスクマネージャーから終了する場合も、保存するか確認する。</SaveOnExit2>
+		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
 		<PromptEnter>定義番号を入力してください。</PromptEnter>
 		<PromptEnterNumeric>値を入力してください。</PromptEnterNumeric>
 		<PromptEnterBPM>曲のテンポを入力してください。</PromptEnterBPM>

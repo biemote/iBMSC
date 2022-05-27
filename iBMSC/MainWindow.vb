@@ -3308,12 +3308,12 @@ Public Class MainWindow
                 If Notes(xI1).Length > 0 Then
                     FST.ForeColor = System.Drawing.Color.Olive
                     FST.Text = Strings.StatusBar.LongNote & " " &
-                               Notes(xI1).Length / 192.0R * 4 & " " & Strings.StatusBar.Bars & " " &
+                               Notes(xI1).Length / 192.0R * 4 & " " & Strings.Beats & " " &
                                "(" & GetTimeFromVPosition(Notes(xI1).VPosition + Notes(xI1).Length) - GetTimeFromVPosition(Notes(xI1).VPosition) & "s)"
                 ElseIf Notes(xI1).LNPair <> 0 Then
                     FST.ForeColor = System.Drawing.Color.Olive
                     FST.Text = Strings.StatusBar.LongNote & " " &
-                               Math.Abs(Notes(xI1).VPosition - Notes(Notes(xI1).LNPair).VPosition) / 192.0R * 4 & " " & Strings.StatusBar.Bars & " " &
+                               Math.Abs(Notes(xI1).VPosition - Notes(Notes(xI1).LNPair).VPosition) / 192.0R * 4 & " " & Strings.Beats & " " &
                                "(" & Math.Abs(GetTimeFromVPosition(Notes(Notes(xI1).LNPair).VPosition) - GetTimeFromVPosition(Notes(xI1).VPosition)) & "s)"
                 ElseIf Notes(xI1).LongNote Then
                     FST.ForeColor = System.Drawing.Color.Olive
@@ -3332,7 +3332,16 @@ Public Class MainWindow
                     FST.Text = Strings.StatusBar.Note
                 End If
 
-                FSE.Text = IIf(Notes(xI1).HasError, Strings.StatusBar.Err, "").ToString()
+                If Notes(xI1).HasError Then
+                    Select Case Notes(xI1).ErrorType
+                        Case 0
+                            FSE.Text = Strings.StatusBar.Err
+                        Case 1
+                            FSE.Text = Strings.StatusBar.ErrTechnical
+                    End Select
+                Else
+                    FSE.Text = ""
+                End If
 
             End If
 
@@ -3355,7 +3364,7 @@ Public Class MainWindow
             If TempLength > 0 Then
                 FST.ForeColor = System.Drawing.Color.Olive
                 FST.Text = Strings.StatusBar.LongNote & " " &
-                           TempLength / 192.0R * 4 & " " & Strings.StatusBar.Bars & " " &
+                           TempLength / 192.0R * 4 & " " & Strings.Beats & " " &
                            "(" & Strings.StatusBar.Approximate & " " & GetTimeFromVPosition(TempVPosition + TempLength) - GetTimeFromVPosition(TempVPosition) & "s)"
             ElseIf My.Computer.Keyboard.CtrlKeyDown AndAlso My.Computer.Keyboard.ShiftKeyDown Then
                 FST.ForeColor = System.Drawing.Color.Red

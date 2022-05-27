@@ -821,6 +821,12 @@ Partial Public Class MainWindow
             XMLLoadLocale(Root.Item("OK"), Strings.OK)
             XMLLoadLocale(Root.Item("Cancel"), Strings.Cancel)
             XMLLoadLocale(Root.Item("None"), Strings.None)
+            XMLLoadLocale(Root.Item("Beat"), Strings.Beat)
+            XMLLoadLocale(Root.Item("Beats"), Strings.Beats)
+            XMLLoadLocale(Root.Item("st"), Strings.st)
+            XMLLoadLocale(Root.Item("nd"), Strings.nd)
+            XMLLoadLocale(Root.Item("rd"), Strings.rd)
+            XMLLoadLocale(Root.Item("th"), Strings.th)
 
             Dim eFont As XmlElement = Root.Item("Font")
             If eFont IsNot Nothing Then
@@ -1069,7 +1075,6 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eStatusBar.Item("ReducedResolution"), FSP3.ToolTipText)
                 XMLLoadLocale(eStatusBar.Item("MeasureResolution"), FSP2.ToolTipText)
                 XMLLoadLocale(eStatusBar.Item("AbsolutePosition"), FSP4.ToolTipText)
-                XMLLoadLocale(eStatusBar.Item("Bars"), Strings.StatusBar.Bars)
                 XMLLoadLocale(eStatusBar.Item("Length"), Strings.StatusBar.Length)
                 XMLLoadLocale(eStatusBar.Item("Note"), Strings.StatusBar.Note)
                 XMLLoadLocale(eStatusBar.Item("LongNote"), Strings.StatusBar.LongNote)
@@ -1494,6 +1499,7 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eKeybindingOptions.Item("CheckTechnicalError"), Strings.fopKeybinding.CheckTechnicalError)
                 XMLLoadLocale(eKeybindingOptions.Item("SelectExpansionSection"), Strings.fopKeybinding.SelectExpansionSection)
                 XMLLoadLocale(eKeybindingOptions.Item("PastePattern"), Strings.fopKeybinding.PastePattern)
+                XMLLoadLocale(eKeybindingOptions.Item("SelectHovered"), Strings.fopKeybinding.SelectHovered)
 
                 XMLLoadLocale(eKeybindingOptions.Item("ErrorUnavailable"), Strings.fopKeybinding.ErrorUnavailable)
                 XMLLoadLocale(eKeybindingOptions.Item("ErrorAssigned"), Strings.fopKeybinding.ErrorAssigned)
