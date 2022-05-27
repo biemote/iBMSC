@@ -3,6 +3,8 @@ pBMSC
 pBMSC is a modified version of uBMSC (which is a modified version of iBMSC) with a primary focus on quality of life functionalities such as keyboard shortcuts.
 See README.md.iBMSC for the original iBMSC README file and REAME.md.uBMSC for the last uBMSC README file.
 
+* Special thanks to Shimi9999#7602 for the Japanese translation with the new features.
+
 ### Discretion
 * Themes from Bluvel's uBMSC fork may not be compatible, please use themes from Zadoru's uBMSC fork.
 * Having .NET Framework 4.8 installed is recommended.
