@@ -288,6 +288,23 @@ Public Class Strings
         Public Shared ErrorNotDetected As String = "Error: #IF Section not detected."
     End Class
 
+    Public Class fopTOTAL
+        Public Shared Title As String = "#TOTAL Tool"
+        Public Shared CalculationOption As String = "#TOTAL Calculation Option"
+        Public Shared Parameters As String = "Parameters"
+        Public Shared TOTAL As String = "#TOTAL"
+        Public Shared CalculationFormula As String = "Calculation Formula"
+        Public Shared IIDXTOTALSupposition1 As String = "IIDX #TOTAL Supposition 1"
+        Public Shared IIDXTOTALSupposition2 As String = "IIDX #TOTAL Supposition 2"
+        Public Shared Multiplier As String = "Multiplier"
+        Public Shared Notes As String = "Notes"
+        Public Shared GlobalMultiplier As String = "Global Multiplier"
+        Public Shared DecimalPlaces As String = "Decimal Places"
+        Public Shared DisplayValue As String = "Display Value"
+        Public Shared DisplayRecommendedTOTAL As String = "Display ""{}"""
+        Public Shared AutofillTOTAL As String = "Autofill #TOTAL"
+    End Class
+
     Public Class fFind
         Public Shared NoteRange As String = "Note Range"
         Public Shared MeasureRange As String = "Measure Range"

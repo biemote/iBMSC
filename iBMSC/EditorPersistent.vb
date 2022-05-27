@@ -1522,6 +1522,24 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eExpandOptions.Item("ErrorNotDetected"), Strings.fopExpand.ErrorNotDetected)
             End If
 
+            Dim eTOTALTool As XmlElement = Root.Item("TOTALTool")
+            If eTOTALTool IsNot Nothing Then
+                XMLLoadLocale(eTOTALTool.Item("Title"), Strings.fopTOTAL.Title)
+                XMLLoadLocale(eTOTALTool.Item("CalculationOption"), Strings.fopTOTAL.CalculationOption)
+                XMLLoadLocale(eTOTALTool.Item("Parameters"), Strings.fopTOTAL.Parameters)
+                XMLLoadLocale(eTOTALTool.Item("TOTAL"), Strings.fopTOTAL.TOTAL)
+                XMLLoadLocale(eTOTALTool.Item("CalculationFormula"), Strings.fopTOTAL.CalculationFormula)
+                XMLLoadLocale(eTOTALTool.Item("IIDXTOTALSupposition1"), Strings.fopTOTAL.IIDXTOTALSupposition1)
+                XMLLoadLocale(eTOTALTool.Item("IIDXTOTALSupposition2"), Strings.fopTOTAL.IIDXTOTALSupposition2)
+                XMLLoadLocale(eTOTALTool.Item("Multiplier"), Strings.fopTOTAL.Multiplier)
+                XMLLoadLocale(eTOTALTool.Item("Notes"), Strings.fopTOTAL.Notes)
+                XMLLoadLocale(eTOTALTool.Item("GlobalMultiplier"), Strings.fopTOTAL.GlobalMultiplier)
+                XMLLoadLocale(eTOTALTool.Item("DecimalPlaces"), Strings.fopTOTAL.DecimalPlaces)
+                XMLLoadLocale(eTOTALTool.Item("DisplayValue"), Strings.fopTOTAL.DisplayValue)
+                XMLLoadLocale(eTOTALTool.Item("DisplayRecommendedTOTAL"), Strings.fopTOTAL.DisplayRecommendedTOTAL)
+                XMLLoadLocale(eTOTALTool.Item("AutofillTOTAL"), Strings.fopTOTAL.AutofillTOTAL)
+            End If
+
             Dim eFind As XmlElement = Root.Item("Find")
             If eFind IsNot Nothing Then
                 XMLLoadLocale(eFind.Item("NoteRange"), Strings.fFind.NoteRange)

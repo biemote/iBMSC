@@ -26,6 +26,28 @@
     Private Sub OpTotal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Font = MainWindow.Font
 
+        Text = Strings.fopTOTAL.Title
+
+        Label1.Text = Strings.fopTOTAL.CalculationOption
+        Label2.Text = Strings.fopTOTAL.Parameters
+        Label3.Text = Strings.fopTOTAL.TOTAL
+        Label4.Text = Strings.fopTOTAL.CalculationFormula
+        CTotalIIDX1.Text = Strings.fopTOTAL.IIDXTOTALSupposition1
+        CTotalIIDX2.Text = Strings.fopTOTAL.IIDXTOTALSupposition2
+        CTotalMultiplier.Text = Strings.fopTOTAL.Multiplier
+        Label5.Text = Strings.fopTOTAL.GlobalMultiplier
+        Label11.Text = Strings.fopTOTAL.DecimalPlaces
+        CBDisplayValue.Text = Strings.fopTOTAL.DisplayValue
+        CBDisplayText.Text = Strings.fopTOTAL.DisplayRecommendedTOTAL.Replace("{}", Strings.StatusBar.RecommendedTotal)
+        CBAutoFill.Text = Strings.fopTOTAL.AutofillTOTAL
+
+        Dim Notes As String = Strings.fopTOTAL.Notes
+        Label6.Text = "7.605 * " & Notes & " / (0.01 * " & Notes & " + 6.5)"
+        Label7.Text = Notes & " < 400 ? 200 + " & Notes & " / 5 :"
+        Label10.Text = Notes & " < 600 ? 280 + (" & Notes & " - 400) / 2.5 :"
+        Label9.Text = Notes & " > 600 ? 360 + (" & Notes & " - 600) / 5"
+        Label8.Text = Notes & " * " & Strings.fopTOTAL.Multiplier
+
         OK_Button.Text = Strings.OK
         Cancel_Button.Text = Strings.Cancel
     End Sub

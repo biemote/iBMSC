@@ -503,6 +503,22 @@
 		<ErrorNoLineSelected>Error: No line selected.</ErrorNoLineSelected>
 		<ErrorNotDetected>Error: #IF Section not detected.</ErrorNotDetected>
 	</ExpandOptions>
+	<TOTALTool>
+		<Title>#TOTAL Tool</Title>
+		<CalculationOption>#TOTAL Calculation Option</CalculationOption>
+		<Parameters>Parameters</Parameters>
+		<TOTAL>#TOTAL</TOTAL>
+		<CalculationFormula>Calculation Formula</CalculationFormula>
+		<IIDXTOTALSupposition1>IIDX #TOTAL Supposition 1</IIDXTOTALSupposition1>
+		<IIDXTOTALSupposition2>IIDX #TOTAL Supposition 2</IIDXTOTALSupposition2>
+		<Multiplier>Multiplier</Multiplier>
+		<Notes>Notes</Notes>
+		<GlobalMultiplier>Global Multiplier</GlobalMultiplier>
+		<DecimalPlaces>Decimal Places</DecimalPlaces>
+		<DisplayValue>Display Value</DisplayValue>
+		<DisplayRecommendedTOTAL>Display "{}"</DisplayRecommendedTOTAL>
+		<AutofillTOTAL>Autofill #TOTAL</AutofillTOTAL>
+	</TOTALTool>
 	<Find>
 		<NoteRange>대상 노트</NoteRange>
 		<MeasureRange>마디 범위</MeasureRange>

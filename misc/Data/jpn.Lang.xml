@@ -518,6 +518,22 @@
 		<ErrorNoLineSelected>エラー：何も選択しませんでした。</ErrorNoLineSelected>
 		<ErrorNotDetected>エラー：#IF部分は見つかりませんでした。</ErrorNotDetected>
 	</ExpandOptions>
+		<TOTALTool>
+		<Title>#TOTAL ツール</Title>
+		<CalculationOption>#TOTAL Calculation Option</CalculationOption>
+		<Parameters>Parameters</Parameters>
+		<TOTAL>#TOTAL</TOTAL>
+		<CalculationFormula>Calculation Formula</CalculationFormula>
+		<IIDXTOTALSupposition1>IIDX #TOTAL Supposition 1</IIDXTOTALSupposition1>
+		<IIDXTOTALSupposition2>IIDX #TOTAL Supposition 2</IIDXTOTALSupposition2>
+		<Multiplier>乗数</Multiplier>
+		<Notes>Notes</Notes>
+		<GlobalMultiplier>Global Multiplier</GlobalMultiplier>
+		<DecimalPlaces>小数位</DecimalPlaces>
+		<DisplayValue>推奨値を表示</DisplayValue>
+		<DisplayRecommendedTOTAL>"{}"を表示</DisplayRecommendedTOTAL>
+		<AutofillTOTAL>#TOTALを自動入力</AutofillTOTAL>
+	</TOTALTool>
 	<Find>
 		<NoteRange>対象オブジェ</NoteRange>
 		<MeasureRange>小節の範囲</MeasureRange>
