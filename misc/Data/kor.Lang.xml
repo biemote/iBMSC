@@ -469,6 +469,7 @@
 		<SemiAutoMsgNone>No notes found.</SemiAutoMsgNone>
 		<SemiAutoMsgAssignMore>Assign more notes with wav filenames beginning with the following:</SemiAutoMsgAssignMore>
 		<SaveCurrentSettings>Save current settings?</SaveCurrentSettings>
+		<OverwriteExistingSettings>Overwrite existing settings below?</OverwriteExistingSettings>
 	</VisualOverrideOptions>
 	<KeybindingOptions>
 		<Title>Keybinding Options</Title>

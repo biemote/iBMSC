@@ -276,39 +276,43 @@ Partial Public Class MainWindow
         End With
     End Sub
 
-    Private Sub SaveColorOverride(ByVal Path As String, ByVal Warning As Boolean)
+    Private Sub WriteColorOverride(ByVal Path As String, ByVal Warning As Boolean)
         Dim F As String = ColorOverridePath(Path)
         If My.Computer.FileSystem.FileExists(F) AndAlso Warning Then
-            Dim xDiag = MsgBox("Overwrite existing settings below?" & vbCrLf & F, MsgBoxStyle.YesNo)
+            Dim xDiag = MsgBox(Strings.fopVisualOverride.OverwriteExistingSettings & vbCrLf & F, MsgBoxStyle.YesNo)
             If xDiag = DialogResult.No Then Exit Sub
         End If
 
-        Dim w As New XmlTextWriter(F, System.Text.Encoding.Unicode)
-        With w
-            .WriteStartDocument()
-            .Formatting = Formatting.Indented
-            .Indentation = 4
+        Try
+            Dim w As New XmlTextWriter(F, System.Text.Encoding.Unicode)
+            With w
+                .WriteStartDocument()
+                .Formatting = Formatting.Indented
+                .Indentation = 4
 
-            .WriteStartElement("ColorOverride")
-            .WriteAttributeString("Count", UBound(COverrides).ToString())
+                .WriteStartElement("ColorOverride")
+                .WriteAttributeString("Count", UBound(COverrides).ToString())
 
-            For i = 0 To UBound(COverrides)
-                .WriteStartElement("Color")
-                .WriteAttributeString("Index", i.ToString())
-                .WriteAttributeString("Name", COverrides(i).Name.ToString())
-                .WriteAttributeString("Enabled", COverrides(i).Enabled.ToString())
-                .WriteAttributeString("ColorOption", COverrides(i).ColorOption.ToString())
-                .WriteAttributeString("RangeL", COverrides(i).RangeL.ToString())
-                .WriteAttributeString("RangeU", COverrides(i).RangeU.ToString())
-                .WriteAttributeString("NoteColor", COverrides(i).NoteColor.ToString())
-                .WriteAttributeString("NoteColorU", COverrides(i).NoteColorU.ToString())
+                For i = 0 To UBound(COverrides)
+                    .WriteStartElement("Color")
+                    .WriteAttributeString("Index", i.ToString())
+                    .WriteAttributeString("Name", COverrides(i).Name.ToString())
+                    .WriteAttributeString("Enabled", COverrides(i).Enabled.ToString())
+                    .WriteAttributeString("ColorOption", COverrides(i).ColorOption.ToString())
+                    .WriteAttributeString("RangeL", COverrides(i).RangeL.ToString())
+                    .WriteAttributeString("RangeU", COverrides(i).RangeU.ToString())
+                    .WriteAttributeString("NoteColor", COverrides(i).NoteColor.ToString())
+                    .WriteAttributeString("NoteColorU", COverrides(i).NoteColorU.ToString())
+                    .WriteEndElement()
+                Next
+
                 .WriteEndElement()
-            Next
-
-            .WriteEndElement()
-            .WriteEndDocument()
-            .Close()
-        End With
+                .WriteEndDocument()
+                .Close()
+            End With
+        Catch ex As Exception
+            MsgBox(Strings.Messages.SaveWarning & ex.ToString())
+        End Try
     End Sub
 
     Private Function ColorOverridePath(ByVal Path As String) As String
@@ -1481,6 +1485,7 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eVisualOverrideOptions.Item("SemiAutoMsgAssignMore"), Strings.fopVisualOverride.SemiAutoMsgAssignMore)
 
                 XMLLoadLocale(eVisualOverrideOptions.Item("SaveCurrentSettings"), Strings.fopVisualOverride.SaveCurrentSettings)
+                XMLLoadLocale(eVisualOverrideOptions.Item("OverwriteExistingSettings"), Strings.fopVisualOverride.OverwriteExistingSettings)
             End If
 
             Dim eKeybindingOptions As XmlElement = Root.Item("KeybindingOptions")

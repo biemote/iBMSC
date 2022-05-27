@@ -484,6 +484,7 @@
 		<SemiAutoMsgNone>ノートが見つかりません。</SemiAutoMsgNone>
 		<SemiAutoMsgAssignMore>さらに下記から始まるwavファイル名のノートを割り当てる:</SemiAutoMsgAssignMore>
 		<SaveCurrentSettings>現在の設定を保存しますか？</SaveCurrentSettings>
+		<OverwriteExistingSettings>Overwrite existing settings below?</OverwriteExistingSettings>
 	</VisualOverrideOptions>
 	<KeybindingOptions>
 		<Title>ショートカットキーオプション</Title>

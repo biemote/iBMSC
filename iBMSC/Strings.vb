@@ -251,6 +251,7 @@ Public Class Strings
         Public Shared SemiAutoMsgAssignMore As String = "Assign more notes with wav filenames beginning with the following:"
 
         Public Shared SaveCurrentSettings As String = "Save current settings?"
+        Public Shared OverwriteExistingSettings As String = "Overwrite existing settings below?"
     End Class
 
     Public Class fopKeybinding

@@ -3761,9 +3761,9 @@ Public Class MainWindow
             If COverridesSaveOption <> xDiag.CoBSave.SelectedIndex Then
                 COverridesSaveOption = xDiag.CoBSave.SelectedIndex
 
-                If Not IsNothing(COverrides) Then If COverrides.Length > 0 Then SaveColorOverride(FileName, True)
+                If Not IsNothing(COverrides) Then If COverrides.Length > 0 Then WriteColorOverride(FileName, True)
             Else
-                If Not IsNothing(COverrides) Then If COverrides.Length > 0 Then SaveColorOverride(FileName, False)
+                If Not IsNothing(COverrides) Then If COverrides.Length > 0 Then WriteColorOverride(FileName, False)
 
             End If
         End If
