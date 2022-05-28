@@ -34,6 +34,18 @@ Partial Public Class MainWindow
             TabColor = xTabColor
             RandomSource = xRandomSource
         End Sub
+
+        Public Function IsInitialized() As Boolean
+            Return Struct.Notes IsNot Nothing
+        End Function
+
+        Public Function IsSaved() As Boolean
+            If IsInitialized() Then
+                Return Struct.IsSaved
+            Else
+                Return True
+            End If
+        End Function
     End Structure
 
     Structure BMSStruct
@@ -123,7 +135,7 @@ Partial Public Class MainWindow
         Dim i As Integer = FindBMSTabIndex(TSBS)
         SetBMSFileIndex(i)
 
-        If BMSStructIsInitialized(BMSFileIndex) Then
+        If BMSFiles(BMSFileIndex).IsInitialized Then
             SetFileName(BMSFiles(BMSFileIndex).Filename)
             LoadBMSStruct(BMSFileIndex)
         Else
@@ -143,7 +155,7 @@ Partial Public Class MainWindow
         If e.Button = MouseButtons.Middle Then
             Dim xExit As Boolean
             If xIClicked < BMSFileIndex Then
-                If Not BMSStructIsSaved(xIClicked) Then
+                If Not BMSFiles(xIClicked).IsSaved Then
                     TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
                     ' If ClosingPopSave() Then Exit Sub
                     xExit = ClosingPopSave()
@@ -157,7 +169,7 @@ Partial Public Class MainWindow
                 TBClose_Click(sender, New EventArgs)
 
             ElseIf xIClicked <> UBound(BMSFiles) Then
-                If Not BMSStructIsSaved(xIClicked) Then
+                If Not BMSFiles(xIClicked).IsSaved Then
                     TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
                     ' If ClosingPopSave() Then Exit Sub
                     xExit = ClosingPopSave()
@@ -180,7 +192,7 @@ Partial Public Class MainWindow
     Private Sub TBTab_MouseMove(sender As Object, e As MouseEventArgs)
         Dim TSBS = CType(sender, ToolStripButton)
         Dim xITab = FindBMSTabIndex(TSBS)
-        If Not BMSStructIsInitialized(xITab) Then Exit Sub
+        If Not BMSFiles(xITab).IsInitialized Then Exit Sub
         Dim BannerDir = ExcludeFileName(BMSFiles(xITab).Filename) & "\" & BMSFiles(xITab).Struct.HeaderT(8)
         If Not My.Computer.FileSystem.FileExists(BannerDir) Then
             BannerDir = ExcludeFileName(BMSFiles(xITab).Filename) & "\" & BMSFiles(xITab).Struct.HeaderT(7)
@@ -407,20 +419,4 @@ Partial Public Class MainWindow
         RefreshPanelAll()
         POStatusRefresh()
     End Sub
-
-    Private Function BMSStructIsInitialized(Optional xI As Integer = -1) As Boolean
-        If xI = -1 Then xI = BMSFileIndex
-
-        Return BMSFiles(xI).Struct.Notes IsNot Nothing
-    End Function
-
-    Private Function BMSStructIsSaved(Optional xI As Integer = -1) As Boolean
-        If xI = -1 Then xI = BMSFileIndex
-
-        If BMSStructIsInitialized(xI) Then
-            Return BMSFiles(xI).Struct.IsSaved
-        Else
-            Return True
-        End If
-    End Function
 End Class
