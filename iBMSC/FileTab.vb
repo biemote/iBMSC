@@ -20,19 +20,20 @@ Partial Public Class MainWindow
 
     Structure BMSFile
         Public Filename As String
+        Public RandomSource As String
         Public Struct As BMSStruct
 
         Public TSB As ToolStripButton
         Public TabColor As Color
 
-        Public Sub New(xFilename As String, xTSB As ToolStripButton, xTabColor As Color, Optional xStruct As BMSStruct = Nothing)
+        Public Sub New(xFilename As String, xTSB As ToolStripButton, xTabColor As Color, Optional xStruct As BMSStruct = Nothing, Optional xRandomSource As String = "")
             Filename = xFilename
             Struct = xStruct
 
             TSB = xTSB
             TabColor = xTabColor
+            RandomSource = xRandomSource
         End Sub
-
     End Structure
 
     Structure BMSStruct
@@ -52,7 +53,6 @@ Partial Public Class MainWindow
         Public MeasureLength() As Double
         Public FileNameTemplate As String
 
-        Public RandomSource As String
         Public ExpansionSplit() As String
         Public GhostMode As Integer
 
@@ -100,10 +100,6 @@ Partial Public Class MainWindow
             NTInput = xNTInput
             WaveformLoaded = xWaveformLoaded
         End Sub
-
-        Public Sub AddRandomSource(xPath As String)
-            RandomSource = xPath
-        End Sub
     End Structure
 
     Private Sub TBClose_Click(sender As Object, e As EventArgs) Handles mnClose.Click
@@ -127,7 +123,7 @@ Partial Public Class MainWindow
         Dim i As Integer = FindBMSTabIndex(TSBS)
         SetBMSFileIndex(i)
 
-        If BMSFiles(BMSFileIndex).Struct.Notes IsNot Nothing Then
+        If BMSStructIsInitialized(BMSFileIndex) Then
             SetFileName(BMSFiles(BMSFileIndex).Filename)
             LoadBMSStruct(BMSFileIndex)
         Else
@@ -211,6 +207,11 @@ Partial Public Class MainWindow
         Next
     End Sub
 
+    Public Sub AddBMSFiles(xPaths As String)
+        NewRecent(xPaths)
+        AddBMSFile(xPaths)
+    End Sub
+
     Private Sub AddBMSFile(xPath As String)
         Dim i As Integer = FindBMSTabIndex(xPath)
         If i <> -1 Then
@@ -229,6 +230,7 @@ Partial Public Class MainWindow
                 .Filename = xPath
                 .TabColor = System.Drawing.SystemColors.Control
                 .TSB = NewBMSTab(xPath)
+                .Struct = Nothing
             End With
 
             ' Re-add buttons to TBTab

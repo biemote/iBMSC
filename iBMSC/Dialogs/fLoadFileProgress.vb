@@ -27,14 +27,14 @@ Public Class fLoadFileProgress
             Application.DoEvents()
             If CancelPressed Then Exit For
 
-            MainWindow.AddBMSFiles(xPaths)
-            MainWindow.ReadFile(xPaths(UBound(xPaths)))
+            MainWindow.AddBMSFiles(xPaths(xI1))
             ' If xI1 = 0 AndAlso IsSaved Then
             '     MainWindow.ReadFile(xPath(xI1))
             ' Else
             '     System.Diagnostics.Process.Start(Application.ExecutablePath, """" & xPath(xI1) & """")
             ' End If
         Next
+        MainWindow.ReadFile(xPaths(UBound(xPaths)))
         Me.Close()
     End Sub
 
