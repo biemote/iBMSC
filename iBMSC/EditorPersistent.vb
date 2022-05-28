@@ -44,8 +44,8 @@ Partial Public Class MainWindow
     Private Sub XMLWriteOpenedFiles(ByVal w As XmlTextWriter, ByVal I As Integer)
         w.WriteStartElement("File")
         w.WriteAttributeString("Index", I.ToString())
-        w.WriteAttributeString("File", BMSFileList(I))
-        w.WriteAttributeString("Color", BMSFileColor(I).ToArgb.ToString())
+        w.WriteAttributeString("File", BMSFiles(I).Filename)
+        w.WriteAttributeString("Color", BMSFiles(I).TabColor.ToArgb.ToString())
         w.WriteEndElement()
     End Sub
 
@@ -117,9 +117,9 @@ Partial Public Class MainWindow
                 .WriteEndElement()
 
                 .WriteStartElement("OpenedFiles")
-                .WriteAttributeString("Count", UBound(BMSFileList).ToString())
+                .WriteAttributeString("Count", UBound(BMSFiles).ToString())
                 .WriteAttributeString("BMSFileIndex", BMSFileIndex.ToString())
-                For i = 0 To UBound(BMSFileList)
+                For i = 0 To UBound(BMSFiles)
                     XMLWriteOpenedFiles(w, i) : Next
                 .WriteEndElement()
 
@@ -472,8 +472,10 @@ Partial Public Class MainWindow
     Private Sub XMLLoadOpenedFiles(ByVal n As XmlElement)
         Dim i As Integer
         XMLLoadAttribute(n.GetAttribute("Index"), i)
-        XMLLoadAttribute(n.GetAttribute("File"), BMSFileList(i))
-        XMLLoadAttribute(n.GetAttribute("Color"), BMSFileColor(i))
+        XMLLoadAttribute(n.GetAttribute("File"), BMSFiles(i).Filename)
+        XMLLoadAttribute(n.GetAttribute("Color"), BMSFiles(i).TabColor)
+        BMSFiles(i).TSB = NewBMSTab(BMSFiles(i).Filename)
+        ColorTSBChange(BMSFiles(i).TSB, BMSFiles(i).TabColor)
     End Sub
 
     Private Sub XMLLoadPlayer(ByVal n As XmlElement)
@@ -585,8 +587,7 @@ Partial Public Class MainWindow
                     Dim iL As Integer
                     XMLLoadAttribute(.GetAttribute("Count"), iL)
                     XMLLoadAttribute(.GetAttribute("BMSFileIndex"), BMSFileIndex)
-                    ReDim Preserve BMSFileList(iL)
-                    ReDim Preserve BMSFileColor(iL)
+                    ReDim Preserve BMSFiles(iL)
 
                     For Each eeFile As XmlElement In .ChildNodes
                         XMLLoadOpenedFiles(eeFile)

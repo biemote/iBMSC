@@ -15,11 +15,25 @@ Partial Public Class MainWindow
     ''' Currently, Untitled.bms must be at the last of the tab list.
     ''' </summary>
 
-    Dim BMSFileStructs As BMSStruct()
     Dim BMSFileIndex As Integer = 0
-    Dim BMSFileList(-1) As String
-    Dim BMSFileColor(-1) As Color
-    Dim BMSFileTSBList As ToolStripButton()
+    Dim BMSFiles As BMSFile()
+
+    Structure BMSFile
+        Public Filename As String
+        Public Struct As BMSStruct
+
+        Public TSB As ToolStripButton
+        Public TabColor As Color
+
+        Public Sub New(xFilename As String, xTSB As ToolStripButton, xTabColor As Color, Optional xStruct As BMSStruct = Nothing)
+            Filename = xFilename
+            Struct = xStruct
+
+            TSB = xTSB
+            TabColor = xTabColor
+        End Sub
+
+    End Structure
 
     Structure BMSStruct
         Public Notes() As Note
@@ -95,10 +109,10 @@ Partial Public Class MainWindow
     Private Sub TBClose_Click(sender As Object, e As EventArgs) Handles mnClose.Click
         If ClosingPopSave() Then Exit Sub
 
-        If BMSFileIndex = UBound(BMSFileList) Or BMSFileIndex = -1 Then TBNew_Click(Nothing, Nothing) : Exit Sub
+        If BMSFileIndex = UBound(BMSFiles) Or BMSFileIndex = -1 Then TBNew_Click(Nothing, Nothing) : Exit Sub
 
         Dim xITemp As Integer = BMSFileIndex
-        TBTab_Click(BMSFileTSBList(BMSFileIndex + 1), New EventArgs)
+        TBTab_Click(BMSFiles(BMSFileIndex + 1).TSB, New EventArgs)
 
         RemoveBMSFile(xITemp)
         SetBMSFileIndex(xITemp)
@@ -110,33 +124,34 @@ Partial Public Class MainWindow
 
         SaveBMSStruct()
 
-        SetBMSFileIndex(Array.IndexOf(BMSFileTSBList, TSBS))
+        Dim i As Integer = FindBMSTabIndex(TSBS)
+        SetBMSFileIndex(i)
 
-        If BMSFileStructs(BMSFileIndex).Notes IsNot Nothing Then
-            SetFileName(BMSFileList(BMSFileIndex))
+        If BMSFiles(BMSFileIndex).Struct.Notes IsNot Nothing Then
+            SetFileName(BMSFiles(BMSFileIndex).Filename)
             LoadBMSStruct(BMSFileIndex)
         Else
-            If BMSFileList(BMSFileIndex) = FileNameInit Then
+            If BMSFiles(BMSFileIndex).Filename = FileNameInit Then
                 TBNew_Click(Nothing, Nothing)
             Else
-                ReadFile(BMSFileList(BMSFileIndex))
+                ReadFile(BMSFiles(BMSFileIndex).Filename)
             End If
         End If
     End Sub
 
     Private Sub TBTab_MouseDown(sender As Object, e As MouseEventArgs)
         Dim xITemp = BMSFileIndex
-        Dim xTSB = CType(sender, ToolStripButton)
-        Dim xIClicked = Array.IndexOf(BMSFileTSBList, xTSB)
+        Dim TSBS = CType(sender, ToolStripButton)
+        Dim xIClicked = FindBMSTabIndex(TSBS)
 
         If e.Button = MouseButtons.Middle Then
             Dim xExit As Boolean
             If xIClicked < BMSFileIndex Then
                 If Not BMSStructIsSaved(xIClicked) Then
-                    TBTab_Click(BMSFileTSBList(xIClicked), New EventArgs)
+                    TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
                     ' If ClosingPopSave() Then Exit Sub
                     xExit = ClosingPopSave()
-                    TBTab_Click(BMSFileTSBList(xITemp), New EventArgs)
+                    TBTab_Click(BMSFiles(xITemp).TSB, New EventArgs)
                     If xExit Then Exit Sub
                 End If
                 RemoveBMSFile(xIClicked)
@@ -145,12 +160,12 @@ Partial Public Class MainWindow
             ElseIf xIClicked = BMSFileIndex Then
                 TBClose_Click(sender, New EventArgs)
 
-            ElseIf xIClicked <> UBound(BMSFileList) Then
+            ElseIf xIClicked <> UBound(BMSFiles) Then
                 If Not BMSStructIsSaved(xIClicked) Then
-                    TBTab_Click(BMSFileTSBList(xIClicked), New EventArgs)
+                    TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
                     ' If ClosingPopSave() Then Exit Sub
                     xExit = ClosingPopSave()
-                    TBTab_Click(BMSFileTSBList(xITemp), New EventArgs)
+                    TBTab_Click(BMSFiles(xITemp).TSB, New EventArgs)
                     If xExit Then Exit Sub
                 End If
                 RemoveBMSFile(xIClicked)
@@ -159,20 +174,20 @@ Partial Public Class MainWindow
 
         ElseIf e.Button = MouseButtons.Right Then
             Dim xColorPicker As New ColorPicker
-            xColorPicker.SetOrigColor(xTSB.BackColor)
+            xColorPicker.SetOrigColor(TSBS.BackColor)
             If xColorPicker.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel Then Exit Sub
-            ColorTSBChange(xTSB, xColorPicker.NewColor)
-            BMSFileColor(xIClicked) = xColorPicker.NewColor
+            ColorTSBChange(TSBS, xColorPicker.NewColor)
+            BMSFiles(xIClicked).TabColor = xColorPicker.NewColor
         End If
     End Sub
 
     Private Sub TBTab_MouseMove(sender As Object, e As MouseEventArgs)
         Dim TSBS = CType(sender, ToolStripButton)
-        Dim xITab = Array.IndexOf(BMSFileTSBList, TSBS)
+        Dim xITab = FindBMSTabIndex(TSBS)
         If Not BMSStructIsInitialized(xITab) Then Exit Sub
-        Dim BannerDir = ExcludeFileName(BMSFileList(xITab)) & "\" & BMSFileStructs(xITab).HeaderT(8)
+        Dim BannerDir = ExcludeFileName(BMSFiles(xITab).Filename) & "\" & BMSFiles(xITab).Struct.HeaderT(8)
         If Not My.Computer.FileSystem.FileExists(BannerDir) Then
-            BannerDir = ExcludeFileName(BMSFileList(xITab)) & "\" & BMSFileStructs(xITab).HeaderT(7)
+            BannerDir = ExcludeFileName(BMSFiles(xITab).Filename) & "\" & BMSFiles(xITab).Struct.HeaderT(7)
             If Not My.Computer.FileSystem.FileExists(BannerDir) Then Exit Sub
         End If
 
@@ -189,54 +204,41 @@ Partial Public Class MainWindow
         PBOnTabHover.Visible = False
     End Sub
 
-    Private Sub AddUntitledBMSFileToList()
-        Dim ub As Integer = UBound(BMSFileList)
-        If ub <> -1 AndAlso BMSFileList(ub) = FileNameInit Then Exit Sub
-
-        ReDim Preserve BMSFileList(ub + 1)
-        BMSFileList(ub + 1) = FileNameInit
-    End Sub
-
     Public Sub AddBMSFiles(xPaths As String())
         For xI = 0 To UBound(xPaths)
             NewRecent(xPaths(xI))
-            AddBMSFileToListAndColorAndTBTabAndStruct(xPaths(xI))
+            AddBMSFile(xPaths(xI))
         Next
     End Sub
 
-    Private Sub AddBMSFileToListAndColorAndTBTabAndStruct(xPath As String)
-        If BMSFileList.Contains(xPath) Then
-            SetBMSFileIndex(Array.IndexOf(BMSFileList, xPath))
+    Private Sub AddBMSFile(xPath As String)
+        Dim i As Integer = FindBMSTabIndex(xPath)
+        If i <> -1 Then
+            SetBMSFileIndex(i)
 
         Else
-            If BMSFileIndex = UBound(BMSFileList) AndAlso xPath <> FileNameInit Then BMSFileIndex -= 1
-            ReDim Preserve BMSFileList(BMSFileList.Length)
-            ReDim Preserve BMSFileTSBList(BMSFileTSBList.Length)
-            ReDim Preserve BMSFileColor(BMSFileColor.Length)
+            If BMSFileIndex = UBound(BMSFiles) AndAlso xPath <> FileNameInit Then BMSFileIndex -= 1
+            ReDim Preserve BMSFiles(BMSFiles.Length)
 
-            For xI = UBound(BMSFileList) - 1 To BMSFileIndex + 1 Step -1
-                BMSFileList(xI + 1) = BMSFileList(xI)
-                BMSFileColor(xI + 1) = BMSFileColor(xI)
-                BMSFileTSBList(xI + 1) = BMSFileTSBList(xI)
+            For xI = UBound(BMSFiles) - 1 To BMSFileIndex + 1 Step -1
+                BMSFiles(xI + 1) = BMSFiles(xI)
             Next
 
             BMSFileIndex += 1
-            ' Add to BMSFileList
-            BMSFileList(BMSFileIndex) = xPath
-            ' Add to BMSFileColor
-            BMSFileColor(BMSFileIndex) = System.Drawing.SystemColors.Control
-            ' Add to BMSFileTSBList
-            BMSFileTSBList(BMSFileIndex) = NewBMSTab(xPath)
+            With BMSFiles(BMSFileIndex)
+                .Filename = xPath
+                .TabColor = System.Drawing.SystemColors.Control
+                .TSB = NewBMSTab(xPath)
+            End With
 
             ' Re-add buttons to TBTab
             For i = 1 To TBTab.Items.Count
                 TBTab.Items.RemoveAt(0)
             Next
-            TBTab.Items.AddRange(BMSFileTSBList)
+            For i = 0 To UBound(BMSFiles)
+                TBTab.Items.Add(BMSFiles(i).TSB)
+            Next
             SetBMSFileIndex(BMSFileIndex)
-
-            ' Add to BMSStructs
-            AddBMSStruct()
         End If
     End Sub
 
@@ -245,18 +247,44 @@ Partial Public Class MainWindow
         xTSB.ForeColor = CType(IIf(CInt(c.GetBrightness * 255) + 255 - c.A >= 128, Color.Black, Color.White), Color)
     End Sub
 
-    Private Function NewBMSTab(xPath As String) As ToolStripButton
+    Private Function FindBMSTabIndex(ByVal xTSB As ToolStripButton) As Integer
+        For i = 0 To UBound(BMSFiles)
+            If BMSFiles(i).TSB Is xTSB Then Return i
+        Next
+        Return -1
+    End Function
+
+    Private Function FindBMSTabIndex(ByVal xStr As String) As Integer
+        For i = 0 To UBound(BMSFiles)
+            If BMSFiles(i).Filename Is xStr Then Return i
+        Next
+        Return -1
+    End Function
+
+    Private Sub InitializeBMSFiles()
+        If BMSFiles IsNot Nothing Then
+            Dim BMSFileListCheck(UBound(BMSFiles)) As BMSFile
+            Dim i = -1
+            For Each BMS In BMSFiles
+                If My.Computer.FileSystem.FileExists(BMS.Filename) OrElse BMS.Filename = FileNameInit Then
+                    i += 1
+                    BMSFileListCheck(i) = BMS
+                End If
+            Next
+            BMSFiles = CType(BMSFileListCheck.Clone(), BMSFile())
+            ReDim Preserve BMSFiles(i)
+        Else
+            ReDim BMSFiles(0)
+            BMSFiles(0) = New BMSFile(FileNameInit, NewBMSTab(FileNameInit), System.Drawing.SystemColors.Control)
+        End If
+    End Sub
+
+    Private Function NewBMSTab(xPath As String) As ToolStripButton ' Optional xColor as Color = Color.Empty is not accepted
         Dim xTSB As New ToolStripButton
         With xTSB
             .Image = My.Resources.x16Blank
             .Name = GetFileName(xPath)
             .Text = GetFileName(xPath)
-            For i = 0 To UBound(BMSFileColor)
-                If BMSFileList(i) = xPath Then
-                    .BackColor = BMSFileColor(i)
-                    .ForeColor = CType(IIf(CInt(.BackColor.GetBrightness * 255) + 255 - .BackColor.A >= 128, Color.Black, Color.White), Color)
-                End If
-            Next
         End With
         AddHandler xTSB.Click, AddressOf TBTab_Click
         AddHandler xTSB.MouseDown, AddressOf TBTab_MouseDown
@@ -266,25 +294,20 @@ Partial Public Class MainWindow
     End Function
 
     Private Sub RemoveBMSFile(xI As Integer)
-        For i = xI To UBound(BMSFileList) - 1
-            BMSFileList(i) = BMSFileList(i + 1)
-            BMSFileColor(i) = BMSFileColor(i + 1)
-            BMSFileTSBList(i) = BMSFileTSBList(i + 1)
+        For i = xI To UBound(BMSFiles) - 1
+            BMSFiles(i) = BMSFiles(i + 1)
         Next
-        ReDim Preserve BMSFileList(UBound(BMSFileList) - 1)
-        ReDim Preserve BMSFileColor(UBound(BMSFileColor) - 1)
-        ReDim Preserve BMSFileTSBList(UBound(BMSFileTSBList) - 1)
+        ReDim Preserve BMSFiles(UBound(BMSFiles) - 1)
         TBTab.Items.RemoveAt(xI)
-        RemoveBMSStruct(xI)
     End Sub
 
     Private Sub SetBMSFileIndex(xI As Integer)
         BMSFileIndex = xI
-        For i = 0 To UBound(BMSFileTSBList)
+        For i = 0 To UBound(BMSFiles)
             If i = BMSFileIndex Then
-                BMSFileTSBList(i).Checked = True
+                BMSFiles(i).TSB.Checked = True
             Else
-                BMSFileTSBList(i).Checked = False
+                BMSFiles(i).TSB.Checked = False
             End If
         Next
     End Sub
@@ -299,7 +322,7 @@ Partial Public Class MainWindow
         Dim HeaderN() As Decimal = {THBPM.Value}
         Dim HeaderI() As Integer = {CHPlayer.SelectedIndex, CHRank.SelectedIndex, CHDifficulty.SelectedIndex, CHLnObj.SelectedIndex}
 
-        BMSFileStructs(xI) = New BMSStruct(Notes, NotesTemplate,
+        BMSFiles(xI).Struct = New BMSStruct(Notes, NotesTemplate,
                                            hWAV, hBMP, hBPM, hSTOP, hBMSCROLL, hCOM, wLWAV,
                                            HeaderT, HeaderN, HeaderI, TExpansion.Text, MeasureLength, FileNameTemplate,
                                            ExpansionSplit, GhostMode,
@@ -309,8 +332,8 @@ Partial Public Class MainWindow
     End Sub
 
     Private Sub SaveAllBMSStruct()
-        For i = 0 To UBound(BMSFileList) - 1
-            ReadFile(BMSFileList(i), False)
+        For i = 0 To UBound(BMSFiles) - 1
+            ReadFile(BMSFiles(i).Filename, False)
             SaveBMSStruct(i)
         Next
     End Sub
@@ -318,7 +341,7 @@ Partial Public Class MainWindow
     Private Sub LoadBMSStruct(Optional xI As Integer = -1)
         If xI = -1 Then xI = BMSFileIndex
 
-        With BMSFileStructs(xI)
+        With BMSFiles(xI).Struct
             Notes = .Notes
             NotesTemplate = .NotesTemplate
 
@@ -383,37 +406,17 @@ Partial Public Class MainWindow
         POStatusRefresh()
     End Sub
 
-    Private Sub AddBMSStruct(Optional xI As Integer = -1)
-        If xI = -1 Then xI = BMSFileIndex
-
-        ReDim Preserve BMSFileStructs(BMSFileStructs.Length)
-        For i = UBound(BMSFileStructs) - 1 To xI Step -1
-            BMSFileStructs(i + 1) = BMSFileStructs(i)
-        Next
-
-        BMSFileStructs(xI) = New BMSStruct()
-    End Sub
-
-    Private Sub RemoveBMSStruct(Optional xI As Integer = -1)
-        If xI = -1 Then xI = BMSFileIndex
-
-        For i = xI To UBound(BMSFileStructs) - 1
-            BMSFileStructs(i) = BMSFileStructs(i + 1)
-        Next
-        ReDim Preserve BMSFileStructs(UBound(BMSFileStructs) - 1)
-    End Sub
-
     Private Function BMSStructIsInitialized(Optional xI As Integer = -1) As Boolean
         If xI = -1 Then xI = BMSFileIndex
 
-        Return BMSFileStructs(xI).Notes IsNot Nothing
+        Return BMSFiles(xI).Struct.Notes IsNot Nothing
     End Function
 
     Private Function BMSStructIsSaved(Optional xI As Integer = -1) As Boolean
         If xI = -1 Then xI = BMSFileIndex
 
         If BMSStructIsInitialized(xI) Then
-            Return BMSFileStructs(xI).IsSaved
+            Return BMSFiles(xI).Struct.IsSaved
         Else
             Return True
         End If

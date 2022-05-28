@@ -759,11 +759,11 @@ Public Class MainWindow
         Text = IIf(isSaved, "", "*").ToString() & GetFileName(FileName) & " - " & My.Application.Info.Title & " " & xVersion
         Me.IsSaved = isSaved
 
-        If BMSFileTSBList IsNot Nothing Then
+        If BMSFiles IsNot Nothing Then
             If Not isSaved Then
-                BMSFileTSBList(BMSFileIndex).Image = My.Resources.x16New
+                BMSFiles(BMSFileIndex).TSB.Image = My.Resources.x16New
             Else
-                BMSFileTSBList(BMSFileIndex).Image = My.Resources.x16Blank
+                BMSFiles(BMSFileIndex).TSB.Image = My.Resources.x16Blank
             End If
         End If
     End Sub
@@ -1194,7 +1194,7 @@ Public Class MainWindow
             If BeepWhileSaved Then Beep()
         End If
 
-        For i = 0 To UBound(BMSFileList)
+        For i = 0 To UBound(BMSFiles)
             If Not BMSStructIsSaved(i) Then
                 Dim xStr As String = Strings.Messages.SaveOnExitOther
                 Dim xResult As MsgBoxResult = MsgBox(xStr, MsgBoxStyle.OkCancel Or MsgBoxStyle.Question, Me.Text)
@@ -1509,26 +1509,10 @@ Public Class MainWindow
         End If
         'On Error GoTo 0
 
-        Dim BMSFileListCheck(UBound(BMSFileList)) As String
-        Dim i = -1
-        For Each file In BMSFileList
-            If My.Computer.FileSystem.FileExists(file) Then
-                i += 1
-                BMSFileListCheck(i) = file
-            End If
-        Next
-        BMSFileList = CType(BMSFileListCheck.Clone(), String())
-        ReDim Preserve BMSFileList(i)
-        AddUntitledBMSFileToList()
+        InitializeBMSFiles()
 
-        ReDim BMSFileColor(UBound(BMSFileList))
-        ReDim BMSFileTSBList(UBound(BMSFileList))
-        ReDim BMSFileStructs(UBound(BMSFileList))
-        For xI = 0 To UBound(BMSFileList)
-            Dim xTSB As ToolStripButton = NewBMSTab(BMSFileList(xI))
-            BMSFileTSBList(xI) = xTSB
-            ' AddHandler xTSB.Click, AddressOf TBTab_Click
-            TBTab.Items.Add(xTSB)
+        For xI = 0 To UBound(BMSFiles)
+            TBTab.Items.Add(BMSFiles(xI).TSB)
         Next
         SetBMSFileIndex(BMSFileIndex)
 
@@ -1546,7 +1530,7 @@ Public Class MainWindow
                     For xI = 0 To xFUB
                         xFilesPaths(xI) = xFiles(xI).FullName
                     Next
-                    SetBMSFileIndex(UBound(BMSFileList) - 1)
+                    SetBMSFileIndex(UBound(BMSFiles) - 1)
                     AddBMSFiles(xFilesPaths)
                     ' For Each xF As FileInfo In xFiles
                     '     'MsgBox(xF.FullName)
@@ -1575,7 +1559,7 @@ Public Class MainWindow
             For xI = 0 To UBound(xStrFiles)
                 xStrFiles(xI) = xStr(xI + 1)
             Next
-            SetBMSFileIndex(UBound(BMSFileList) - 1)
+            SetBMSFileIndex(UBound(BMSFiles) - 1)
             AddBMSFiles(xStrFiles)
         End If
 
@@ -1584,7 +1568,7 @@ Public Class MainWindow
 
         IsApplicationInitializing = False
 
-        If BMSFileIndex <> UBound(BMSFileList) Then ReadFile(BMSFileList(BMSFileIndex)) Else TBNew_Click(Nothing, Nothing)
+        If BMSFileIndex <> UBound(BMSFiles) Then ReadFile(BMSFiles(BMSFileIndex).Filename) Else TBNew_Click(Nothing, Nothing)
 
         LoadColorOverride(FileName)
 
@@ -1918,8 +1902,8 @@ Public Class MainWindow
 
     Private Sub TBNew_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles TBNew.Click, mnNew.Click
         SaveBMSStruct()
-        If BMSFileList(UBound(BMSFileList)) <> FileNameInit Then AddBMSFileToListAndColorAndTBTabAndStruct(FileNameInit)
-        SetBMSFileIndex(UBound(BMSFileList))
+        If BMSFiles(UBound(BMSFiles)).Filename <> FileNameInit Then AddBMSFile(FileNameInit)
+        SetBMSFileIndex(UBound(BMSFiles))
 
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
@@ -2106,8 +2090,8 @@ Public Class MainWindow
             SetFileName(xDSave.FileName)
             NewRecent(FileName)
 
-            BMSFileList(BMSFileIndex) = FileName
-            BMSFileTSBList(BMSFileIndex).Text = GetFileName(FileName)
+            BMSFiles(BMSFileIndex).Filename = FileName
+            BMSFiles(BMSFileIndex).TSB.Text = GetFileName(FileName)
         End If
         Dim xStrAll As String = SaveBMS()
         My.Computer.FileSystem.WriteAllText(FileName, xStrAll, False, TextEncoding)
@@ -2141,8 +2125,8 @@ Public Class MainWindow
         SetIsSaved(True)
         'pIsSaved.Visible = Not IsSaved
 
-        BMSFileList(BMSFileIndex) = FileName
-        BMSFileTSBList(BMSFileIndex).Text = GetFileName(FileName)
+        BMSFiles(BMSFileIndex).Filename = FileName
+        BMSFiles(BMSFileIndex).TSB.Text = GetFileName(FileName)
 
         If BeepWhileSaved Then Beep()
     End Sub

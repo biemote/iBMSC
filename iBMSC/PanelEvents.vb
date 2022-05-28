@@ -313,16 +313,16 @@ Partial Public Class MainWindow
 
             Case 211
                 If e.Control AndAlso Not e.Shift Then
-                    If BMSFileIndex = UBound(BMSFileList) Then Exit Sub
+                    If BMSFileIndex = UBound(BMSFiles) Then Exit Sub
 
                     Dim xIBMS As Integer = BMSFileIndex + 1
-                    TBTab_Click(BMSFileTSBList(xIBMS), New EventArgs)
+                    TBTab_Click(BMSFiles(xIBMS).TSB, New EventArgs)
 
                 Else
                     If BMSFileIndex = 0 Then Exit Sub
 
                     Dim xIBMS As Integer = BMSFileIndex - 1
-                    TBTab_Click(BMSFileTSBList(xIBMS), New EventArgs)
+                    TBTab_Click(BMSFiles(xIBMS).TSB, New EventArgs)
 
                 End If
             Case 212
