@@ -129,7 +129,14 @@ Listed in the order added.
 * Moving file tabs. Not sure if this will be doable with the current arrangement.
 * Saving all files on exiting application. Unsaved changes will be gone upon closing.
 
-# To-Do List
+# Planned To-Do List
+
+### #RANDOM Editor
+* Multiple #IF sections in one file (notes only).
+* Allow ghost notes to be editable.
+* Integration of Modify Section with FileTab.
+
+### Misc
 * Add support for saving new functions to iBMSC.
 * Optimization?
 * Unavailable BMS File Tab features listed above.
