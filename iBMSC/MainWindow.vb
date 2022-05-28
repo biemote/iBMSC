@@ -1195,7 +1195,7 @@ Public Class MainWindow
         End If
 
         For i = 0 To UBound(BMSFiles)
-            If Not BMSStructIsSaved(i) Then
+            If Not BMSFiles(i).IsSaved Then
                 Dim xStr As String = Strings.Messages.SaveOnExitOther
                 Dim xResult As MsgBoxResult = MsgBox(xStr, MsgBoxStyle.OkCancel Or MsgBoxStyle.Question, Me.Text)
                 If xResult = MsgBoxResult.Cancel Then e.Cancel = True : Exit Sub
