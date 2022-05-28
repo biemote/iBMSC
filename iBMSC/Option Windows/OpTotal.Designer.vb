@@ -418,8 +418,6 @@ Partial Class OpTotal
         'CBAutoFill
         '
         Me.CBAutoFill.AutoSize = True
-        Me.CBAutoFill.Checked = True
-        Me.CBAutoFill.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CBAutoFill.Location = New System.Drawing.Point(3, 55)
         Me.CBAutoFill.Name = "CBAutoFill"
         Me.CBAutoFill.Size = New System.Drawing.Size(107, 19)
