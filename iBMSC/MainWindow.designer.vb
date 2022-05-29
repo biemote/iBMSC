@@ -2147,9 +2147,9 @@ Partial Class MainWindow
         '
         'ToolStripContainer1.TopToolStripPanel
         '
+        Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.TBTab)
         Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.mnMain)
         Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.TBMain)
-        Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.TBTab)
         '
         'PMain
         '

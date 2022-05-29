@@ -7,16 +7,15 @@ Partial Public Class MainWindow
     ''' <summary>
     ''' Everything related to file tabs are put here.
     ''' 
-    ''' BMSFileStructs is to an array of BMSStruct with each BMSStruct referring to each BMS file in the tab list.
-    ''' BMSFileIndex is the current BMS file index in the tab list.
-    ''' BMSFileList is the list of BMS files in the tab list.
-    ''' BMSFileTSBList is the list of ToolStripButtons in the tab list.
-    ''' 
     ''' Currently, Untitled.bms must be at the last of the tab list.
     ''' </summary>
 
-    Dim BMSFileIndex As Integer = 0
     Dim BMSFiles As BMSFile()
+    Dim BMSFileIndex As Integer = 0
+
+    ''' <summary>
+    ''' Info about a BMS File.
+    ''' </summary>
 
     Structure BMSFile
         Public Filename As String
@@ -26,13 +25,21 @@ Partial Public Class MainWindow
         Public TSB As ToolStripButton
         Public TabColor As Color
 
-        Public Sub New(xFilename As String, xTSB As ToolStripButton, xTabColor As Color, Optional xStruct As BMSStruct = Nothing, Optional xRandomSource As String = "")
+        ''' <param name="xFilename">Filename.</param>
+        ''' <param name="xRandomSource">Source filename to edit #RANDOM section for.</param>
+        ''' <param name="xStruct">BMS Structure with all information about a chart such as notes and #WAV list.</param>
+        ''' <param name="xTSB">Tool strip button, or a tab.</param>
+        ''' <param name="xTabColor">Color of the tab (when unchecked).</param>
+        Public Sub New(xFilename As String, xTSB As ToolStripButton, xTabColor As Color, Optional xStruct As BMSStruct = Nothing)
             Filename = xFilename
             Struct = xStruct
 
             TSB = xTSB
             TabColor = xTabColor
-            RandomSource = xRandomSource
+        End Sub
+
+        Public Sub AddRandomSource(xPath As String)
+            RandomSource = xPath
         End Sub
 
         Public Function IsInitialized() As Boolean
@@ -114,22 +121,30 @@ Partial Public Class MainWindow
         End Sub
     End Structure
 
-    Private Sub TBClose_Click(sender As Object, e As EventArgs) Handles mnClose.Click
-        If ClosingPopSave() Then Exit Sub
+    Private Function TBClose_Click(sender As Object, e As EventArgs) As Boolean Handles mnClose.Click
+        If ClosingPopSave() Then Return False
 
-        If BMSFileIndex = UBound(BMSFiles) Or BMSFileIndex = -1 Then TBNew_Click(Nothing, Nothing) : Exit Sub
+        If BMSFileIndex = UBound(BMSFiles) Or BMSFileIndex = -1 Then TBNew_Click(Nothing, Nothing) : Return False
 
-        Dim xITemp As Integer = BMSFileIndex
-        TBTab_Click(BMSFiles(BMSFileIndex + 1).TSB, New EventArgs)
+        If BMSFiles(BMSFileIndex).RandomSource IsNot Nothing Then
+            CloseFileWithRandomSource()
 
-        RemoveBMSFile(xITemp)
-        SetBMSFileIndex(xITemp)
-    End Sub
+        Else
+            Dim xIRemove As Integer = BMSFileIndex
+            TBTab_Click(BMSFiles(BMSFileIndex + 1).TSB, New EventArgs)
+            RemoveBMSFile(xIRemove)
+            SetBMSFileIndex(xIRemove)
+
+        End If
+
+        Return True
+    End Function
 
     Private Sub TBTab_Click(sender As Object, e As EventArgs)
         Dim TSBS As ToolStripButton = CType(sender, ToolStripButton)
         If TSBS.Checked Then Exit Sub
 
+        TimerPreviewNote.Enabled = False
         SaveBMSStruct()
 
         Dim i As Integer = FindBMSTabIndex(TSBS)
@@ -149,42 +164,26 @@ Partial Public Class MainWindow
 
     Private Sub TBTab_MouseDown(sender As Object, e As MouseEventArgs)
         Dim xITemp = BMSFileIndex
-        Dim TSBS = CType(sender, ToolStripButton)
-        Dim xIClicked = FindBMSTabIndex(TSBS)
+        Dim TSBCurrent = BMSFiles(BMSFileIndex).TSB
+        Dim TSBSender = CType(sender, ToolStripButton)
+        Dim xIClicked = FindBMSTabIndex(TSBSender)
 
         If e.Button = MouseButtons.Middle Then
-            Dim xExit As Boolean
-            If xIClicked < BMSFileIndex Then
-                If Not BMSFiles(xIClicked).IsSaved Then
-                    TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
-                    ' If ClosingPopSave() Then Exit Sub
-                    xExit = ClosingPopSave()
-                    TBTab_Click(BMSFiles(xITemp).TSB, New EventArgs)
-                    If xExit Then Exit Sub
-                End If
-                RemoveBMSFile(xIClicked)
-                SetBMSFileIndex(BMSFileIndex - 1)
+            If xIClicked = BMSFileIndex Then
+                TBClose_Click(Nothing, Nothing)
 
-            ElseIf xIClicked = BMSFileIndex Then
-                TBClose_Click(sender, New EventArgs)
-
-            ElseIf xIClicked <> UBound(BMSFiles) Then
-                If Not BMSFiles(xIClicked).IsSaved Then
-                    TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
-                    ' If ClosingPopSave() Then Exit Sub
-                    xExit = ClosingPopSave()
-                    TBTab_Click(BMSFiles(xITemp).TSB, New EventArgs)
-                    If xExit Then Exit Sub
-                End If
-                RemoveBMSFile(xIClicked)
+            Else
+                TBTab_Click(BMSFiles(xIClicked).TSB, New EventArgs)
+                TBClose_Click(Nothing, Nothing)
+                TBTab_Click(TSBCurrent, New EventArgs)
 
             End If
 
         ElseIf e.Button = MouseButtons.Right Then
             Dim xColorPicker As New ColorPicker
-            xColorPicker.SetOrigColor(TSBS.BackColor)
+            xColorPicker.SetOrigColor(TSBSender.BackColor)
             If xColorPicker.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel Then Exit Sub
-            ColorTSBChange(TSBS, xColorPicker.NewColor)
+            ColorTSBChange(TSBSender, xColorPicker.NewColor)
             BMSFiles(xIClicked).TabColor = xColorPicker.NewColor
         End If
     End Sub
@@ -270,7 +269,7 @@ Partial Public Class MainWindow
 
     Private Function FindBMSTabIndex(ByVal xStr As String) As Integer
         For i = 0 To UBound(BMSFiles)
-            If BMSFiles(i).Filename Is xStr Then Return i
+            If BMSFiles(i).Filename = xStr Then Return i
         Next
         Return -1
     End Function

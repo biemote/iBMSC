@@ -295,11 +295,13 @@
 		<SaveOnExit1>You should tell me if you want to save changes before closing the computer. -_,-</SaveOnExit1>
 		<SaveOnExit2>You still need to tell me if you want to save changes even though you are closing the application with task manager. -_,-</SaveOnExit2>
 		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
+		<SaveAsDisabled>You cannot save this as a different file.</SaveAsDisabled>
+		<SaveWhileModifyingSection>There are sections in the expansion code opened separately, please close them before closing this file.</SaveWhileModifyingSection>
 		<PromptEnter>Please enter a label.</PromptEnter>
 		<PromptEnterNumeric>Please enter a value.</PromptEnterNumeric>
 		<PromptEnterBPM>Please enter a BPM value.</PromptEnterBPM>
 		<PromptEnterSTOP>Please enter a STOP value.</PromptEnterSTOP>
-		<PromptEnterSTOP>Please enter a SCROLL value.</PromptEnterSTOP>
+		<PromptEnterSCROLL>Please enter a SCROLL value.</PromptEnterSCROLL>
 		<PromptSlashValue>When the slash key ("/") is pressed, change grid division to:</PromptSlashValue>
 		<InvalidLabel>Invalid label.</InvalidLabel>
 		<CannotFind>Cannot find file {}.</CannotFind>
@@ -323,6 +325,7 @@
 		<GhostNotesShowMain>The notes in the current section will be changed to ghost notes. Save current section and continue?</GhostNotesShowMain>
 		<GhostNotesModifyExpansion1>The current ghost notes will become uneditable. Continue?</GhostNotesModifyExpansion1>
 		<GhostNotesModifyExpansion2>There are unsaved changes in the ghost notes. Save current section and continue?</GhostNotesModifyExpansion2>
+		<PasteNotesDifferentCount>The clipboard note count is different from the highlighted note count. Continue?</PasteNotesDifferentCount>
 	</Messages>
 	<FileType>
 		<_all>All files (*.*)</_all>

@@ -1,13 +1,18 @@
 Public Class fLoadFileProgress
     Dim xPaths(-1) As String
     Dim CancelPressed As Boolean = False
-    Dim IsSaved As Boolean = False
 
-    Public Sub New(ByVal xxPath() As String, ByVal xIsSaved As Boolean, Optional ByVal TopMost As Boolean = True)
+    Public Sub New(ByVal xxPath() As String, Optional ByVal TopMost As Boolean = True)
         InitializeComponent()
         prog.Maximum = UBound(xxPath) + 1
         xPaths = xxPath
-        IsSaved = xIsSaved
+        Me.TopMost = TopMost
+    End Sub
+
+    Public Sub New(ByVal xxPath As String, Optional ByVal TopMost As Boolean = True)
+        InitializeComponent()
+        prog.Maximum = 1
+        xPaths = {xxPath}
         Me.TopMost = TopMost
     End Sub
 

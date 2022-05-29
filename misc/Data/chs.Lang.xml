@@ -298,10 +298,13 @@
 		<SaveOnExit1>关机之前你得告诉我你要保存不 -_,-</SaveOnExit1>
 		<SaveOnExit2>就算你用任务管理器你还是得告诉我你要保存不 -_,-</SaveOnExit2>
 		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
+		<SaveAsDisabled>You cannot save this as a different file.</SaveAsDisabled>
+		<SaveWhileModifyingSection>There are sections in the expansion code opened separately, please close them before closing this file.</SaveWhileModifyingSection>
 		<PromptEnter>请输入一个标签。</PromptEnter>
 		<PromptEnterNumeric>请输入一个值。</PromptEnterNumeric>
 		<PromptEnterBPM>请输入变速值。</PromptEnterBPM>
 		<PromptEnterSTOP>请输入STOP值。</PromptEnterSTOP>
+		<PromptEnterSCROLL>请输入SCROLL值。</PromptEnterSCROLL>
 		<PromptSlashValue>当按下“/”键时，更改格线为：</PromptSlashValue>
 		<InvalidLabel>标签无效。</InvalidLabel>
 		<CannotFind>找不到文件 {}。</CannotFind>
@@ -316,6 +319,7 @@
 		<NoteOverlapError>检测到Note重叠。请增加BMS最大格线设置。</NoteOverlapError>
 		<BPMOverflowError>多字节 BPM 数量已经超过上限：</BPMOverflowError>
 		<STOPOverflowError>多字节 STOP 数量已经超过上限：</STOPOverflowError>
+		<SCROLLOverflowError>Numbers of SCROLLs has exceeded supported maximum:</SCROLLOverflowError>
 		<SavedFileWillContainErrors>文件将无法正确保存。</SavedFileWillContainErrors>
 		<FileAssociationPrompt>是否将 iBMSC 设置为打开所有 {} 文件的默认程序？</FileAssociationPrompt>
 		<FileAssociationError>文件关联设置失败：</FileAssociationError>
@@ -324,6 +328,7 @@
 		<GhostNotesShowMain>The notes in the current section will be changed to ghost notes. Save current section and continue?</GhostNotesShowMain>
 		<GhostNotesModifyExpansion1>The current ghost notes will become uneditable. Continue?</GhostNotesModifyExpansion1>
 		<GhostNotesModifyExpansion2>There are unsaved changes in the ghost notes. Save current section and continue?</GhostNotesModifyExpansion2>
+		<PasteNotesDifferentCount>The clipboard note count is different from the highlighted note count. Continue?</PasteNotesDifferentCount>
 	</Messages>
 	<FileType>
 		<_all>所有文件 (*.*)</_all>

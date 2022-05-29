@@ -1319,7 +1319,7 @@ Public Class MainWindow
         ' If xPath.Length > 0 Then
 
         SaveBMSStruct()
-        Dim xProg As New fLoadFileProgress(xOrigPath, IsSaved)
+        Dim xProg As New fLoadFileProgress(xOrigPath)
         xProg.ShowDialog(Me)
         ' End If
 
@@ -1870,7 +1870,10 @@ Public Class MainWindow
     ''' <returns>True if pressed cancel. False elsewise.</returns>
 
     Private Function ClosingPopSave() As Boolean
-        If Not IsSaved Then
+        If Not TExpansion.Enabled Then
+            MsgBox(Strings.Messages.SaveWhileModifyingSection)
+            Return True
+        ElseIf Not IsSaved Then
             Dim xResult As MsgBoxResult = MsgBox(Strings.Messages.SaveOnExit, MsgBoxStyle.YesNoCancel Or MsgBoxStyle.Question, Me.Text)
 
             If xResult = MsgBoxResult.Yes Then
@@ -2005,7 +2008,7 @@ Public Class MainWindow
         If xDOpen.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
 
         SaveBMSStruct()
-        Dim xProg As New fLoadFileProgress(xDOpen.FileNames, IsSaved)
+        Dim xProg As New fLoadFileProgress(xDOpen.FileNames)
         xProg.ShowDialog(Me)
 
         RefreshPanelAll()
@@ -2033,18 +2036,22 @@ Public Class MainWindow
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
-        If ClosingPopSave() Then Return
+        ' If ClosingPopSave() Then Return
 
         Dim xDOpen As New OpenFileDialog
         xDOpen.Filter = Strings.FileType.IBMSC & "|*.ibmsc"
         xDOpen.DefaultExt = "ibmsc"
         xDOpen.InitialDirectory = IIf(ExcludeFileName(FileName) = "", InitPath, ExcludeFileName(FileName)).ToString()
+        ' xDOpen.Multiselect = True
 
         If xDOpen.ShowDialog = Windows.Forms.DialogResult.Cancel Then Return
+
+        SaveBMSStruct()
+
         SetFileName("Imported_" & GetFileName(xDOpen.FileName))
         InitPath = ExcludeFileName(xDOpen.FileName)
         OpeniBMSC(xDOpen.FileName)
-        NewRecent(xDOpen.FileName)
+        AddBMSFiles(FileName)
         SetIsSaved(False)
         'pIsSaved.Visible = Not IsSaved
     End Sub
@@ -2061,9 +2068,13 @@ Public Class MainWindow
         xDOpen.InitialDirectory = IIf(ExcludeFileName(FileName) = "", InitPath, ExcludeFileName(FileName)).ToString()
 
         If xDOpen.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        SaveBMSStruct()
         If OpenSM(My.Computer.FileSystem.ReadAllText(xDOpen.FileName, TextEncoding)) Then Exit Sub
+
+
         SetFileName(FileNameInit)
         InitPath = ExcludeFileName(xDOpen.FileName)
+        AddBMSFiles(FileName)
         ClearUndo()
         SetIsSaved(False)
         'pIsSaved.Visible = Not IsSaved
@@ -2095,12 +2106,13 @@ Public Class MainWindow
         End If
         Dim xStrAll As String = SaveBMS()
         My.Computer.FileSystem.WriteAllText(FileName, xStrAll, False, TextEncoding)
-        SetIsSaved(True)
+        If BMSFiles(BMSFileIndex).RandomSource Is Nothing Then SetIsSaved(True)
         'pIsSaved.Visible = Not IsSaved
         If BeepWhileSaved Then Beep()
     End Sub
 
     Private Sub TBSaveAs_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBSaveAs.Click, mnSaveAs.Click
+        If BMSFiles(BMSFileIndex).RandomSource IsNot Nothing Then MsgBox(Strings.Messages.SaveAsDisabled) : Exit Sub
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
@@ -2742,7 +2754,7 @@ Public Class MainWindow
         Dim xLS As Integer = (From note In Notes Where note.Selected Select note).Count
 
         If NotesCB.Length <> xLS Then
-            Dim xDiag = MsgBox("Warning: The clipboard note count is different from the highlighted note count. Continue?", MsgBoxStyle.YesNo)
+            Dim xDiag = MsgBox(Strings.Messages.SaveWarning & Strings.Messages.PasteNotesDifferentCount, MsgBoxStyle.YesNo)
             If xDiag = MsgBoxResult.No Then Exit Sub
         End If
 
@@ -6608,6 +6620,8 @@ case2:              Dim xI0 As Integer
 
     Public Sub Expand_ModifySection()
         ' TODO: Revise to the now available tab style
+        Dim SourceFileName = FileName
+
         RemoveGhostNotes()
         GhostMode = 0
         Dim RandomTempFilePath = ExcludeFileName(FileName) & "\" & RandomTempFileName
@@ -6620,30 +6634,43 @@ case2:              Dim xI0 As Integer
         ' Dim xStrHeader As String = GenerateHeaderMeta()
         ' xStrHeader &= GenerateHeaderIndexedData()
         My.Computer.FileSystem.WriteAllText(RandomTempFilePath, ExpansionSplit(1), False, TextEncoding)
-        Process.Start(My.Application.Info.DirectoryPath & "\" & My.Application.Info.ProductName & ".exe", RandomTempFilePath)
-        TimerExternalExpansion.Enabled = True
+        AddTempFileList(RandomTempFilePath)
         TExpansion.Enabled = False
+
+        SaveBMSStruct()
+        Dim xProg As New fLoadFileProgress(RandomTempFilePath)
+        xProg.ShowDialog(Me)
+        BMSFiles(BMSFileIndex).AddRandomSource(SourceFileName)
+        TExpansion.Enabled = True
+        SetIsSaved(False)
     End Sub
 
-    Private Sub TimerExternalExpansion_Tick(sender As Object, e As EventArgs) Handles TimerExternalExpansion.Tick
-        Dim ReadText As String = Nothing
-        Dim RandomTempFilePath = ExcludeFileName(FileName) & "\" & RandomTempFileName
-        ReadText = My.Computer.FileSystem.ReadAllText(RandomTempFilePath, TextEncoding)
-        If Not ReadText.EndsWith("*---------------------- RANDOM DATA FIELD") Then Exit Sub
+    ''' <summary>
+    ''' Basically TBClose_Click except when RandomSource <> "".
+    ''' Assumes saved and RandomSource string is not empty when executing this sub.
+    ''' </summary>
+    Public Sub CloseFileWithRandomSource()
+        Dim xICurrent As Integer = BMSFileIndex
+        Dim xISource As Integer = FindBMSTabIndex(BMSFiles(BMSFileIndex).RandomSource)
+        Dim StructExpansionSplit() As String = BMSFiles(xISource).Struct.ExpansionSplit
+        StructExpansionSplit(1) = ""
 
-        TExpansion.Enabled = True
-        ExpansionSplit(1) = ""
+        Dim ReadText As String = Nothing
+        ReadText = My.Computer.FileSystem.ReadAllText(BMSFiles(BMSFileIndex).Filename, TextEncoding)
+        TBTab_Click(BMSFiles(xISource).TSB, New EventArgs)
         TExpansion.Text = ""
         Dim xStrCompare() As String = Split(Replace(Replace(Replace(SaveBMS(), vbLf, vbCr), vbCr & vbCr, vbCr), vbCr, vbCrLf), vbCrLf,, CompareMethod.Text)
         For Each xStrLine In Split(ReadText, vbCrLf)
             If (Not xStrCompare.Contains(xStrLine) AndAlso xStrLine <> "*---------------------- RANDOM DATA FIELD") Or
-                        SWIC(xStrLine, "#RANDOM") Or SWIC(xStrLine, "#IF") Or SWIC(xStrLine, "#ENDIF") Then
-                ExpansionSplit(1) &= xStrLine & vbCrLf
+                    SWIC(xStrLine, "#RANDOM") Or SWIC(xStrLine, "#IF") Or SWIC(xStrLine, "#ENDIF") Then
+                StructExpansionSplit(1) &= xStrLine & vbCrLf
             End If
         Next
-        TExpansion.Text = Join(ExpansionSplit, vbCrLf)
-        AddTempFileList(RandomTempFilePath)
-        TimerExternalExpansion.Enabled = False
+        TExpansion.Text = Join(StructExpansionSplit, vbCrLf)
+        TExpansion.Enabled = True
+
+        RemoveBMSFile(xICurrent)
+        SetBMSFileIndex(xISource)
     End Sub
 
     Public Sub Expand_RemoveGhostNotes()

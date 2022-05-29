@@ -1362,6 +1362,8 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eMessages.Item("SaveOnExit1"), Strings.Messages.SaveOnExit1)
                 XMLLoadLocale(eMessages.Item("SaveOnExit2"), Strings.Messages.SaveOnExit2)
                 XMLLoadLocale(eMessages.Item("SaveOnExitOther"), Strings.Messages.SaveOnExitOther)
+                XMLLoadLocale(eMessages.Item("SaveAsDisabled"), Strings.Messages.SaveAsDisabled) '
+                XMLLoadLocale(eMessages.Item("SaveWhileModifyingSection"), Strings.Messages.SaveWhileModifyingSection) '
                 XMLLoadLocale(eMessages.Item("PromptEnter"), Strings.Messages.PromptEnter)
                 XMLLoadLocale(eMessages.Item("PromptEnterNumeric"), Strings.Messages.PromptEnterNumeric)
                 XMLLoadLocale(eMessages.Item("PromptEnterBPM"), Strings.Messages.PromptEnterBPM)
@@ -1390,6 +1392,7 @@ Partial Public Class MainWindow
                 XMLLoadLocale(eMessages.Item("GhostNotesShowMain"), Strings.Messages.GhostNotesShowMain)
                 XMLLoadLocale(eMessages.Item("GhostNotesModifyExpansion1"), Strings.Messages.GhostNotesModifyExpansion1)
                 XMLLoadLocale(eMessages.Item("GhostNotesModifyExpansion2"), Strings.Messages.GhostNotesModifyExpansion2)
+                XMLLoadLocale(eMessages.Item("PasteNotesDifferentCount"), Strings.Messages.PasteNotesDifferentCount) '
             End If
 
             Dim eFileType As XmlElement = Root.Item("FileType")

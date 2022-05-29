@@ -295,10 +295,13 @@
 		<SaveOnExit1>종료할 때 저장할 것인지 묻기</SaveOnExit1>
 		<SaveOnExit2>작업관리자에서 종료해도 저장할 것인지 묻기</SaveOnExit2>
 		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
+		<SaveAsDisabled>You cannot save this as a different file.</SaveAsDisabled>
+		<SaveWhileModifyingSection>There are sections in the expansion code opened separately, please close them before closing this file.</SaveWhileModifyingSection>
 		<PromptEnter>설정할 번호를 입력하세요.</PromptEnter>
 		<PromptEnterNumeric>값을 입력하세요.</PromptEnterNumeric>
 		<PromptEnterBPM>BPM을 입력하세요.</PromptEnterBPM>
 		<PromptEnterSTOP>STOP 시간을 입력하세요.</PromptEnterSTOP>
+		<PromptEnterSCROLL>SCROLL 시간을 입력하세요.</PromptEnterSCROLL>
 		<PromptSlashValue>슬래시키("/")를 누르면 격자를 이렇게 설정합니다.：</PromptSlashValue>
 		<InvalidLabel>잘못된 번호입니다.</InvalidLabel>
 		<CannotFind>{}를 찾을 수 없습니다.</CannotFind>
@@ -313,6 +316,7 @@
 		<NoteOverlapError>노트가 겹쳐져 있습니다. 격자를 크게 하면 해결할 수 있습니다.</NoteOverlapError>
 		<BPMOverflowError>확장 BPM 값이 너무 큽니다. : </BPMOverflowError>
 		<STOPOverflowError>STOP 노트가 너무 많습니다. : </STOPOverflowError>
+		<SCROLLOverflowError>SCROLL 노트가 너무 많습니다. : </SCROLLOverflowError>
 		<SavedFileWillContainErrors>저장할 파일에 오류가 있습니다.</SavedFileWillContainErrors>
 		<FileAssociationPrompt>iBMSC를 {} 파일의 기본 프로그램으로 하시겠습니까?</FileAssociationPrompt>
 		<FileAssociationError>관련 변경 오류 : </FileAssociationError>
@@ -321,6 +325,7 @@
 		<GhostNotesShowMain>The notes in the current section will be changed to ghost notes. Save current section and continue?</GhostNotesShowMain>
 		<GhostNotesModifyExpansion1>The current ghost notes will become uneditable. Continue?</GhostNotesModifyExpansion1>
 		<GhostNotesModifyExpansion2>There are unsaved changes in the ghost notes. Save current section and continue?</GhostNotesModifyExpansion2>
+		<PasteNotesDifferentCount>The clipboard note count is different from the highlighted note count. Continue?</PasteNotesDifferentCount>
 	</Messages>
 	<FileType>
 		<_all>모든 파일 (*.*)</_all>

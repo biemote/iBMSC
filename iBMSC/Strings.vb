@@ -29,6 +29,8 @@ Public Class Strings
         Public Shared SaveOnExit1 As String = "You should tell me if you want to save changes before closing the computer. -_,-"
         Public Shared SaveOnExit2 As String = "You still need to tell me if you want to save changes even though you are closing the application with task manager. -_,-"
         Public Shared SaveOnExitOther As String = "There are unsaved files. Discard changes and close the application?"
+        Public Shared SaveAsDisabled As String = "You cannot save this as a different file."
+        Public Shared SaveWhileModifyingSection As String = "There are sections in the expansion code opened separately, please close them before closing this file."
         Public Shared PromptEnter As String = "Please enter a label."
         Public Shared PromptEnterNumeric As String = "Please enter a value."
         Public Shared PromptEnterMeasure As String = "Please enter a measure (0-999)."
@@ -58,6 +60,7 @@ Public Class Strings
         Public Shared GhostNotesShowMain As String = "The notes in the current section will be changed to ghost notes. Save current section and continue?"
         Public Shared GhostNotesModifyExpansion1 As String = "The current ghost notes will become uneditable. Continue?"
         Public Shared GhostNotesModifyExpansion2 As String = "There are unsaved changes in the ghost notes. Save current section and continue?"
+        Public Shared PasteNotesDifferentCount As String = "The clipboard note count is different from the highlighted note count. Continue?"
     End Class
 
     Public Class FileType

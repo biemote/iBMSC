@@ -296,6 +296,8 @@
 		<SaveOnExit1>シャットダウン時、保存するか確認する。</SaveOnExit1>
 		<SaveOnExit2>タスクマネージャーから終了する場合も、保存するか確認する。</SaveOnExit2>
 		<SaveOnExitOther>There are unsaved files. Discard changes and close the application?"</SaveOnExitOther>
+		<SaveAsDisabled>You cannot save this as a different file.</SaveAsDisabled>
+		<SaveWhileModifyingSection>There are sections in the expansion code opened separately, please close them before closing this file.</SaveWhileModifyingSection>
 		<PromptEnter>定義番号を入力してください。</PromptEnter>
 		<PromptEnterNumeric>値を入力してください。</PromptEnterNumeric>
 		<PromptEnterBPM>曲のテンポを入力してください。</PromptEnterBPM>
@@ -324,6 +326,7 @@
 		<GhostNotesShowMain>現在のセクションのノートがゴーストノートに変更されます。現在のセクションを保存して続行しますか？</GhostNotesShowMain>
 		<GhostNotesModifyExpansion1>現在のゴーストノートは編集不可能になります。続行しますか？</GhostNotesModifyExpansion1>
 		<GhostNotesModifyExpansion2>ゴーストノートに未保存の変更があります。現在のセクションを保存して続行しますか？</GhostNotesModifyExpansion2>
+		<PasteNotesDifferentCount>The clipboard note count is different from the highlighted note count. Continue?</PasteNotesDifferentCount>
 	</Messages>
 	<FileType>
 		<_all>すべてのファイル (*.*)</_all>

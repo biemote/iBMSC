@@ -60,31 +60,10 @@
             MsgBox(Strings.Messages.CannotFind.Replace("{}", xFileName), MsgBoxStyle.Critical)
             Exit Sub
         End If
-        If ClosingPopSave() Then Exit Sub
 
-        Select Case LCase(Path.GetExtension(xFileName))
-            Case ".bms", ".bme", ".bml", ".pms", ".txt"
-                SetFileName(xFileName)
-                ClearUndo()
-                OpenBMS(My.Computer.FileSystem.ReadAllText(xFileName, TextEncoding))
-                SetIsSaved(True)
-                AddBMSFile(xFileName)
-
-            Case ".ibmsc"
-                SetFileName("Imported_" & GetFileName(xFileName))
-                OpeniBMSC(xFileName)
-                InitPath = ExcludeFileName(xFileName)
-                SetIsSaved(False)
-                AddBMSFile(xFileName)
-
-            Case Else
-                SetFileName(xFileName)
-                ClearUndo()
-                OpenBMS(My.Computer.FileSystem.ReadAllText(xFileName, TextEncoding))
-                SetIsSaved(True)
-                AddBMSFile(xFileName)
-
-        End Select
+        SaveBMSStruct()
+        Dim xProg As New fLoadFileProgress(xFileName)
+        xProg.ShowDialog(Me)
     End Sub
 
     Private Sub TBOpenR0_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBOpenR0.Click, mnOpenR0.Click

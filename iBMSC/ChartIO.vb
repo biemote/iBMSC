@@ -242,7 +242,7 @@ Partial Public Class MainWindow
             ' >> K =                 Mid(sLine, xI1, 2)
             Dim xMeasure As Integer = CInt(Mid(sLineTrim, 2, 3))
             Dim Channel As String = Mid(sLineTrim, 5, 2)
-            If BMSChannelToColumn(Channel) = 0 Then Continue For
+            ' If BMSChannelToColumn(Channel) = 0 Then Continue For
 
             If Channel = "01" Then mColumn(xMeasure) += 1 'If the identifier is 01 then add a B column in that measure
             For xI1 = 8 To Len(sLineTrim) - 1 Step 2   'For all Ks within that line ( - 1 can be ommitted )
