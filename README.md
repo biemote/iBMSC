@@ -33,7 +33,7 @@ Listed in the order added.
 * Added note search function (goto measure except it's goto note). One note per VPosition only.
 * Added sort function. Selected notes are sorted based on their VPosition and Value.
 * Added mBMplay as a default player.
-* Added basic support for #RANDOM. Supports expansion field and main data field only. Not tested thoroughly, nested #RANDOM in "Modify Section" only. Accessible via the "Select Section" button in Expansion Code or via Ctrl+Alt+R.
+* Added basic support for #RANDOM. Supports expansion field and main data field (and header field somewhat). Not tested thoroughly, nested #RANDOM in "Modify Section" only. Accessible via the "Select Section" button in Expansion Code or via Ctrl+Alt+R.
 * Added color overriding options where you can specify a range of notes to appear a specific color (or a color gradient), such as red notes for drums and green notes for the piano. Accessible via the Options tab or via Shift+F12.
 * Added comment notes. Comment notes will be saved as #ECMD and #ECOM within the same bms/pms file. Not tested thoroughly.
 * The window will now follow notes being moved by arrow keys.
@@ -98,7 +98,7 @@ Listed in the order added.
 * Displays note statistics over individual lanes from A1 to D8.
 * Displays note usages, including #WAV assigned notes with 0 note count and #WAV unassigned notes with non-zero note count.
 
-### Select Expansion Code (Ctrl+Alt+R)
+### #RANDOM Editor (Ctrl+Alt+R)
 * Display ghost notes: Select an #if section to display its notes in ghost form.
 * Display ghost notes (All): Display all notes in ghost form.
 * Modify notes: Select an #if section and jump straight to modifying them.
@@ -125,7 +125,6 @@ Listed in the order added.
 
 ###### Unavailable features
 * Autosaving all files. Currently it behaves the same as previously, which is autosaving the active BMS file.
-* Integration with Modify Section in Select Expansion Code.
 * Moving file tabs. Not sure if this will be doable with the current arrangement.
 * Saving all files on exiting application. Unsaved changes will be gone upon closing.
 
@@ -134,7 +133,6 @@ Listed in the order added.
 ### #RANDOM Editor
 * Multiple #IF sections in one file (notes only).
 * Allow ghost notes to be editable.
-* Integration of Modify Section with FileTab.
 
 ### Misc
 * Add support for saving new functions to iBMSC.
