@@ -163,7 +163,6 @@ Partial Public Class MainWindow
     End Sub
 
     Private Sub TBTab_MouseDown(sender As Object, e As MouseEventArgs)
-        Dim xITemp = BMSFileIndex
         Dim TSBCurrent = BMSFiles(BMSFileIndex).TSB
         Dim TSBSender = CType(sender, ToolStripButton)
         Dim xIClicked = FindBMSTabIndex(TSBSender)

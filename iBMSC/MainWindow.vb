@@ -2129,6 +2129,11 @@ Public Class MainWindow
         xDSave.InitialDirectory = IIf(ExcludeFileName(FileName) = "", InitPath, ExcludeFileName(FileName)).ToString()
 
         If xDSave.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
+
+        For i = 0 To UBound(BMSFiles)
+            If BMSFiles(i).RandomSource = FileName Then BMSFiles(i).AddRandomSource(xDSave.FileName)
+        Next
+
         SetFileName(xDSave.FileName)
         Dim xStrAll As String = SaveBMS()
         My.Computer.FileSystem.WriteAllText(FileName, xStrAll, False, TextEncoding)
@@ -6646,7 +6651,7 @@ case2:              Dim xI0 As Integer
     End Sub
 
     ''' <summary>
-    ''' Basically TBClose_Click except when RandomSource <> "".
+    ''' Basically TBClose_Click except when RandomSource is not nothing.
     ''' Assumes saved and RandomSource string is not empty when executing this sub.
     ''' </summary>
     Public Sub CloseFileWithRandomSource()
