@@ -4364,39 +4364,42 @@ Public Class MainWindow
     Private Sub RenameShortcut(ByVal keybind As Keybinding)
         Dim Kb0 = keybind.Combo(0)
         Dim KbAll = Join(keybind.Combo, ", ")
-        Select Case keybind.OpName
-            Case "Snap to Grid"
+        Select Case keybind.OpVar
+            Case 103
                 RenameShortcutKb0(CGSnap.Text, Kb0)
-            Case "Disable Vertical Moves"
+            Case 102
                 RenameShortcutKb0(CGDisableVertical.Text, Kb0)
-            Case "Convert to Long Note"
+            Case 104
                 POBLong.ShortcutKeyDisplayString = Kb0
-            Case "Convert to Short Note"
+            Case 105
                 POBShort.ShortcutKeyDisplayString = Kb0
-            Case "Convert between Long and Short Note"
+            Case 106
                 POBLongShort.ShortcutKeyDisplayString = Kb0
-            Case "Auto Long Note (By VPosition)"
+            Case 107
                 POBAutoLongVPosition.ShortcutKeyDisplayString = Kb0
-            Case "Auto Long Note (By Column)"
+            Case 108
                 POBAutoLongColumn.ShortcutKeyDisplayString = Kb0
-            Case "Undo"
+            Case 111
                 mnUndo.ShortcutKeyDisplayString = Kb0
                 RenameShortcutKb0(TBUndo.Text, KbAll)
-            Case "Redo"
+            Case 112
                 mnRedo.ShortcutKeyDisplayString = Kb0
                 RenameShortcutKb0(TBRedo.Text, KbAll)
-            Case "Cut"
+            Case 113
                 mnCut.ShortcutKeyDisplayString = Kb0
                 RenameShortcutKb0(TBCut.Text, KbAll)
-            Case "Copy"
+            Case 114
                 mnCopy.ShortcutKeyDisplayString = Kb0
                 RenameShortcutKb0(TBCopy.Text, KbAll)
-            Case "Paste"
+            Case 115
                 mnPaste.ShortcutKeyDisplayString = Kb0
                 RenameShortcutKb0(TBPaste.Text, KbAll)
-            Case "Select All"
+            Case 116
+                mnPastePattern.ShortcutKeyDisplayString = Kb0
+                RenameShortcutKb0(TBPastePattern.Text, KbAll)
+            Case 117
                 mnSelectAll.ShortcutKeyDisplayString = Kb0
-            Case "Check Technical Error"
+            Case 109
                 mnTechnicalErrorCheck.ShortcutKeyDisplayString = Kb0
         End Select
     End Sub
