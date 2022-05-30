@@ -2529,6 +2529,7 @@ Public Class MainWindow
     End Sub
 
     Private Sub LWAVRefresh()
+        LWAV.EndUpdate()
         LWAV.BeginUpdate()
         LWAVRefreshId = 1
         LWAV.Enabled = False
@@ -2538,9 +2539,11 @@ Public Class MainWindow
     Private Sub TimerLWAVRefresh_Tick(sender As Object, e As EventArgs) Handles TimerLWAVRefresh.Tick
         Dim xIL = LWAVRefreshId - 1
         LWAV.Items(xIL) = C10to36(LWAVRefreshId) & ": " & hWAV(LWAVRefreshId)
-        ' Console.WriteLine(LWAVRefreshId)
+        POWAVSwitch.Text = Strings.OptionsScroll.WAVHash & " (" & LWAVRefreshId & "/1295)"
+        Console.WriteLine(LWAVRefreshId)
 
         If LWAVRefreshId = 1295 Then
+            POWAVSwitch.Text = Strings.OptionsScroll.WAVHash
             LWAVRefreshId = 1
             LWAV.Enabled = True
             TimerLWAVRefresh.Enabled = False
@@ -2551,6 +2554,8 @@ Public Class MainWindow
     End Sub
 
     Private Sub LBMPRefresh()
+        LBMP.EndUpdate()
+        LBMP.Items(0) = "Updating..."
         LBMP.BeginUpdate()
         LBMPRefreshId = 1
         LBMP.Enabled = False
@@ -2560,9 +2565,11 @@ Public Class MainWindow
     Private Sub TimerLBMPRefresh_Tick(sender As Object, e As EventArgs) Handles TimerLBMPRefresh.Tick
         Dim xIL = LBMPRefreshId - 1
         LBMP.Items(xIL) = C10to36(LBMPRefreshId) & ": " & hBMP(LBMPRefreshId)
+        POBMPSwitch.Text = Strings.OptionsScroll.BMPHash & " (" & LBMPRefreshId & "/1295)"
         ' Console.WriteLine(LBMPRefreshId)
 
         If LBMPRefreshId = 1295 Then
+            POBMPSwitch.Text = Strings.OptionsScroll.BMPHash
             LBMPRefreshId = 1
             LBMP.Enabled = True
             TimerLBMPRefresh.Enabled = False

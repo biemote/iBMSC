@@ -153,12 +153,10 @@ Partial Public Class MainWindow
         If BMSFiles(BMSFileIndex).IsInitialized Then
             SetFileName(BMSFiles(BMSFileIndex).Filename)
             LoadBMSStruct(BMSFileIndex)
+        ElseIf BMSFiles(BMSFileIndex).Filename = FileNameInit Then
+            TBNew_Click(Nothing, Nothing)
         Else
-            If BMSFiles(BMSFileIndex).Filename = FileNameInit Then
-                TBNew_Click(Nothing, Nothing)
-            Else
-                ReadFile(BMSFiles(BMSFileIndex).Filename)
-            End If
+            ReadFile(BMSFiles(BMSFileIndex).Filename)
         End If
     End Sub
 

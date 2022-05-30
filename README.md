@@ -121,6 +121,7 @@ Listed in the order added.
 ### BMS File Tabs
 * Allows multiple files to be opened simultaneously.
 * Middle-clicking on the file tab will close it.
+* Right-clicking on the file tab will allow you to change its color.
 * Saves a list of the opened files on exiting application and reopens them on relaunching application.
 
 ###### Unavailable features

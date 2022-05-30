@@ -1330,7 +1330,8 @@ Partial Public Class MainWindow
 
                 Dim eWAV As XmlElement = eOptionsPanel.Item("WAV")
                 If eWAV IsNot Nothing Then
-                    XMLLoadLocale(eWAV.Item("Title"), POWAVSwitch.Text)
+                    XMLLoadLocale(eWAV.Item("Title"), Strings.OptionsScroll.WAVHash)
+                    POWAVSwitch.Text = Strings.OptionsScroll.WAVHash
                     XMLLoadLocaleToolTipUniversal(eWAV.Item("MoveUp"), BWAVUp)
                     XMLLoadLocaleToolTipUniversal(eWAV.Item("MoveDown"), BWAVDown)
                     XMLLoadLocaleToolTipUniversal(eWAV.Item("Browse"), BWAVBrowse)
@@ -1341,7 +1342,8 @@ Partial Public Class MainWindow
 
                 Dim eBMP As XmlElement = eOptionsPanel.Item("BMP")
                 If eBMP IsNot Nothing Then
-                    XMLLoadLocale(eBMP.Item("Title"), POBMPSwitch.Text)
+                    XMLLoadLocale(eBMP.Item("Title"), Strings.OptionsScroll.BMPHash)
+                    POBMPSwitch.Text = Strings.OptionsScroll.BMPHash
                     XMLLoadLocaleToolTipUniversal(eBMP.Item("MoveUp"), BBMPUp)
                     XMLLoadLocaleToolTipUniversal(eBMP.Item("MoveDown"), BBMPDown)
                     XMLLoadLocaleToolTipUniversal(eBMP.Item("Browse"), BBMPBrowse)
