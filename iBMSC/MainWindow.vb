@@ -2048,11 +2048,8 @@ Public Class MainWindow
 
         SaveBMSStruct()
 
-        SetFileName("Imported_" & GetFileName(xDOpen.FileName))
-        InitPath = ExcludeFileName(xDOpen.FileName)
-        OpeniBMSC(xDOpen.FileName)
-        AddBMSFiles(FileName)
-        SetIsSaved(False)
+        AddBMSFiles(xDOpen.FileName)
+        ReadFile(xDOpen.FileName, False)
         'pIsSaved.Visible = Not IsSaved
     End Sub
 
@@ -2060,7 +2057,7 @@ Public Class MainWindow
         'KMouseDown = -1
         ReDim SelectedNotes(-1)
         KMouseOver = -1
-        If ClosingPopSave() Then Exit Sub
+        ' If ClosingPopSave() Then Exit Sub
 
         Dim xDOpen As New OpenFileDialog
         xDOpen.Filter = Strings.FileType.SM & "|*.sm"
@@ -2069,14 +2066,9 @@ Public Class MainWindow
 
         If xDOpen.ShowDialog = Windows.Forms.DialogResult.Cancel Then Exit Sub
         SaveBMSStruct()
-        If OpenSM(My.Computer.FileSystem.ReadAllText(xDOpen.FileName, TextEncoding)) Then Exit Sub
 
-
-        SetFileName(FileNameInit)
-        InitPath = ExcludeFileName(xDOpen.FileName)
-        AddBMSFiles(FileName)
-        ClearUndo()
-        SetIsSaved(False)
+        AddBMSFiles(xDOpen.FileName)
+        ReadFile(xDOpen.FileName, False)
         'pIsSaved.Visible = Not IsSaved
     End Sub
 
