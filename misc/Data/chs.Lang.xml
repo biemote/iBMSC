@@ -319,7 +319,7 @@
 		<NoteOverlapError>检测到Note重叠。请增加BMS最大格线设置。</NoteOverlapError>
 		<BPMOverflowError>多字节 BPM 数量已经超过上限：</BPMOverflowError>
 		<STOPOverflowError>多字节 STOP 数量已经超过上限：</STOPOverflowError>
-		<SCROLLOverflowError>Numbers of SCROLLs has exceeded supported maximum:</SCROLLOverflowError>
+		<SCROLLOverflowError>多字节 SCROLL 数量已经超过上限：</SCROLLOverflowError>
 		<SavedFileWillContainErrors>文件将无法正确保存。</SavedFileWillContainErrors>
 		<FileAssociationPrompt>是否将 iBMSC 设置为打开所有 {} 文件的默认程序？</FileAssociationPrompt>
 		<FileAssociationError>文件关联设置失败：</FileAssociationError>

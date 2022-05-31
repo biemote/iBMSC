@@ -78,13 +78,6 @@
         Return str.StartsWith(strHash, StringComparison.CurrentCultureIgnoreCase)
     End Function
 
-    Private Function ExcludeFileName(ByVal s As String) As String ' Copied from MainWindow.vb
-        Dim fslash As Integer = InStrRev(s, "/")
-        Dim bslash As Integer = InStrRev(s, "\")
-        If (bslash Or fslash) = 0 Then Return ""
-        Return Mid(s, 1, CInt(IIf(fslash > bslash, fslash, bslash)) - 1)
-    End Function
-
     Private Sub BRemoveGhostNotes_Click(sender As Object, e As EventArgs) Handles BRemoveGhostNotes.Click
         Me.Close()
         MainWindow.Expand_RemoveGhostNotes()
