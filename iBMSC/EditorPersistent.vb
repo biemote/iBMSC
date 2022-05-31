@@ -317,13 +317,13 @@ Partial Public Class MainWindow
 
     Private Function ColorOverridePath(ByVal Path As String) As String
         Select Case COverridesSaveOption
-            Case 0
-                If Not System.IO.Directory.Exists("Colors") Then My.Computer.FileSystem.CreateDirectory("Colors")
+            Case 0 ' Editor
+                If Not System.IO.Directory.Exists(My.Application.Info.DirectoryPath & "\Colors") Then My.Computer.FileSystem.CreateDirectory("Colors")
                 Return "Colors\Untitled.bmsc.xml"
-            Case 1
-                If Not System.IO.Directory.Exists("Colors") Then My.Computer.FileSystem.CreateDirectory("Colors")
+            Case 1 ' Chart
+                If Not System.IO.Directory.Exists(My.Application.Info.DirectoryPath & "\Colors") Then My.Computer.FileSystem.CreateDirectory("Colors")
                 Return "Colors\" + GetFileName(Path) + ".xml"
-            Case 2
+            Case 2 ' Song
                 Return ExcludeFileName(Path) & "\_Colors.xml"
             Case Else
                 Return ""
