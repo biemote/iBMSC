@@ -384,13 +384,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PreBuildEvent>Xcopy /E /I /Y "$(SolutionDir)\misc\Data\" "$(TargetDir)\Data\"</PreBuildEvent>
+    <PreBuildEvent>if $(ConfigurationName) == Release rmdir /q /s "$(TargetDir)"
+del "$(TargetDir)..\$(TargetName).zip"
+Xcopy /E /I /Y "$(SolutionDir)\misc\Data\" "$(TargetDir)\Data\"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release del "$(TargetDir)iBMSC.Settings.xml"
-del "$(TargetDir)..\$(TargetName).zip"
-
-powershell IF('$(ConfigurationName)' -eq 'Release') {Compress-Archive -Path '$(TargetDir)*' -DestinationPath '$(TargetDir)..\$(TargetName).zip'}</PostBuildEvent>
+    <PostBuildEvent>powershell IF('$(ConfigurationName)' -eq 'Release') {Compress-Archive -Path '$(TargetDir)*' -DestinationPath '$(TargetDir)..\$(TargetName).zip'}</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
