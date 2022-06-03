@@ -99,8 +99,6 @@ Public Class MainWindow
     'Dim TitlePath As New Drawing2D.GraphicsPath
     Dim InitPath As String = ""
     Dim IsSaved As Boolean = True
-    Dim GhostMode As Integer = 0 ' 0 - Default, ghost notes entirely uneditable, 1 - Ghost notes loaded with expectation of editing them, 2 - Ghost notes loaded as main notes and main notes temporarily changed to ghost notes
-    Dim GhostEdit As Boolean = False
     Dim FileNameTemplate As String = ""
 
     'Variables for Drag/Drop
@@ -502,7 +500,7 @@ Public Class MainWindow
 
     Dim spMain() As Panel = {}
 
-    '----#TOTAL Options
+    '----#TOTAL Tool
     Dim TotalOption As Integer = 0
     Dim TotalMultiplier As Double = 0.25
     Dim TotalGlobalMultiplier As Double = 1
@@ -519,6 +517,10 @@ Public Class MainWindow
     Dim fdriValL As Integer
     Dim fdriValU As Integer
     Dim fdriCol() As Integer
+
+    '----#RANDOM Editor
+    Dim GhostMode As Integer = 0 ' 0 - Default, ghost notes entirely uneditable, 1 - Ghost notes loaded with expectation of editing them, 2 - Ghost notes loaded as main notes and main notes temporarily changed to ghost notes
+    Dim GhostEdit As Boolean = False
 
     ''' <summary>
     ''' 
@@ -6593,6 +6595,9 @@ case2:              Dim xI0 As Integer
 
     Private Sub Expand_Load(sender As Object, e As EventArgs) Handles BExpansion.Click
         If Not TExpansion.Enabled Then Exit Sub
+
+        If TExpansion.Text = "" Then MsgBox(Strings.fopExpand.ErrorEmpty) : Exit Sub
+        ' Find different ranges of #IF sections
 
         ReDim ExpansionSplit(2)
         Dim xDOp As New OpExpand()
