@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<iBMSC.Locale Name="简体中文 by Doaz">
+<iBMSC.Locale Name="简体中文 by Biemote">
 	<Font Size="9">
 		<Family>微软雅黑</Family>
 		<Family>Microsoft Yahei</Family>
@@ -172,6 +172,7 @@
 			<ColumnCaption>列标签</ColumnCaption>
 			<BPM>BPM</BPM>
 			<STOP>STOP</STOP>
+			<SCROLL>SCROLL</SCROLL>
 			<BLP>BGA / Layer / Poor</BLP>
 		</ShowHide>
 		<InsertMeasure>
@@ -206,8 +207,7 @@
 			<R-Random >&amp;R乱</R-Random>
 			<S-Random >&amp;S乱</S-Random>
 			<H-Random >&amp;H乱</H-Random>
-			<Sort>排列 (&amp;O)</Sort>
-		
+			<Sort>排列 (&amp;O)</Sort>		
 	</Convert>
 		<WAV>
 			<MultiSelection>允许多选</MultiSelection>
@@ -350,12 +350,24 @@
 		<MP3>MP3 格式文件 (*.mp3)</MP3>
 		<MID>MIDI 格式文件 (*.mid)</MID>
 		<_image>所有支持的图像文件 (*.png, *.bmp, *.jpg, *.gif)</_image>
+		<_movie>"所有支持的视频文件 (*.mpg, *.mpeg, *.avi, *.m1v, *.m2v, *.m4v, *.mp4, *.webm, *.wmv)"</_movie>
+		<_im>所有支持的视频及图像文件 (*.png, *.bmp, *.jpg, *.gif, *.mpg, *.mpeg, *.avi, *.m1v, *.m2v, *.m4v, *.mp4, *.webm, *.wmv)</_im>
+		<BMP>BMP (*.bmp)</BMP>
+		<PNG>PNG (*.png)</PNG>
+		<JPG>JPEG (*.jpg)</JPG>
+		<GIF>GIF (*.gif)</GIF>
+		<MPG>MPG (*.mpg)</MPG>
+		<AVI>AVI (*.avi)</AVI>
+		<MP4>MP4 (*.mp4)</MP4>
+		<WMV>WMV (*.wmv)</WMV>
+		<WEBM>WebM (*.webm)</WEBM>
 		<EXE>可执行文件 (*.exe)</EXE>
 	</FileType>
 	<Statistics>
 		<Title>统计</Title>
 		<lBPM>BPM</lBPM>
 		<lSTOP>STOP</lSTOP>
+		<lSCROLL>SCROLL</lSCROLL>
 		<lA>A1-A8</lA>
 		<lD>D1-D8</lD>
 		<lBGM>BGM</lBGM>

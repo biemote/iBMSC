@@ -93,8 +93,8 @@ Public Class MainWindow
     'IO
     Dim FileNameInit As String = "Untitled.bms"
     Dim FileName As String = FileNameInit
-    Dim TempFileName As String = "___TempBMS.bmsc"
-    Dim RandomTempFileName As String = "___TempRandom" & GenerateRandomString(6, False) & ".bmsc"
+    Dim TempFileName As String = "___TempBMS.bms"
+    Dim RandomTempFileName As String = "___TempRandom" & GenerateRandomString(6, False) & ".bms"
     Public ExpansionSplit(2) As String
     'Dim TitlePath As New Drawing2D.GraphicsPath
     Dim InitPath As String = ""
@@ -3009,6 +3009,9 @@ Public Class MainWindow
         My.Computer.FileSystem.WriteAllText(xFileName, xStrAll, False, TextEncoding)
 
         AddTempFileList(xFileName)
+        'Dim xS1 As String = PrevCodeToReal(xArg.Path)
+        'Dim xS2 As String = PrevCodeToReal(xArg.aBegin)
+        'System.Diagnostics.Process.Start(xS1, xS2)
 
         System.Diagnostics.Process.Start(PrevCodeToReal(xArg.Path), PrevCodeToReal(xArg.aBegin))
     End Sub
@@ -6645,7 +6648,7 @@ case2:              Dim xI0 As Integer
         Dim RandomTempFilePath = ExcludeFileName(FileName) & "\" & RandomTempFileName
         ' Picks another random filename because the programme somehow generated the same exact RandomFileName as a previous instance. 1 in 2-billion chance btw
         Do Until Not My.Computer.FileSystem.FileExists(RandomTempFilePath)
-            RandomTempFileName = "___TempRandom" & GenerateRandomString(6, False) & ".bmsc"
+            RandomTempFileName = "___TempRandom" & GenerateRandomString(6, False) & ".bms"
             RandomTempFilePath = ExcludeFileName(FileName) & "\" & RandomTempFileName
         Loop
         ExpansionSplit(1) = GenerateHeaderMeta() & GenerateHeaderIndexedData() & ExpansionSplit(1)
