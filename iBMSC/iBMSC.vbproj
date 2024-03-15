@@ -11,7 +11,7 @@
     <AssemblyName>pBMSC</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -219,9 +219,7 @@
     <Compile Include="EditorColumns.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditorRecent.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="EditorRecent.vb" />
     <Compile Include="EditorUndoRedo.vb">
       <SubType>Form</SubType>
     </Compile>

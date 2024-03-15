@@ -25,16 +25,16 @@ Partial Class MainWindow
         Me.TBLangDef = New System.Windows.Forms.ToolStripMenuItem()
         Me.TBLangRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TBLanguage = New System.Windows.Forms.ToolStripDropDownButton()
         Me.mnLanguage = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TBLanguage = New System.Windows.Forms.ToolStripDropDownButton()
         Me.cmnTheme = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TBThemeDef = New System.Windows.Forms.ToolStripMenuItem()
         Me.TBThemeSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.TBThemeRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.TBThemeLoadComptability = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TBTheme = New System.Windows.Forms.ToolStripDropDownButton()
         Me.mnTheme = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TBTheme = New System.Windows.Forms.ToolStripDropDownButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Menu1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MInsert = New System.Windows.Forms.ToolStripMenuItem()
@@ -134,7 +134,6 @@ Partial Class MainWindow
         Me.POBSRandom = New System.Windows.Forms.ToolStripMenuItem()
         Me.POBHRandom = New System.Windows.Forms.ToolStripMenuItem()
         Me.POBSort = New System.Windows.Forms.ToolStripMenuItem()
-        Me.POConvert = New System.Windows.Forms.ToolStripDropDownButton()
         Me.mnPreview = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnPlayB = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnPlay = New System.Windows.Forms.ToolStripMenuItem()
@@ -144,6 +143,7 @@ Partial Class MainWindow
         Me.mnTOTAL = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnMyO2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.POConvert = New System.Windows.Forms.ToolStripDropDownButton()
         Me.TBMain = New System.Windows.Forms.ToolStrip()
         Me.TBNew = New System.Windows.Forms.ToolStripButton()
         Me.TBOpen = New System.Windows.Forms.ToolStripSplitButton()
@@ -498,28 +498,37 @@ Partial Class MainWindow
         '
         'cmnLanguage
         '
+        Me.cmnLanguage.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cmnLanguage.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TBLangDef, Me.TBLangRefresh, Me.ToolStripSeparator9})
         Me.cmnLanguage.Name = "cmnLanguage"
-        Me.cmnLanguage.OwnerItem = Me.mnLanguage
-        Me.cmnLanguage.Size = New System.Drawing.Size(121, 54)
+        Me.cmnLanguage.OwnerItem = Me.TBLanguage
+        Me.cmnLanguage.Size = New System.Drawing.Size(145, 62)
         '
         'TBLangDef
         '
         Me.TBLangDef.Name = "TBLangDef"
-        Me.TBLangDef.Size = New System.Drawing.Size(120, 22)
+        Me.TBLangDef.Size = New System.Drawing.Size(144, 26)
         Me.TBLangDef.Text = "(Default)"
         '
         'TBLangRefresh
         '
         Me.TBLangRefresh.Image = Global.iBMSC.My.Resources.Resources.x16Refresh
         Me.TBLangRefresh.Name = "TBLangRefresh"
-        Me.TBLangRefresh.Size = New System.Drawing.Size(120, 22)
+        Me.TBLangRefresh.Size = New System.Drawing.Size(144, 26)
         Me.TBLangRefresh.Text = "Refresh"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(117, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(141, 6)
+        '
+        'mnLanguage
+        '
+        Me.mnLanguage.DropDown = Me.cmnLanguage
+        Me.mnLanguage.Image = Global.iBMSC.My.Resources.Resources.x16Language
+        Me.mnLanguage.Name = "mnLanguage"
+        Me.mnLanguage.Size = New System.Drawing.Size(341, 26)
+        Me.mnLanguage.Text = "&Language"
         '
         'TBLanguage
         '
@@ -528,54 +537,55 @@ Partial Class MainWindow
         Me.TBLanguage.Image = Global.iBMSC.My.Resources.Resources.x16Language
         Me.TBLanguage.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBLanguage.Name = "TBLanguage"
-        Me.TBLanguage.Size = New System.Drawing.Size(29, 22)
+        Me.TBLanguage.Size = New System.Drawing.Size(34, 24)
         Me.TBLanguage.Text = "Language"
-        '
-        'mnLanguage
-        '
-        Me.mnLanguage.DropDown = Me.cmnLanguage
-        Me.mnLanguage.Image = Global.iBMSC.My.Resources.Resources.x16Language
-        Me.mnLanguage.Name = "mnLanguage"
-        Me.mnLanguage.Size = New System.Drawing.Size(253, 22)
-        Me.mnLanguage.Text = "&Language"
         '
         'cmnTheme
         '
+        Me.cmnTheme.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cmnTheme.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TBThemeDef, Me.TBThemeSave, Me.TBThemeRefresh, Me.TBThemeLoadComptability, Me.ToolStripSeparator6})
         Me.cmnTheme.Name = "cmnLanguage"
-        Me.cmnTheme.OwnerItem = Me.mnTheme
-        Me.cmnTheme.Size = New System.Drawing.Size(246, 98)
+        Me.cmnTheme.OwnerItem = Me.TBTheme
+        Me.cmnTheme.Size = New System.Drawing.Size(317, 114)
         '
         'TBThemeDef
         '
         Me.TBThemeDef.Name = "TBThemeDef"
-        Me.TBThemeDef.Size = New System.Drawing.Size(245, 22)
+        Me.TBThemeDef.Size = New System.Drawing.Size(316, 26)
         Me.TBThemeDef.Text = "(Default)"
         '
         'TBThemeSave
         '
         Me.TBThemeSave.Image = Global.iBMSC.My.Resources.Resources.x16SaveAs
         Me.TBThemeSave.Name = "TBThemeSave"
-        Me.TBThemeSave.Size = New System.Drawing.Size(245, 22)
+        Me.TBThemeSave.Size = New System.Drawing.Size(316, 26)
         Me.TBThemeSave.Text = "Save Theme"
         '
         'TBThemeRefresh
         '
         Me.TBThemeRefresh.Image = Global.iBMSC.My.Resources.Resources.x16Refresh
         Me.TBThemeRefresh.Name = "TBThemeRefresh"
-        Me.TBThemeRefresh.Size = New System.Drawing.Size(245, 22)
+        Me.TBThemeRefresh.Size = New System.Drawing.Size(316, 26)
         Me.TBThemeRefresh.Text = "Refresh"
         '
         'TBThemeLoadComptability
         '
         Me.TBThemeLoadComptability.Name = "TBThemeLoadComptability"
-        Me.TBThemeLoadComptability.Size = New System.Drawing.Size(245, 22)
+        Me.TBThemeLoadComptability.Size = New System.Drawing.Size(316, 26)
         Me.TBThemeLoadComptability.Text = "Load Theme File from iBMSC 2.x"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(242, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(313, 6)
+        '
+        'mnTheme
+        '
+        Me.mnTheme.DropDown = Me.cmnTheme
+        Me.mnTheme.Image = Global.iBMSC.My.Resources.Resources.x16Theme
+        Me.mnTheme.Name = "mnTheme"
+        Me.mnTheme.Size = New System.Drawing.Size(341, 26)
+        Me.mnTheme.Text = "&Theme"
         '
         'TBTheme
         '
@@ -584,16 +594,8 @@ Partial Class MainWindow
         Me.TBTheme.Image = Global.iBMSC.My.Resources.Resources.x16Theme
         Me.TBTheme.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBTheme.Name = "TBTheme"
-        Me.TBTheme.Size = New System.Drawing.Size(29, 22)
+        Me.TBTheme.Size = New System.Drawing.Size(34, 24)
         Me.TBTheme.Text = "Theme"
-        '
-        'mnTheme
-        '
-        Me.mnTheme.DropDown = Me.cmnTheme
-        Me.mnTheme.Image = Global.iBMSC.My.Resources.Resources.x16Theme
-        Me.mnTheme.Name = "mnTheme"
-        Me.mnTheme.Size = New System.Drawing.Size(253, 22)
-        Me.mnTheme.Text = "&Theme"
         '
         'Timer1
         '
@@ -601,22 +603,23 @@ Partial Class MainWindow
         '
         'Menu1
         '
+        Me.Menu1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.Menu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MInsert, Me.MRemove})
         Me.Menu1.Name = "Menu1"
-        Me.Menu1.Size = New System.Drawing.Size(166, 48)
+        Me.Menu1.Size = New System.Drawing.Size(210, 56)
         '
         'MInsert
         '
         Me.MInsert.Image = Global.iBMSC.My.Resources.Resources.x16Add
         Me.MInsert.Name = "MInsert"
-        Me.MInsert.Size = New System.Drawing.Size(165, 22)
+        Me.MInsert.Size = New System.Drawing.Size(209, 26)
         Me.MInsert.Text = "Insert Measure"
         '
         'MRemove
         '
         Me.MRemove.Image = Global.iBMSC.My.Resources.Resources.x16Remove
         Me.MRemove.Name = "MRemove"
-        Me.MRemove.Size = New System.Drawing.Size(165, 22)
+        Me.MRemove.Size = New System.Drawing.Size(209, 26)
         Me.MRemove.Text = "Remove Measure"
         '
         'AutoSaveTimer
@@ -630,18 +633,19 @@ Partial Class MainWindow
         Me.mnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.mnMain.Dock = System.Windows.Forms.DockStyle.None
         Me.mnMain.GripMargin = New System.Windows.Forms.Padding(2)
+        Me.mnMain.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.mnMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnFile, Me.mnEdit, Me.mnSys, Me.mnOptions, Me.mnConversion, Me.mnPreview, Me.mnTools})
         Me.mnMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.mnMain.Location = New System.Drawing.Point(0, 0)
+        Me.mnMain.Location = New System.Drawing.Point(0, 52)
         Me.mnMain.Name = "mnMain"
-        Me.mnMain.Size = New System.Drawing.Size(1267, 23)
+        Me.mnMain.Size = New System.Drawing.Size(1267, 28)
         Me.mnMain.TabIndex = 57
         '
         'mnFile
         '
         Me.mnFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnNew, Me.mnOpen, Me.mnOpenTemplate, Me.mnImportSM, Me.mnImportIBMSC, Me.ToolStripSeparator14, Me.mnSave, Me.mnSaveAs, Me.mnExport, Me.mnClose, Me.ToolStripSeparator15, Me.mnOpenR0, Me.mnOpenR1, Me.mnOpenR2, Me.mnOpenR3, Me.mnOpenR4, Me.ToolStripSeparator16, Me.mnQuit})
         Me.mnFile.Name = "mnFile"
-        Me.mnFile.Size = New System.Drawing.Size(37, 19)
+        Me.mnFile.Size = New System.Drawing.Size(48, 24)
         Me.mnFile.Text = "&File"
         '
         'mnNew
@@ -649,7 +653,7 @@ Partial Class MainWindow
         Me.mnNew.Image = Global.iBMSC.My.Resources.Resources.x16New
         Me.mnNew.Name = "mnNew"
         Me.mnNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.mnNew.Size = New System.Drawing.Size(240, 22)
+        Me.mnNew.Size = New System.Drawing.Size(319, 26)
         Me.mnNew.Text = "&New"
         '
         'mnOpen
@@ -657,7 +661,7 @@ Partial Class MainWindow
         Me.mnOpen.Image = Global.iBMSC.My.Resources.Resources.x16Open
         Me.mnOpen.Name = "mnOpen"
         Me.mnOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.mnOpen.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpen.Size = New System.Drawing.Size(319, 26)
         Me.mnOpen.Text = "&Open"
         '
         'mnOpenTemplate
@@ -666,34 +670,34 @@ Partial Class MainWindow
         Me.mnOpenTemplate.Name = "mnOpenTemplate"
         Me.mnOpenTemplate.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.mnOpenTemplate.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenTemplate.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenTemplate.Text = "Open &Template"
         '
         'mnImportSM
         '
         Me.mnImportSM.Image = Global.iBMSC.My.Resources.Resources.x16Import2
         Me.mnImportSM.Name = "mnImportSM"
-        Me.mnImportSM.Size = New System.Drawing.Size(240, 22)
+        Me.mnImportSM.Size = New System.Drawing.Size(319, 26)
         Me.mnImportSM.Text = "Import from .S&M file"
         '
         'mnImportIBMSC
         '
         Me.mnImportIBMSC.Image = Global.iBMSC.My.Resources.Resources.x16Import2
         Me.mnImportIBMSC.Name = "mnImportIBMSC"
-        Me.mnImportIBMSC.Size = New System.Drawing.Size(240, 22)
+        Me.mnImportIBMSC.Size = New System.Drawing.Size(319, 26)
         Me.mnImportIBMSC.Text = "Import from .&IBMSC file"
         '
         'ToolStripSeparator14
         '
         Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
-        Me.ToolStripSeparator14.Size = New System.Drawing.Size(237, 6)
+        Me.ToolStripSeparator14.Size = New System.Drawing.Size(316, 6)
         '
         'mnSave
         '
         Me.mnSave.Image = Global.iBMSC.My.Resources.Resources.x16Save
         Me.mnSave.Name = "mnSave"
         Me.mnSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.mnSave.Size = New System.Drawing.Size(240, 22)
+        Me.mnSave.Size = New System.Drawing.Size(319, 26)
         Me.mnSave.Text = "&Save"
         '
         'mnSaveAs
@@ -702,7 +706,7 @@ Partial Class MainWindow
         Me.mnSaveAs.Name = "mnSaveAs"
         Me.mnSaveAs.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.mnSaveAs.Size = New System.Drawing.Size(240, 22)
+        Me.mnSaveAs.Size = New System.Drawing.Size(319, 26)
         Me.mnSaveAs.Text = "Save &As..."
         '
         'mnExport
@@ -711,7 +715,7 @@ Partial Class MainWindow
         Me.mnExport.Name = "mnExport"
         Me.mnExport.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.mnExport.Size = New System.Drawing.Size(240, 22)
+        Me.mnExport.Size = New System.Drawing.Size(319, 26)
         Me.mnExport.Text = "&Export .IBMSC file"
         '
         'mnClose
@@ -719,20 +723,20 @@ Partial Class MainWindow
         Me.mnClose.Image = Global.iBMSC.My.Resources.Resources.x16MeasureRemove
         Me.mnClose.Name = "mnClose"
         Me.mnClose.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.mnClose.Size = New System.Drawing.Size(240, 22)
+        Me.mnClose.Size = New System.Drawing.Size(319, 26)
         Me.mnClose.Text = "&Close"
         '
         'ToolStripSeparator15
         '
         Me.ToolStripSeparator15.Name = "ToolStripSeparator15"
-        Me.ToolStripSeparator15.Size = New System.Drawing.Size(237, 6)
+        Me.ToolStripSeparator15.Size = New System.Drawing.Size(316, 6)
         '
         'mnOpenR0
         '
         Me.mnOpenR0.Enabled = False
         Me.mnOpenR0.Name = "mnOpenR0"
         Me.mnOpenR0.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D1), System.Windows.Forms.Keys)
-        Me.mnOpenR0.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenR0.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenR0.Tag = "0"
         Me.mnOpenR0.Text = "Recent #&1"
         '
@@ -741,7 +745,7 @@ Partial Class MainWindow
         Me.mnOpenR1.Enabled = False
         Me.mnOpenR1.Name = "mnOpenR1"
         Me.mnOpenR1.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D2), System.Windows.Forms.Keys)
-        Me.mnOpenR1.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenR1.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenR1.Tag = "1"
         Me.mnOpenR1.Text = "Recent #&2"
         '
@@ -750,7 +754,7 @@ Partial Class MainWindow
         Me.mnOpenR2.Enabled = False
         Me.mnOpenR2.Name = "mnOpenR2"
         Me.mnOpenR2.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D3), System.Windows.Forms.Keys)
-        Me.mnOpenR2.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenR2.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenR2.Tag = "2"
         Me.mnOpenR2.Text = "Recent #&3"
         '
@@ -759,7 +763,7 @@ Partial Class MainWindow
         Me.mnOpenR3.Enabled = False
         Me.mnOpenR3.Name = "mnOpenR3"
         Me.mnOpenR3.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D4), System.Windows.Forms.Keys)
-        Me.mnOpenR3.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenR3.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenR3.Tag = "3"
         Me.mnOpenR3.Text = "Recent #&4"
         '
@@ -768,26 +772,26 @@ Partial Class MainWindow
         Me.mnOpenR4.Enabled = False
         Me.mnOpenR4.Name = "mnOpenR4"
         Me.mnOpenR4.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D5), System.Windows.Forms.Keys)
-        Me.mnOpenR4.Size = New System.Drawing.Size(240, 22)
+        Me.mnOpenR4.Size = New System.Drawing.Size(319, 26)
         Me.mnOpenR4.Tag = "4"
         Me.mnOpenR4.Text = "Recent #&5"
         '
         'ToolStripSeparator16
         '
         Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(237, 6)
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(316, 6)
         '
         'mnQuit
         '
         Me.mnQuit.Name = "mnQuit"
-        Me.mnQuit.Size = New System.Drawing.Size(240, 22)
+        Me.mnQuit.Size = New System.Drawing.Size(319, 26)
         Me.mnQuit.Text = "&Quit"
         '
         'mnEdit
         '
         Me.mnEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnUndo, Me.mnRedo, Me.ToolStripSeparator17, Me.mnCut, Me.mnCopy, Me.mnPaste, Me.mnPastePattern, Me.mnDelete, Me.mnSelectAll, Me.mnGotoMeasure, Me.ToolStripSeparator18, Me.mnFind, Me.mnStatistics, Me.mnStatisticsAdvanced, Me.ToolStripSeparator19, Me.mnTimeSelect, Me.mnSelect, Me.mnWrite})
         Me.mnEdit.Name = "mnEdit"
-        Me.mnEdit.Size = New System.Drawing.Size(39, 19)
+        Me.mnEdit.Size = New System.Drawing.Size(51, 24)
         Me.mnEdit.Text = "&Edit"
         '
         'mnUndo
@@ -796,7 +800,7 @@ Partial Class MainWindow
         Me.mnUndo.Image = Global.iBMSC.My.Resources.Resources.x16Undo
         Me.mnUndo.Name = "mnUndo"
         Me.mnUndo.ShortcutKeyDisplayString = "Ctrl+Z"
-        Me.mnUndo.Size = New System.Drawing.Size(256, 22)
+        Me.mnUndo.Size = New System.Drawing.Size(343, 26)
         Me.mnUndo.Text = "&Undo"
         '
         'mnRedo
@@ -805,20 +809,20 @@ Partial Class MainWindow
         Me.mnRedo.Image = Global.iBMSC.My.Resources.Resources.x16Redo
         Me.mnRedo.Name = "mnRedo"
         Me.mnRedo.ShortcutKeyDisplayString = "Ctrl+Y"
-        Me.mnRedo.Size = New System.Drawing.Size(256, 22)
+        Me.mnRedo.Size = New System.Drawing.Size(343, 26)
         Me.mnRedo.Text = "&Redo"
         '
         'ToolStripSeparator17
         '
         Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
-        Me.ToolStripSeparator17.Size = New System.Drawing.Size(253, 6)
+        Me.ToolStripSeparator17.Size = New System.Drawing.Size(340, 6)
         '
         'mnCut
         '
         Me.mnCut.Image = Global.iBMSC.My.Resources.Resources.x16Cut
         Me.mnCut.Name = "mnCut"
         Me.mnCut.ShortcutKeyDisplayString = "Ctrl+X"
-        Me.mnCut.Size = New System.Drawing.Size(256, 22)
+        Me.mnCut.Size = New System.Drawing.Size(343, 26)
         Me.mnCut.Text = "Cu&t"
         '
         'mnCopy
@@ -826,7 +830,7 @@ Partial Class MainWindow
         Me.mnCopy.Image = Global.iBMSC.My.Resources.Resources.x16Copy
         Me.mnCopy.Name = "mnCopy"
         Me.mnCopy.ShortcutKeyDisplayString = "Ctrl+C"
-        Me.mnCopy.Size = New System.Drawing.Size(256, 22)
+        Me.mnCopy.Size = New System.Drawing.Size(343, 26)
         Me.mnCopy.Text = "&Copy"
         '
         'mnPaste
@@ -834,7 +838,7 @@ Partial Class MainWindow
         Me.mnPaste.Image = Global.iBMSC.My.Resources.Resources.x16Paste
         Me.mnPaste.Name = "mnPaste"
         Me.mnPaste.ShortcutKeyDisplayString = "Ctrl+V"
-        Me.mnPaste.Size = New System.Drawing.Size(256, 22)
+        Me.mnPaste.Size = New System.Drawing.Size(343, 26)
         Me.mnPaste.Text = "&Paste"
         '
         'mnPastePattern
@@ -842,7 +846,7 @@ Partial Class MainWindow
         Me.mnPastePattern.Image = Global.iBMSC.My.Resources.Resources.x16PastePattern
         Me.mnPastePattern.Name = "mnPastePattern"
         Me.mnPastePattern.ShortcutKeyDisplayString = "Ctrl+Shift+V"
-        Me.mnPastePattern.Size = New System.Drawing.Size(256, 22)
+        Me.mnPastePattern.Size = New System.Drawing.Size(343, 26)
         Me.mnPastePattern.Text = "Paste Patter&n"
         '
         'mnDelete
@@ -850,34 +854,34 @@ Partial Class MainWindow
         Me.mnDelete.Image = Global.iBMSC.My.Resources.Resources.x16Remove
         Me.mnDelete.Name = "mnDelete"
         Me.mnDelete.ShortcutKeyDisplayString = "Del"
-        Me.mnDelete.Size = New System.Drawing.Size(256, 22)
+        Me.mnDelete.Size = New System.Drawing.Size(343, 26)
         Me.mnDelete.Text = "De&lete"
         '
         'mnSelectAll
         '
         Me.mnSelectAll.Name = "mnSelectAll"
         Me.mnSelectAll.ShortcutKeyDisplayString = "Ctrl+A"
-        Me.mnSelectAll.Size = New System.Drawing.Size(256, 22)
+        Me.mnSelectAll.Size = New System.Drawing.Size(343, 26)
         Me.mnSelectAll.Text = "Select &All"
         '
         'mnGotoMeasure
         '
         Me.mnGotoMeasure.Name = "mnGotoMeasure"
         Me.mnGotoMeasure.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.mnGotoMeasure.Size = New System.Drawing.Size(256, 22)
+        Me.mnGotoMeasure.Size = New System.Drawing.Size(343, 26)
         Me.mnGotoMeasure.Text = "&Go To Measure"
         '
         'ToolStripSeparator18
         '
         Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
-        Me.ToolStripSeparator18.Size = New System.Drawing.Size(253, 6)
+        Me.ToolStripSeparator18.Size = New System.Drawing.Size(340, 6)
         '
         'mnFind
         '
         Me.mnFind.Image = Global.iBMSC.My.Resources.Resources.x16Find
         Me.mnFind.Name = "mnFind"
         Me.mnFind.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.mnFind.Size = New System.Drawing.Size(256, 22)
+        Me.mnFind.Size = New System.Drawing.Size(343, 26)
         Me.mnFind.Text = "&Find / Delete / Replace"
         '
         'mnStatistics
@@ -885,7 +889,7 @@ Partial Class MainWindow
         Me.mnStatistics.Image = Global.iBMSC.My.Resources.Resources.x16Statistics
         Me.mnStatistics.Name = "mnStatistics"
         Me.mnStatistics.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.mnStatistics.Size = New System.Drawing.Size(256, 22)
+        Me.mnStatistics.Size = New System.Drawing.Size(343, 26)
         Me.mnStatistics.Text = "St&atistics"
         '
         'mnStatisticsAdvanced
@@ -894,13 +898,13 @@ Partial Class MainWindow
         Me.mnStatisticsAdvanced.Name = "mnStatisticsAdvanced"
         Me.mnStatisticsAdvanced.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.mnStatisticsAdvanced.Size = New System.Drawing.Size(256, 22)
+        Me.mnStatisticsAdvanced.Size = New System.Drawing.Size(343, 26)
         Me.mnStatisticsAdvanced.Text = "Statistics (Ad&vanced)"
         '
         'ToolStripSeparator19
         '
         Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
-        Me.ToolStripSeparator19.Size = New System.Drawing.Size(253, 6)
+        Me.ToolStripSeparator19.Size = New System.Drawing.Size(340, 6)
         '
         'mnTimeSelect
         '
@@ -908,7 +912,7 @@ Partial Class MainWindow
         Me.mnTimeSelect.Image = Global.iBMSC.My.Resources.Resources.x16TimeSelection
         Me.mnTimeSelect.Name = "mnTimeSelect"
         Me.mnTimeSelect.ShortcutKeys = System.Windows.Forms.Keys.F1
-        Me.mnTimeSelect.Size = New System.Drawing.Size(256, 22)
+        Me.mnTimeSelect.Size = New System.Drawing.Size(343, 26)
         Me.mnTimeSelect.Text = "T&ime Selection Tool"
         '
         'mnSelect
@@ -919,7 +923,7 @@ Partial Class MainWindow
         Me.mnSelect.Image = Global.iBMSC.My.Resources.Resources.x16Select
         Me.mnSelect.Name = "mnSelect"
         Me.mnSelect.ShortcutKeys = System.Windows.Forms.Keys.F2
-        Me.mnSelect.Size = New System.Drawing.Size(256, 22)
+        Me.mnSelect.Size = New System.Drawing.Size(343, 26)
         Me.mnSelect.Text = "&Select Tool"
         '
         'mnWrite
@@ -928,14 +932,14 @@ Partial Class MainWindow
         Me.mnWrite.Image = Global.iBMSC.My.Resources.Resources.x16Pen
         Me.mnWrite.Name = "mnWrite"
         Me.mnWrite.ShortcutKeys = System.Windows.Forms.Keys.F3
-        Me.mnWrite.Size = New System.Drawing.Size(256, 22)
+        Me.mnWrite.Size = New System.Drawing.Size(343, 26)
         Me.mnWrite.Text = "&Write Tool"
         '
         'mnSys
         '
         Me.mnSys.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnSMenu, Me.mnSTB, Me.mnSOP, Me.mnSStatus, Me.mnSLSplitter, Me.mnSRSplitter, Me.ToolStripSeparator21, Me.CGShow, Me.CGShowS, Me.CGShowBG, Me.CGShowM, Me.CGShowMB, Me.CGShowV, Me.CGShowC, Me.ToolStripSeparator22, Me.CGBPM, Me.CGSTOP, Me.CGSCROLL, Me.CGBLP})
         Me.mnSys.Name = "mnSys"
-        Me.mnSys.Size = New System.Drawing.Size(44, 19)
+        Me.mnSys.Size = New System.Drawing.Size(58, 24)
         Me.mnSys.Text = "&View"
         '
         'mnSMenu
@@ -944,7 +948,7 @@ Partial Class MainWindow
         Me.mnSMenu.CheckOnClick = True
         Me.mnSMenu.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnSMenu.Name = "mnSMenu"
-        Me.mnSMenu.Size = New System.Drawing.Size(210, 22)
+        Me.mnSMenu.Size = New System.Drawing.Size(277, 26)
         Me.mnSMenu.Text = "&Main Menu"
         Me.mnSMenu.Visible = False
         '
@@ -954,7 +958,7 @@ Partial Class MainWindow
         Me.mnSTB.CheckOnClick = True
         Me.mnSTB.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnSTB.Name = "mnSTB"
-        Me.mnSTB.Size = New System.Drawing.Size(210, 22)
+        Me.mnSTB.Size = New System.Drawing.Size(277, 26)
         Me.mnSTB.Text = "&ToolBar"
         '
         'mnSOP
@@ -963,7 +967,7 @@ Partial Class MainWindow
         Me.mnSOP.CheckOnClick = True
         Me.mnSOP.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnSOP.Name = "mnSOP"
-        Me.mnSOP.Size = New System.Drawing.Size(210, 22)
+        Me.mnSOP.Size = New System.Drawing.Size(277, 26)
         Me.mnSOP.Text = "&Options Panel"
         '
         'mnSStatus
@@ -972,7 +976,7 @@ Partial Class MainWindow
         Me.mnSStatus.CheckOnClick = True
         Me.mnSStatus.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnSStatus.Name = "mnSStatus"
-        Me.mnSStatus.Size = New System.Drawing.Size(210, 22)
+        Me.mnSStatus.Size = New System.Drawing.Size(277, 26)
         Me.mnSStatus.Text = "&Status Bar"
         '
         'mnSLSplitter
@@ -980,7 +984,7 @@ Partial Class MainWindow
         Me.mnSLSplitter.CheckOnClick = True
         Me.mnSLSplitter.Name = "mnSLSplitter"
         Me.mnSLSplitter.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Left), System.Windows.Forms.Keys)
-        Me.mnSLSplitter.Size = New System.Drawing.Size(210, 22)
+        Me.mnSLSplitter.Size = New System.Drawing.Size(277, 26)
         Me.mnSLSplitter.Text = "&Left Splitter"
         '
         'mnSRSplitter
@@ -988,13 +992,13 @@ Partial Class MainWindow
         Me.mnSRSplitter.CheckOnClick = True
         Me.mnSRSplitter.Name = "mnSRSplitter"
         Me.mnSRSplitter.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Right), System.Windows.Forms.Keys)
-        Me.mnSRSplitter.Size = New System.Drawing.Size(210, 22)
+        Me.mnSRSplitter.Size = New System.Drawing.Size(277, 26)
         Me.mnSRSplitter.Text = "&Right Splitter"
         '
         'ToolStripSeparator21
         '
         Me.ToolStripSeparator21.Name = "ToolStripSeparator21"
-        Me.ToolStripSeparator21.Size = New System.Drawing.Size(207, 6)
+        Me.ToolStripSeparator21.Size = New System.Drawing.Size(274, 6)
         '
         'CGShow
         '
@@ -1002,7 +1006,7 @@ Partial Class MainWindow
         Me.CGShow.CheckOnClick = True
         Me.CGShow.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShow.Name = "CGShow"
-        Me.CGShow.Size = New System.Drawing.Size(210, 22)
+        Me.CGShow.Size = New System.Drawing.Size(277, 26)
         Me.CGShow.Text = "Grid"
         '
         'CGShowS
@@ -1011,7 +1015,7 @@ Partial Class MainWindow
         Me.CGShowS.CheckOnClick = True
         Me.CGShowS.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowS.Name = "CGShowS"
-        Me.CGShowS.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowS.Size = New System.Drawing.Size(277, 26)
         Me.CGShowS.Text = "Sub"
         '
         'CGShowBG
@@ -1020,7 +1024,7 @@ Partial Class MainWindow
         Me.CGShowBG.CheckOnClick = True
         Me.CGShowBG.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowBG.Name = "CGShowBG"
-        Me.CGShowBG.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowBG.Size = New System.Drawing.Size(277, 26)
         Me.CGShowBG.Text = "BackGround"
         '
         'CGShowM
@@ -1029,7 +1033,7 @@ Partial Class MainWindow
         Me.CGShowM.CheckOnClick = True
         Me.CGShowM.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowM.Name = "CGShowM"
-        Me.CGShowM.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowM.Size = New System.Drawing.Size(277, 26)
         Me.CGShowM.Text = "Measure Index"
         '
         'CGShowMB
@@ -1038,7 +1042,7 @@ Partial Class MainWindow
         Me.CGShowMB.CheckOnClick = True
         Me.CGShowMB.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowMB.Name = "CGShowMB"
-        Me.CGShowMB.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowMB.Size = New System.Drawing.Size(277, 26)
         Me.CGShowMB.Text = "Measure Line"
         '
         'CGShowV
@@ -1047,7 +1051,7 @@ Partial Class MainWindow
         Me.CGShowV.CheckOnClick = True
         Me.CGShowV.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowV.Name = "CGShowV"
-        Me.CGShowV.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowV.Size = New System.Drawing.Size(277, 26)
         Me.CGShowV.Text = "Vertical Line"
         '
         'CGShowC
@@ -1056,13 +1060,13 @@ Partial Class MainWindow
         Me.CGShowC.CheckOnClick = True
         Me.CGShowC.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGShowC.Name = "CGShowC"
-        Me.CGShowC.Size = New System.Drawing.Size(210, 22)
+        Me.CGShowC.Size = New System.Drawing.Size(277, 26)
         Me.CGShowC.Text = "Column Caption"
         '
         'ToolStripSeparator22
         '
         Me.ToolStripSeparator22.Name = "ToolStripSeparator22"
-        Me.ToolStripSeparator22.Size = New System.Drawing.Size(207, 6)
+        Me.ToolStripSeparator22.Size = New System.Drawing.Size(274, 6)
         '
         'CGBPM
         '
@@ -1071,7 +1075,7 @@ Partial Class MainWindow
         Me.CGBPM.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGBPM.Name = "CGBPM"
         Me.CGBPM.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.CGBPM.Size = New System.Drawing.Size(210, 22)
+        Me.CGBPM.Size = New System.Drawing.Size(277, 26)
         Me.CGBPM.Text = "BPM"
         '
         'CGSTOP
@@ -1081,7 +1085,7 @@ Partial Class MainWindow
         Me.CGSTOP.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGSTOP.Name = "CGSTOP"
         Me.CGSTOP.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.CGSTOP.Size = New System.Drawing.Size(210, 22)
+        Me.CGSTOP.Size = New System.Drawing.Size(277, 26)
         Me.CGSTOP.Text = "STOP"
         '
         'CGSCROLL
@@ -1091,7 +1095,7 @@ Partial Class MainWindow
         Me.CGSCROLL.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGSCROLL.Name = "CGSCROLL"
         Me.CGSCROLL.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.CGSCROLL.Size = New System.Drawing.Size(210, 22)
+        Me.CGSCROLL.Size = New System.Drawing.Size(277, 26)
         Me.CGSCROLL.Text = "SCROLL"
         '
         'CGBLP
@@ -1101,14 +1105,14 @@ Partial Class MainWindow
         Me.CGBLP.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CGBLP.Name = "CGBLP"
         Me.CGBLP.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.CGBLP.Size = New System.Drawing.Size(210, 22)
+        Me.CGBLP.Size = New System.Drawing.Size(277, 26)
         Me.CGBLP.Text = "BGA / Layer / Poor"
         '
         'mnOptions
         '
         Me.mnOptions.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnNTInput, Me.mnErrorCheck, Me.mnPreviewOnClick, Me.mnShowFileName, Me.mnShowWaveform, Me.ToolStripSeparator20, Me.mnPOptions, Me.mnGOptions, Me.mnKOptions, Me.mnVOptions, Me.mnVCOptions, Me.mnLanguage, Me.mnTheme})
         Me.mnOptions.Name = "mnOptions"
-        Me.mnOptions.Size = New System.Drawing.Size(61, 19)
+        Me.mnOptions.Size = New System.Drawing.Size(81, 24)
         Me.mnOptions.Text = "&Options"
         '
         'mnNTInput
@@ -1119,7 +1123,7 @@ Partial Class MainWindow
         Me.mnNTInput.Image = Global.iBMSC.My.Resources.Resources.x16NTInput
         Me.mnNTInput.Name = "mnNTInput"
         Me.mnNTInput.ShortcutKeys = System.Windows.Forms.Keys.F8
-        Me.mnNTInput.Size = New System.Drawing.Size(253, 22)
+        Me.mnNTInput.Size = New System.Drawing.Size(341, 26)
         Me.mnNTInput.Text = "L&N Input Style - NT/BMSE"
         '
         'mnErrorCheck
@@ -1129,7 +1133,7 @@ Partial Class MainWindow
         Me.mnErrorCheck.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnErrorCheck.Image = Global.iBMSC.My.Resources.Resources.x16CheckError
         Me.mnErrorCheck.Name = "mnErrorCheck"
-        Me.mnErrorCheck.Size = New System.Drawing.Size(253, 22)
+        Me.mnErrorCheck.Size = New System.Drawing.Size(341, 26)
         Me.mnErrorCheck.Text = "&Error Check"
         '
         'mnPreviewOnClick
@@ -1139,7 +1143,7 @@ Partial Class MainWindow
         Me.mnPreviewOnClick.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnPreviewOnClick.Image = Global.iBMSC.My.Resources.Resources.x16PreviewOnClick
         Me.mnPreviewOnClick.Name = "mnPreviewOnClick"
-        Me.mnPreviewOnClick.Size = New System.Drawing.Size(253, 22)
+        Me.mnPreviewOnClick.Size = New System.Drawing.Size(341, 26)
         Me.mnPreviewOnClick.Text = "Preview on &Click"
         '
         'mnShowFileName
@@ -1147,7 +1151,7 @@ Partial Class MainWindow
         Me.mnShowFileName.CheckOnClick = True
         Me.mnShowFileName.Image = Global.iBMSC.My.Resources.Resources.x16ShowFileNameN
         Me.mnShowFileName.Name = "mnShowFileName"
-        Me.mnShowFileName.Size = New System.Drawing.Size(253, 22)
+        Me.mnShowFileName.Size = New System.Drawing.Size(341, 26)
         Me.mnShowFileName.Text = "Show &File Name on Notes"
         '
         'mnShowWaveform
@@ -1155,20 +1159,20 @@ Partial Class MainWindow
         Me.mnShowWaveform.CheckOnClick = True
         Me.mnShowWaveform.Image = Global.iBMSC.My.Resources.Resources.x16ShowWaveform
         Me.mnShowWaveform.Name = "mnShowWaveform"
-        Me.mnShowWaveform.Size = New System.Drawing.Size(253, 22)
+        Me.mnShowWaveform.Size = New System.Drawing.Size(341, 26)
         Me.mnShowWaveform.Text = "Show &Waveform on Notes"
         '
         'ToolStripSeparator20
         '
         Me.ToolStripSeparator20.Name = "ToolStripSeparator20"
-        Me.ToolStripSeparator20.Size = New System.Drawing.Size(250, 6)
+        Me.ToolStripSeparator20.Size = New System.Drawing.Size(338, 6)
         '
         'mnPOptions
         '
         Me.mnPOptions.Image = Global.iBMSC.My.Resources.Resources.x16PlayerOptions
         Me.mnPOptions.Name = "mnPOptions"
         Me.mnPOptions.ShortcutKeys = System.Windows.Forms.Keys.F9
-        Me.mnPOptions.Size = New System.Drawing.Size(253, 22)
+        Me.mnPOptions.Size = New System.Drawing.Size(341, 26)
         Me.mnPOptions.Text = "&Player Options"
         '
         'mnGOptions
@@ -1176,7 +1180,7 @@ Partial Class MainWindow
         Me.mnGOptions.Image = Global.iBMSC.My.Resources.Resources.x16GeneralOptions
         Me.mnGOptions.Name = "mnGOptions"
         Me.mnGOptions.ShortcutKeys = System.Windows.Forms.Keys.F10
-        Me.mnGOptions.Size = New System.Drawing.Size(253, 22)
+        Me.mnGOptions.Size = New System.Drawing.Size(341, 26)
         Me.mnGOptions.Text = "&General Options"
         '
         'mnKOptions
@@ -1184,7 +1188,7 @@ Partial Class MainWindow
         Me.mnKOptions.Image = Global.iBMSC.My.Resources.Resources.x16Key
         Me.mnKOptions.Name = "mnKOptions"
         Me.mnKOptions.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F10), System.Windows.Forms.Keys)
-        Me.mnKOptions.Size = New System.Drawing.Size(253, 22)
+        Me.mnKOptions.Size = New System.Drawing.Size(341, 26)
         Me.mnKOptions.Text = "&Keybinding Options"
         '
         'mnVOptions
@@ -1192,7 +1196,7 @@ Partial Class MainWindow
         Me.mnVOptions.Image = Global.iBMSC.My.Resources.Resources.x16VisualOptions
         Me.mnVOptions.Name = "mnVOptions"
         Me.mnVOptions.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.mnVOptions.Size = New System.Drawing.Size(253, 22)
+        Me.mnVOptions.Size = New System.Drawing.Size(341, 26)
         Me.mnVOptions.Text = "&Visual Options"
         '
         'mnVCOptions
@@ -1200,28 +1204,29 @@ Partial Class MainWindow
         Me.mnVCOptions.Image = Global.iBMSC.My.Resources.Resources.x16Color
         Me.mnVCOptions.Name = "mnVCOptions"
         Me.mnVCOptions.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F12), System.Windows.Forms.Keys)
-        Me.mnVCOptions.Size = New System.Drawing.Size(253, 22)
+        Me.mnVCOptions.Size = New System.Drawing.Size(341, 26)
         Me.mnVCOptions.Text = "C&olor Override Options"
         '
         'mnConversion
         '
         Me.mnConversion.DropDown = Me.cmnConversion
         Me.mnConversion.Name = "mnConversion"
-        Me.mnConversion.Size = New System.Drawing.Size(84, 19)
+        Me.mnConversion.Size = New System.Drawing.Size(112, 24)
         Me.mnConversion.Text = "&Conversions"
         '
         'cmnConversion
         '
+        Me.cmnConversion.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cmnConversion.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POBLong, Me.POBShort, Me.POBLongShort, Me.POBLongObjNT, Me.POBLongNTObj, Me.ToolStripSeparator25, Me.POBAutoLongVPosition, Me.POBAutoLongColumn, Me.ToolStripSeparator10, Me.POBHidden, Me.POBVisible, Me.POBHiddenVisible, Me.ToolStripSeparator11, Me.POBModify, Me.POBMirror, Me.POBFlip, Me.POBRandom, Me.POBRRandom, Me.POBSRandom, Me.POBHRandom, Me.POBSort})
         Me.cmnConversion.Name = "cmnLanguage"
-        Me.cmnConversion.OwnerItem = Me.mnConversion
-        Me.cmnConversion.Size = New System.Drawing.Size(237, 418)
+        Me.cmnConversion.OwnerItem = Me.POConvert
+        Me.cmnConversion.Size = New System.Drawing.Size(305, 490)
         '
         'POBLong
         '
         Me.POBLong.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesL
         Me.POBLong.Name = "POBLong"
-        Me.POBLong.Size = New System.Drawing.Size(236, 22)
+        Me.POBLong.Size = New System.Drawing.Size(304, 26)
         Me.POBLong.Text = "→ &Long Note"
         Me.POBLong.Visible = False
         '
@@ -1229,14 +1234,14 @@ Partial Class MainWindow
         '
         Me.POBShort.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesN
         Me.POBShort.Name = "POBShort"
-        Me.POBShort.Size = New System.Drawing.Size(236, 22)
+        Me.POBShort.Size = New System.Drawing.Size(304, 26)
         Me.POBShort.Text = "→ &Short Note"
         '
         'POBLongShort
         '
         Me.POBLongShort.Image = Global.iBMSC.My.Resources.Resources.ConvertNotes
         Me.POBLongShort.Name = "POBLongShort"
-        Me.POBLongShort.Size = New System.Drawing.Size(236, 22)
+        Me.POBLongShort.Size = New System.Drawing.Size(304, 26)
         Me.POBLongShort.Text = "Long Note ↔ Short Note"
         Me.POBLongShort.Visible = False
         '
@@ -1244,122 +1249,186 @@ Partial Class MainWindow
         '
         Me.POBLongObjNT.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesL
         Me.POBLongObjNT.Name = "POBLongObjNT"
-        Me.POBLongObjNT.Size = New System.Drawing.Size(236, 22)
+        Me.POBLongObjNT.Size = New System.Drawing.Size(304, 26)
         Me.POBLongObjNT.Text = "L&NObj → NT Long Note"
         '
         'POBLongNTObj
         '
         Me.POBLongNTObj.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesL
         Me.POBLongNTObj.Name = "POBLongNTObj"
-        Me.POBLongNTObj.Size = New System.Drawing.Size(236, 22)
+        Me.POBLongNTObj.Size = New System.Drawing.Size(304, 26)
         Me.POBLongNTObj.Text = "&NT Long Note → LNObj"
         '
         'ToolStripSeparator25
         '
         Me.ToolStripSeparator25.Name = "ToolStripSeparator25"
-        Me.ToolStripSeparator25.Size = New System.Drawing.Size(233, 6)
+        Me.ToolStripSeparator25.Size = New System.Drawing.Size(301, 6)
         '
         'POBAutoLongVPosition
         '
         Me.POBAutoLongVPosition.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesL
         Me.POBAutoLongVPosition.Name = "POBAutoLongVPosition"
-        Me.POBAutoLongVPosition.Size = New System.Drawing.Size(236, 22)
+        Me.POBAutoLongVPosition.Size = New System.Drawing.Size(304, 26)
         Me.POBAutoLongVPosition.Text = "&Auto Long Note (By VPosition)"
         '
         'POBAutoLongColumn
         '
         Me.POBAutoLongColumn.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesL
         Me.POBAutoLongColumn.Name = "POBAutoLongColumn"
-        Me.POBAutoLongColumn.Size = New System.Drawing.Size(236, 22)
+        Me.POBAutoLongColumn.Size = New System.Drawing.Size(304, 26)
         Me.POBAutoLongColumn.Text = "&Auto Long Note (By Column)"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(233, 6)
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(301, 6)
         '
         'POBHidden
         '
         Me.POBHidden.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesH
         Me.POBHidden.Name = "POBHidden"
-        Me.POBHidden.Size = New System.Drawing.Size(236, 22)
+        Me.POBHidden.Size = New System.Drawing.Size(304, 26)
         Me.POBHidden.Text = "→ &Hidden Note"
         '
         'POBVisible
         '
         Me.POBVisible.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesV
         Me.POBVisible.Name = "POBVisible"
-        Me.POBVisible.Size = New System.Drawing.Size(236, 22)
+        Me.POBVisible.Size = New System.Drawing.Size(304, 26)
         Me.POBVisible.Text = "→ &Visible Note"
         '
         'POBHiddenVisible
         '
         Me.POBHiddenVisible.Image = Global.iBMSC.My.Resources.Resources.ConvertNotesHV
         Me.POBHiddenVisible.Name = "POBHiddenVisible"
-        Me.POBHiddenVisible.Size = New System.Drawing.Size(236, 22)
+        Me.POBHiddenVisible.Size = New System.Drawing.Size(304, 26)
         Me.POBHiddenVisible.Text = "Hidden Note ↔ Visible Note"
         '
         'ToolStripSeparator11
         '
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(233, 6)
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(301, 6)
         '
         'POBModify
         '
         Me.POBModify.Image = Global.iBMSC.My.Resources.Resources.x16ModifyLabel
         Me.POBModify.Name = "POBModify"
         Me.POBModify.ShortcutKeys = CType((System.Windows.Forms.Keys.Shift Or System.Windows.Forms.Keys.F2), System.Windows.Forms.Keys)
-        Me.POBModify.Size = New System.Drawing.Size(236, 22)
+        Me.POBModify.Size = New System.Drawing.Size(304, 26)
         Me.POBModify.Text = "Modify &Labels"
         '
         'POBMirror
         '
         Me.POBMirror.Image = Global.iBMSC.My.Resources.Resources.x16Mirror
         Me.POBMirror.Name = "POBMirror"
-        Me.POBMirror.Size = New System.Drawing.Size(236, 22)
+        Me.POBMirror.Size = New System.Drawing.Size(304, 26)
         Me.POBMirror.Text = "&Mirror"
         '
         'POBFlip
         '
         Me.POBFlip.Image = Global.iBMSC.My.Resources.Resources.x16Flip
         Me.POBFlip.Name = "POBFlip"
-        Me.POBFlip.Size = New System.Drawing.Size(236, 22)
+        Me.POBFlip.Size = New System.Drawing.Size(304, 26)
         Me.POBFlip.Text = "&Flip"
         '
         'POBRandom
         '
         Me.POBRandom.Image = Global.iBMSC.My.Resources.Resources.x16Random
         Me.POBRandom.Name = "POBRandom"
-        Me.POBRandom.Size = New System.Drawing.Size(236, 22)
+        Me.POBRandom.Size = New System.Drawing.Size(304, 26)
         Me.POBRandom.Text = "&Random"
         '
         'POBRRandom
         '
         Me.POBRRandom.Image = Global.iBMSC.My.Resources.Resources.x16RRandom
         Me.POBRRandom.Name = "POBRRandom"
-        Me.POBRRandom.Size = New System.Drawing.Size(236, 22)
+        Me.POBRRandom.Size = New System.Drawing.Size(304, 26)
         Me.POBRRandom.Text = "&R-Random"
         '
         'POBSRandom
         '
         Me.POBSRandom.Image = Global.iBMSC.My.Resources.Resources.x16SRandom
         Me.POBSRandom.Name = "POBSRandom"
-        Me.POBSRandom.Size = New System.Drawing.Size(236, 22)
+        Me.POBSRandom.Size = New System.Drawing.Size(304, 26)
         Me.POBSRandom.Text = "&S-Random"
         '
         'POBHRandom
         '
         Me.POBHRandom.Image = Global.iBMSC.My.Resources.Resources.x16HRandom
         Me.POBHRandom.Name = "POBHRandom"
-        Me.POBHRandom.Size = New System.Drawing.Size(236, 22)
+        Me.POBHRandom.Size = New System.Drawing.Size(304, 26)
         Me.POBHRandom.Text = "&H-Random"
         '
         'POBSort
         '
         Me.POBSort.Image = Global.iBMSC.My.Resources.Resources.lgwidth
         Me.POBSort.Name = "POBSort"
-        Me.POBSort.Size = New System.Drawing.Size(236, 22)
+        Me.POBSort.Size = New System.Drawing.Size(304, 26)
         Me.POBSort.Text = "S&ort"
+        '
+        'mnPreview
+        '
+        Me.mnPreview.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnPlayB, Me.mnPlay, Me.mnStop})
+        Me.mnPreview.Name = "mnPreview"
+        Me.mnPreview.Size = New System.Drawing.Size(80, 24)
+        Me.mnPreview.Text = "&Preview"
+        '
+        'mnPlayB
+        '
+        Me.mnPlayB.Image = Global.iBMSC.My.Resources.Resources.x16PlayB
+        Me.mnPlayB.Name = "mnPlayB"
+        Me.mnPlayB.ShortcutKeys = System.Windows.Forms.Keys.F5
+        Me.mnPlayB.Size = New System.Drawing.Size(264, 26)
+        Me.mnPlayB.Text = "Play from &beginning"
+        '
+        'mnPlay
+        '
+        Me.mnPlay.Image = Global.iBMSC.My.Resources.Resources.x16Play
+        Me.mnPlay.Name = "mnPlay"
+        Me.mnPlay.ShortcutKeys = System.Windows.Forms.Keys.F6
+        Me.mnPlay.Size = New System.Drawing.Size(264, 26)
+        Me.mnPlay.Text = "&Play from here"
+        '
+        'mnStop
+        '
+        Me.mnStop.Image = Global.iBMSC.My.Resources.Resources.x16Stop
+        Me.mnStop.Name = "mnStop"
+        Me.mnStop.ShortcutKeys = System.Windows.Forms.Keys.F7
+        Me.mnStop.Size = New System.Drawing.Size(264, 26)
+        Me.mnStop.Text = "&Stop"
+        '
+        'mnTools
+        '
+        Me.mnTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnTechnicalErrorCheck, Me.mnTOTAL, Me.ToolStripSeparator13, Me.mnMyO2})
+        Me.mnTools.Name = "mnTools"
+        Me.mnTools.Size = New System.Drawing.Size(63, 24)
+        Me.mnTools.Text = "Tools"
+        '
+        'mnTechnicalErrorCheck
+        '
+        Me.mnTechnicalErrorCheck.Image = Global.iBMSC.My.Resources.Resources.x16CheckErrorTechnical
+        Me.mnTechnicalErrorCheck.Name = "mnTechnicalErrorCheck"
+        Me.mnTechnicalErrorCheck.ShortcutKeyDisplayString = "Ctrl+Alt+E"
+        Me.mnTechnicalErrorCheck.Size = New System.Drawing.Size(334, 26)
+        Me.mnTechnicalErrorCheck.Text = "Check Technical &Error"
+        '
+        'mnTOTAL
+        '
+        Me.mnTOTAL.Name = "mnTOTAL"
+        Me.mnTOTAL.Size = New System.Drawing.Size(334, 26)
+        Me.mnTOTAL.Text = "#&TOTAL Tool"
+        '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(331, 6)
+        '
+        'mnMyO2
+        '
+        Me.mnMyO2.Image = Global.iBMSC.My.Resources.Resources.x16MyO2
+        Me.mnMyO2.Name = "mnMyO2"
+        Me.mnMyO2.Size = New System.Drawing.Size(334, 26)
+        Me.mnMyO2.Text = "MyO2 ToolBox (Chinese Only)"
         '
         'POConvert
         '
@@ -1368,72 +1437,8 @@ Partial Class MainWindow
         Me.POConvert.Image = Global.iBMSC.My.Resources.Resources.ConvertNotes
         Me.POConvert.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.POConvert.Name = "POConvert"
-        Me.POConvert.Size = New System.Drawing.Size(29, 22)
+        Me.POConvert.Size = New System.Drawing.Size(34, 24)
         Me.POConvert.Text = "Convert Notes"
-        '
-        'mnPreview
-        '
-        Me.mnPreview.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnPlayB, Me.mnPlay, Me.mnStop})
-        Me.mnPreview.Name = "mnPreview"
-        Me.mnPreview.Size = New System.Drawing.Size(60, 19)
-        Me.mnPreview.Text = "&Preview"
-        '
-        'mnPlayB
-        '
-        Me.mnPlayB.Image = Global.iBMSC.My.Resources.Resources.x16PlayB
-        Me.mnPlayB.Name = "mnPlayB"
-        Me.mnPlayB.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me.mnPlayB.Size = New System.Drawing.Size(201, 22)
-        Me.mnPlayB.Text = "Play from &beginning"
-        '
-        'mnPlay
-        '
-        Me.mnPlay.Image = Global.iBMSC.My.Resources.Resources.x16Play
-        Me.mnPlay.Name = "mnPlay"
-        Me.mnPlay.ShortcutKeys = System.Windows.Forms.Keys.F6
-        Me.mnPlay.Size = New System.Drawing.Size(201, 22)
-        Me.mnPlay.Text = "&Play from here"
-        '
-        'mnStop
-        '
-        Me.mnStop.Image = Global.iBMSC.My.Resources.Resources.x16Stop
-        Me.mnStop.Name = "mnStop"
-        Me.mnStop.ShortcutKeys = System.Windows.Forms.Keys.F7
-        Me.mnStop.Size = New System.Drawing.Size(201, 22)
-        Me.mnStop.Text = "&Stop"
-        '
-        'mnTools
-        '
-        Me.mnTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnTechnicalErrorCheck, Me.mnTOTAL, Me.ToolStripSeparator13, Me.mnMyO2})
-        Me.mnTools.Name = "mnTools"
-        Me.mnTools.Size = New System.Drawing.Size(46, 19)
-        Me.mnTools.Text = "Tools"
-        '
-        'mnTechnicalErrorCheck
-        '
-        Me.mnTechnicalErrorCheck.Image = Global.iBMSC.My.Resources.Resources.x16CheckErrorTechnical
-        Me.mnTechnicalErrorCheck.Name = "mnTechnicalErrorCheck"
-        Me.mnTechnicalErrorCheck.ShortcutKeyDisplayString = "Ctrl+Alt+E"
-        Me.mnTechnicalErrorCheck.Size = New System.Drawing.Size(250, 22)
-        Me.mnTechnicalErrorCheck.Text = "Check Technical &Error"
-        '
-        'mnTOTAL
-        '
-        Me.mnTOTAL.Name = "mnTOTAL"
-        Me.mnTOTAL.Size = New System.Drawing.Size(250, 22)
-        Me.mnTOTAL.Text = "#&TOTAL Tool"
-        '
-        'ToolStripSeparator13
-        '
-        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
-        Me.ToolStripSeparator13.Size = New System.Drawing.Size(247, 6)
-        '
-        'mnMyO2
-        '
-        Me.mnMyO2.Image = Global.iBMSC.My.Resources.Resources.x16MyO2
-        Me.mnMyO2.Name = "mnMyO2"
-        Me.mnMyO2.Size = New System.Drawing.Size(250, 22)
-        Me.mnMyO2.Text = "MyO2 ToolBox (Chinese Only)"
         '
         'TBMain
         '
@@ -1441,10 +1446,11 @@ Partial Class MainWindow
         Me.TBMain.BackColor = System.Drawing.SystemColors.Control
         Me.TBMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TBMain.Dock = System.Windows.Forms.DockStyle.None
+        Me.TBMain.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.TBMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TBNew, Me.TBOpen, Me.TBSave, Me.ToolStripSeparator1, Me.TBCut, Me.TBCopy, Me.TBPaste, Me.TBPastePattern, Me.TBFind, Me.ToolStripSeparator24, Me.TBStatistics, Me.POConvert, Me.TBMyO2, Me.ToolStripSeparator4, Me.TBErrorCheck, Me.TBPreviewOnClick, Me.TBShowFileName, Me.TBShowWaveform, Me.ToolStripSeparator8, Me.TBNTInput, Me.TBWavIncrease, Me.ToolStripSeparator2, Me.TBUndo, Me.TBRedo, Me.ToolStripSeparator5, Me.TBTimeSelect, Me.TBSelect, Me.TBWrite, Me.ToolStripSeparator3, Me.TBPlayB, Me.TBPlay, Me.TBStop, Me.TBPOptions, Me.ToolStripSeparator7, Me.TBGOptions, Me.TBKOptions, Me.TBVOptions, Me.TBLanguage, Me.TBTheme, Me.POBStorm, Me.TBTotalValue})
-        Me.TBMain.Location = New System.Drawing.Point(3, 23)
+        Me.TBMain.Location = New System.Drawing.Point(4, 0)
         Me.TBMain.Name = "TBMain"
-        Me.TBMain.Size = New System.Drawing.Size(962, 25)
+        Me.TBMain.Size = New System.Drawing.Size(1209, 27)
         Me.TBMain.TabIndex = 64
         Me.TBMain.Text = "Main Toolbar"
         '
@@ -1454,7 +1460,7 @@ Partial Class MainWindow
         Me.TBNew.Image = Global.iBMSC.My.Resources.Resources.x16New
         Me.TBNew.ImageTransparentColor = System.Drawing.Color.Transparent
         Me.TBNew.Name = "TBNew"
-        Me.TBNew.Size = New System.Drawing.Size(23, 22)
+        Me.TBNew.Size = New System.Drawing.Size(29, 24)
         Me.TBNew.Text = "New (Ctrl+N)"
         '
         'TBOpen
@@ -1464,14 +1470,14 @@ Partial Class MainWindow
         Me.TBOpen.Image = Global.iBMSC.My.Resources.Resources.x16Open
         Me.TBOpen.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBOpen.Name = "TBOpen"
-        Me.TBOpen.Size = New System.Drawing.Size(32, 22)
+        Me.TBOpen.Size = New System.Drawing.Size(39, 24)
         Me.TBOpen.Text = "Open (Ctrl+O)"
         '
         'TBOpenR0
         '
         Me.TBOpenR0.Enabled = False
         Me.TBOpenR0.Name = "TBOpenR0"
-        Me.TBOpenR0.Size = New System.Drawing.Size(199, 22)
+        Me.TBOpenR0.Size = New System.Drawing.Size(262, 26)
         Me.TBOpenR0.Tag = "0"
         Me.TBOpenR0.Text = "Recent #0"
         '
@@ -1479,7 +1485,7 @@ Partial Class MainWindow
         '
         Me.TBOpenR1.Enabled = False
         Me.TBOpenR1.Name = "TBOpenR1"
-        Me.TBOpenR1.Size = New System.Drawing.Size(199, 22)
+        Me.TBOpenR1.Size = New System.Drawing.Size(262, 26)
         Me.TBOpenR1.Tag = "1"
         Me.TBOpenR1.Text = "Recent #1"
         '
@@ -1487,7 +1493,7 @@ Partial Class MainWindow
         '
         Me.TBOpenR2.Enabled = False
         Me.TBOpenR2.Name = "TBOpenR2"
-        Me.TBOpenR2.Size = New System.Drawing.Size(199, 22)
+        Me.TBOpenR2.Size = New System.Drawing.Size(262, 26)
         Me.TBOpenR2.Tag = "2"
         Me.TBOpenR2.Text = "Recent #2"
         '
@@ -1495,7 +1501,7 @@ Partial Class MainWindow
         '
         Me.TBOpenR3.Enabled = False
         Me.TBOpenR3.Name = "TBOpenR3"
-        Me.TBOpenR3.Size = New System.Drawing.Size(199, 22)
+        Me.TBOpenR3.Size = New System.Drawing.Size(262, 26)
         Me.TBOpenR3.Tag = "3"
         Me.TBOpenR3.Text = "Recent #3"
         '
@@ -1503,27 +1509,27 @@ Partial Class MainWindow
         '
         Me.TBOpenR4.Enabled = False
         Me.TBOpenR4.Name = "TBOpenR4"
-        Me.TBOpenR4.Size = New System.Drawing.Size(199, 22)
+        Me.TBOpenR4.Size = New System.Drawing.Size(262, 26)
         Me.TBOpenR4.Tag = "4"
         Me.TBOpenR4.Text = "Recent #4"
         '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
-        Me.ToolStripSeparator12.Size = New System.Drawing.Size(196, 6)
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(259, 6)
         '
         'TBImportSM
         '
         Me.TBImportSM.Image = Global.iBMSC.My.Resources.Resources.x16Import2
         Me.TBImportSM.Name = "TBImportSM"
-        Me.TBImportSM.Size = New System.Drawing.Size(199, 22)
+        Me.TBImportSM.Size = New System.Drawing.Size(262, 26)
         Me.TBImportSM.Text = "Import from .SM file"
         '
         'TBImportIBMSC
         '
         Me.TBImportIBMSC.Image = Global.iBMSC.My.Resources.Resources.x16Import2
         Me.TBImportIBMSC.Name = "TBImportIBMSC"
-        Me.TBImportIBMSC.Size = New System.Drawing.Size(199, 22)
+        Me.TBImportIBMSC.Size = New System.Drawing.Size(262, 26)
         Me.TBImportIBMSC.Text = "Import from .IBMSC file"
         '
         'TBSave
@@ -1533,27 +1539,27 @@ Partial Class MainWindow
         Me.TBSave.Image = Global.iBMSC.My.Resources.Resources.x16Save
         Me.TBSave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBSave.Name = "TBSave"
-        Me.TBSave.Size = New System.Drawing.Size(32, 22)
+        Me.TBSave.Size = New System.Drawing.Size(39, 24)
         Me.TBSave.Text = "Save (Ctrl+S)"
         '
         'TBSaveAs
         '
         Me.TBSaveAs.Image = Global.iBMSC.My.Resources.Resources.x16SaveAs
         Me.TBSaveAs.Name = "TBSaveAs"
-        Me.TBSaveAs.Size = New System.Drawing.Size(168, 22)
+        Me.TBSaveAs.Size = New System.Drawing.Size(221, 26)
         Me.TBSaveAs.Text = "Save As..."
         '
         'TBExport
         '
         Me.TBExport.Image = Global.iBMSC.My.Resources.Resources.x16Export
         Me.TBExport.Name = "TBExport"
-        Me.TBExport.Size = New System.Drawing.Size(168, 22)
+        Me.TBExport.Size = New System.Drawing.Size(221, 26)
         Me.TBExport.Text = "Export .IBMSC file"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
         '
         'TBCut
         '
@@ -1561,7 +1567,7 @@ Partial Class MainWindow
         Me.TBCut.Image = Global.iBMSC.My.Resources.Resources.x16Cut
         Me.TBCut.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBCut.Name = "TBCut"
-        Me.TBCut.Size = New System.Drawing.Size(23, 22)
+        Me.TBCut.Size = New System.Drawing.Size(29, 24)
         Me.TBCut.Text = "Cut (Ctrl+X)"
         '
         'TBCopy
@@ -1570,7 +1576,7 @@ Partial Class MainWindow
         Me.TBCopy.Image = Global.iBMSC.My.Resources.Resources.x16Copy
         Me.TBCopy.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBCopy.Name = "TBCopy"
-        Me.TBCopy.Size = New System.Drawing.Size(23, 22)
+        Me.TBCopy.Size = New System.Drawing.Size(29, 24)
         Me.TBCopy.Text = "Copy (Ctrl+C)"
         '
         'TBPaste
@@ -1579,7 +1585,7 @@ Partial Class MainWindow
         Me.TBPaste.Image = Global.iBMSC.My.Resources.Resources.x16Paste
         Me.TBPaste.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPaste.Name = "TBPaste"
-        Me.TBPaste.Size = New System.Drawing.Size(23, 22)
+        Me.TBPaste.Size = New System.Drawing.Size(29, 24)
         Me.TBPaste.Text = "Paste (Ctrl+V)"
         '
         'TBPastePattern
@@ -1588,7 +1594,7 @@ Partial Class MainWindow
         Me.TBPastePattern.Image = Global.iBMSC.My.Resources.Resources.x16PastePattern
         Me.TBPastePattern.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPastePattern.Name = "TBPastePattern"
-        Me.TBPastePattern.Size = New System.Drawing.Size(23, 22)
+        Me.TBPastePattern.Size = New System.Drawing.Size(29, 24)
         Me.TBPastePattern.Text = "Paste Pattern (Ctrl+Shift+V)"
         '
         'TBFind
@@ -1597,13 +1603,13 @@ Partial Class MainWindow
         Me.TBFind.Image = Global.iBMSC.My.Resources.Resources.x16Find
         Me.TBFind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBFind.Name = "TBFind"
-        Me.TBFind.Size = New System.Drawing.Size(23, 22)
+        Me.TBFind.Size = New System.Drawing.Size(29, 24)
         Me.TBFind.Text = "Find / Delete / Replace (Ctrl+F)"
         '
         'ToolStripSeparator24
         '
         Me.ToolStripSeparator24.Name = "ToolStripSeparator24"
-        Me.ToolStripSeparator24.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator24.Size = New System.Drawing.Size(6, 27)
         '
         'TBStatistics
         '
@@ -1611,7 +1617,7 @@ Partial Class MainWindow
         Me.TBStatistics.Image = Global.iBMSC.My.Resources.Resources.x16Statistics
         Me.TBStatistics.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBStatistics.Name = "TBStatistics"
-        Me.TBStatistics.Size = New System.Drawing.Size(34, 22)
+        Me.TBStatistics.Size = New System.Drawing.Size(42, 24)
         Me.TBStatistics.Text = "0"
         Me.TBStatistics.ToolTipText = "Statistics (Ctrl+T)"
         '
@@ -1621,13 +1627,13 @@ Partial Class MainWindow
         Me.TBMyO2.Image = Global.iBMSC.My.Resources.Resources.x16MyO2
         Me.TBMyO2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBMyO2.Name = "TBMyO2"
-        Me.TBMyO2.Size = New System.Drawing.Size(23, 22)
+        Me.TBMyO2.Size = New System.Drawing.Size(29, 24)
         Me.TBMyO2.Text = "MyO2 ToolBox (Chinese Only)"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
         '
         'TBErrorCheck
         '
@@ -1638,7 +1644,7 @@ Partial Class MainWindow
         Me.TBErrorCheck.Image = Global.iBMSC.My.Resources.Resources.x16CheckError
         Me.TBErrorCheck.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBErrorCheck.Name = "TBErrorCheck"
-        Me.TBErrorCheck.Size = New System.Drawing.Size(23, 22)
+        Me.TBErrorCheck.Size = New System.Drawing.Size(29, 24)
         Me.TBErrorCheck.Text = "Error Check"
         '
         'TBPreviewOnClick
@@ -1650,7 +1656,7 @@ Partial Class MainWindow
         Me.TBPreviewOnClick.Image = Global.iBMSC.My.Resources.Resources.x16PreviewOnClick
         Me.TBPreviewOnClick.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPreviewOnClick.Name = "TBPreviewOnClick"
-        Me.TBPreviewOnClick.Size = New System.Drawing.Size(23, 22)
+        Me.TBPreviewOnClick.Size = New System.Drawing.Size(29, 24)
         Me.TBPreviewOnClick.Text = "Preview On Click"
         '
         'TBShowFileName
@@ -1660,7 +1666,7 @@ Partial Class MainWindow
         Me.TBShowFileName.Image = Global.iBMSC.My.Resources.Resources.x16ShowFileNameN
         Me.TBShowFileName.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBShowFileName.Name = "TBShowFileName"
-        Me.TBShowFileName.Size = New System.Drawing.Size(23, 22)
+        Me.TBShowFileName.Size = New System.Drawing.Size(29, 24)
         Me.TBShowFileName.Text = "Show File Name on Notes"
         '
         'TBShowWaveform
@@ -1670,14 +1676,14 @@ Partial Class MainWindow
         Me.TBShowWaveform.Image = Global.iBMSC.My.Resources.Resources.x16ShowWaveform
         Me.TBShowWaveform.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBShowWaveform.Name = "TBShowWaveform"
-        Me.TBShowWaveform.Size = New System.Drawing.Size(23, 22)
+        Me.TBShowWaveform.Size = New System.Drawing.Size(29, 24)
         Me.TBShowWaveform.Text = "Show Waveform on Notes"
         Me.TBShowWaveform.ToolTipText = "Show Waveform on Notes"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 27)
         '
         'TBNTInput
         '
@@ -1688,7 +1694,7 @@ Partial Class MainWindow
         Me.TBNTInput.Image = Global.iBMSC.My.Resources.Resources.x16NTInput
         Me.TBNTInput.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBNTInput.Name = "TBNTInput"
-        Me.TBNTInput.Size = New System.Drawing.Size(23, 22)
+        Me.TBNTInput.Size = New System.Drawing.Size(29, 24)
         Me.TBNTInput.Text = "LongNote Input Style - NoteTool/BMSE"
         '
         'TBWavIncrease
@@ -1697,13 +1703,13 @@ Partial Class MainWindow
         Me.TBWavIncrease.Image = CType(resources.GetObject("TBWavIncrease.Image"), System.Drawing.Image)
         Me.TBWavIncrease.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBWavIncrease.Name = "TBWavIncrease"
-        Me.TBWavIncrease.Size = New System.Drawing.Size(23, 22)
+        Me.TBWavIncrease.Size = New System.Drawing.Size(29, 24)
         Me.TBWavIncrease.Text = "Autoincrease WAV when writing"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 27)
         '
         'TBUndo
         '
@@ -1712,7 +1718,7 @@ Partial Class MainWindow
         Me.TBUndo.Image = Global.iBMSC.My.Resources.Resources.x16Undo
         Me.TBUndo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBUndo.Name = "TBUndo"
-        Me.TBUndo.Size = New System.Drawing.Size(23, 22)
+        Me.TBUndo.Size = New System.Drawing.Size(29, 24)
         Me.TBUndo.Text = "Undo (Ctrl+Z)"
         '
         'TBRedo
@@ -1722,13 +1728,13 @@ Partial Class MainWindow
         Me.TBRedo.Image = Global.iBMSC.My.Resources.Resources.x16Redo
         Me.TBRedo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBRedo.Name = "TBRedo"
-        Me.TBRedo.Size = New System.Drawing.Size(23, 22)
+        Me.TBRedo.Size = New System.Drawing.Size(29, 24)
         Me.TBRedo.Text = "Redo (Ctrl+Y)"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 27)
         '
         'TBTimeSelect
         '
@@ -1736,7 +1742,7 @@ Partial Class MainWindow
         Me.TBTimeSelect.Image = Global.iBMSC.My.Resources.Resources.x16TimeSelection
         Me.TBTimeSelect.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBTimeSelect.Name = "TBTimeSelect"
-        Me.TBTimeSelect.Size = New System.Drawing.Size(23, 22)
+        Me.TBTimeSelect.Size = New System.Drawing.Size(29, 24)
         Me.TBTimeSelect.Text = "Time Selection Tool (F1)"
         '
         'TBSelect
@@ -1747,7 +1753,7 @@ Partial Class MainWindow
         Me.TBSelect.Image = Global.iBMSC.My.Resources.Resources.x16Select
         Me.TBSelect.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBSelect.Name = "TBSelect"
-        Me.TBSelect.Size = New System.Drawing.Size(23, 22)
+        Me.TBSelect.Size = New System.Drawing.Size(29, 24)
         Me.TBSelect.Text = "Select Tool (F2)"
         '
         'TBWrite
@@ -1756,13 +1762,13 @@ Partial Class MainWindow
         Me.TBWrite.Image = Global.iBMSC.My.Resources.Resources.x16Pen
         Me.TBWrite.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBWrite.Name = "TBWrite"
-        Me.TBWrite.Size = New System.Drawing.Size(23, 22)
+        Me.TBWrite.Size = New System.Drawing.Size(29, 24)
         Me.TBWrite.Text = "Write Tool (F3)"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 27)
         '
         'TBPlayB
         '
@@ -1770,7 +1776,7 @@ Partial Class MainWindow
         Me.TBPlayB.Image = Global.iBMSC.My.Resources.Resources.x16PlayB
         Me.TBPlayB.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPlayB.Name = "TBPlayB"
-        Me.TBPlayB.Size = New System.Drawing.Size(23, 22)
+        Me.TBPlayB.Size = New System.Drawing.Size(29, 24)
         Me.TBPlayB.Text = "Play from beginning (F5)"
         '
         'TBPlay
@@ -1779,7 +1785,7 @@ Partial Class MainWindow
         Me.TBPlay.Image = Global.iBMSC.My.Resources.Resources.x16Play
         Me.TBPlay.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPlay.Name = "TBPlay"
-        Me.TBPlay.Size = New System.Drawing.Size(23, 22)
+        Me.TBPlay.Size = New System.Drawing.Size(29, 24)
         Me.TBPlay.Text = "Play from here (F6)"
         '
         'TBStop
@@ -1788,7 +1794,7 @@ Partial Class MainWindow
         Me.TBStop.Image = Global.iBMSC.My.Resources.Resources.x16Stop
         Me.TBStop.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBStop.Name = "TBStop"
-        Me.TBStop.Size = New System.Drawing.Size(23, 22)
+        Me.TBStop.Size = New System.Drawing.Size(29, 24)
         Me.TBStop.Text = "Stop (F7)"
         '
         'TBPOptions
@@ -1797,13 +1803,13 @@ Partial Class MainWindow
         Me.TBPOptions.Image = Global.iBMSC.My.Resources.Resources.x16PlayerOptions
         Me.TBPOptions.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBPOptions.Name = "TBPOptions"
-        Me.TBPOptions.Size = New System.Drawing.Size(23, 22)
+        Me.TBPOptions.Size = New System.Drawing.Size(29, 24)
         Me.TBPOptions.Text = "Player Options (F9)"
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 27)
         '
         'TBGOptions
         '
@@ -1811,7 +1817,7 @@ Partial Class MainWindow
         Me.TBGOptions.Image = Global.iBMSC.My.Resources.Resources.x16GeneralOptions
         Me.TBGOptions.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBGOptions.Name = "TBGOptions"
-        Me.TBGOptions.Size = New System.Drawing.Size(23, 22)
+        Me.TBGOptions.Size = New System.Drawing.Size(29, 24)
         Me.TBGOptions.Text = "General Options (F10)"
         '
         'TBKOptions
@@ -1820,7 +1826,7 @@ Partial Class MainWindow
         Me.TBKOptions.Image = Global.iBMSC.My.Resources.Resources.x16Key
         Me.TBKOptions.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBKOptions.Name = "TBKOptions"
-        Me.TBKOptions.Size = New System.Drawing.Size(23, 22)
+        Me.TBKOptions.Size = New System.Drawing.Size(29, 24)
         Me.TBKOptions.Text = "Keybinding Options (Shift+F10)"
         '
         'TBVOptions
@@ -1829,7 +1835,7 @@ Partial Class MainWindow
         Me.TBVOptions.Image = Global.iBMSC.My.Resources.Resources.x16VisualOptions
         Me.TBVOptions.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.TBVOptions.Name = "TBVOptions"
-        Me.TBVOptions.Size = New System.Drawing.Size(23, 22)
+        Me.TBVOptions.Size = New System.Drawing.Size(29, 24)
         Me.TBVOptions.Text = "Visual Options (F12)"
         '
         'POBStorm
@@ -1838,14 +1844,14 @@ Partial Class MainWindow
         Me.POBStorm.Image = Global.iBMSC.My.Resources.Resources.x16Storm
         Me.POBStorm.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.POBStorm.Name = "POBStorm"
-        Me.POBStorm.Size = New System.Drawing.Size(23, 22)
+        Me.POBStorm.Size = New System.Drawing.Size(29, 24)
         Me.POBStorm.Text = "Storm"
         Me.POBStorm.Visible = False
         '
         'TBTotalValue
         '
         Me.TBTotalValue.Name = "TBTotalValue"
-        Me.TBTotalValue.Size = New System.Drawing.Size(142, 22)
+        Me.TBTotalValue.Size = New System.Drawing.Size(201, 24)
         Me.TBTotalValue.Text = "Recommended #TOTAL: 0"
         '
         'pStatus
@@ -1855,14 +1861,15 @@ Partial Class MainWindow
         Me.pStatus.Controls.Add(Me.FStatus2)
         Me.pStatus.Controls.Add(Me.FStatus)
         Me.pStatus.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pStatus.Location = New System.Drawing.Point(0, 759)
+        Me.pStatus.Location = New System.Drawing.Point(0, 755)
         Me.pStatus.Name = "pStatus"
-        Me.pStatus.Size = New System.Drawing.Size(1267, 22)
+        Me.pStatus.Size = New System.Drawing.Size(1267, 26)
         Me.pStatus.TabIndex = 62
         '
         'FStatus2
         '
         Me.FStatus2.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar
+        Me.FStatus2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.FStatus2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FSSS, Me.FSSL, Me.FSSH, Me.BVCReverse, Me.LblMultiply, Me.TVCM, Me.LblDivide, Me.TVCD, Me.BVCApply, Me.TVCBPM, Me.BVCCalculate, Me.BConvertStop, Me.BDefineMeasure, Me.BInsertOrRemoveSpaceMN, Me.BInsertOrRemoveSpaceM, Me.BInsertOrRemoveSpaceN})
         Me.FStatus2.Location = New System.Drawing.Point(0, 0)
         Me.FStatus2.Name = "FStatus2"
@@ -1878,7 +1885,7 @@ Partial Class MainWindow
         Me.FSSS.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSSS.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.FSSS.Name = "FSSS"
-        Me.FSSS.Size = New System.Drawing.Size(23, 20)
+        Me.FSSS.Size = New System.Drawing.Size(29, 20)
         Me.FSSS.Text = "0"
         Me.FSSS.ToolTipText = "Selection Start Position"
         '
@@ -1888,7 +1895,7 @@ Partial Class MainWindow
         Me.FSSL.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSSL.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.FSSL.Name = "FSSL"
-        Me.FSSL.Size = New System.Drawing.Size(23, 20)
+        Me.FSSL.Size = New System.Drawing.Size(29, 20)
         Me.FSSL.Text = "0"
         Me.FSSL.ToolTipText = "Selection Length"
         '
@@ -1898,7 +1905,7 @@ Partial Class MainWindow
         Me.FSSH.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSSH.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.FSSH.Name = "FSSH"
-        Me.FSSH.Size = New System.Drawing.Size(23, 20)
+        Me.FSSH.Size = New System.Drawing.Size(29, 20)
         Me.FSSH.Text = "0"
         Me.FSSH.ToolTipText = "Selection Split Position"
         '
@@ -1908,13 +1915,13 @@ Partial Class MainWindow
         Me.BVCReverse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BVCReverse.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BVCReverse.Name = "BVCReverse"
-        Me.BVCReverse.Size = New System.Drawing.Size(102, 20)
+        Me.BVCReverse.Size = New System.Drawing.Size(143, 20)
         Me.BVCReverse.Text = "Reverse Selection"
         '
         'LblMultiply
         '
         Me.LblMultiply.Name = "LblMultiply"
-        Me.LblMultiply.Size = New System.Drawing.Size(15, 17)
+        Me.LblMultiply.Size = New System.Drawing.Size(20, 16)
         Me.LblMultiply.Text = "×"
         '
         'TVCM
@@ -1930,7 +1937,7 @@ Partial Class MainWindow
         'LblDivide
         '
         Me.LblDivide.Name = "LblDivide"
-        Me.LblDivide.Size = New System.Drawing.Size(15, 17)
+        Me.LblDivide.Size = New System.Drawing.Size(20, 16)
         Me.LblDivide.Text = "÷"
         '
         'TVCD
@@ -1949,7 +1956,7 @@ Partial Class MainWindow
         Me.BVCApply.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BVCApply.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BVCApply.Name = "BVCApply"
-        Me.BVCApply.Size = New System.Drawing.Size(96, 20)
+        Me.BVCApply.Size = New System.Drawing.Size(129, 20)
         Me.BVCApply.Text = "Expand By Ratio"
         Me.BVCApply.ToolTipText = "This will expand notes and selection by the ratio next to this button. Ignores ce" &
     "nter bar."
@@ -1970,7 +1977,7 @@ Partial Class MainWindow
         Me.BVCCalculate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BVCCalculate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BVCCalculate.Name = "BVCCalculate"
-        Me.BVCCalculate.Size = New System.Drawing.Size(103, 20)
+        Me.BVCCalculate.Size = New System.Drawing.Size(142, 20)
         Me.BVCCalculate.Text = "Relocate By Value"
         Me.BVCCalculate.ToolTipText = "This will move notes within the selection and preserve the selection, given the B" &
     "PM value next to this button. Considers center bar."
@@ -1981,7 +1988,7 @@ Partial Class MainWindow
         Me.BConvertStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BConvertStop.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BConvertStop.Name = "BConvertStop"
-        Me.BConvertStop.Size = New System.Drawing.Size(115, 20)
+        Me.BConvertStop.Size = New System.Drawing.Size(159, 20)
         Me.BConvertStop.Text = "Transform Into Stop"
         Me.BConvertStop.ToolTipText = "This will move notes within the selection and preserve the selection, given the B" &
     "PM value next to this button. Considers center bar."
@@ -1992,7 +1999,7 @@ Partial Class MainWindow
         Me.BDefineMeasure.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BDefineMeasure.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BDefineMeasure.Name = "BDefineMeasure"
-        Me.BDefineMeasure.Size = New System.Drawing.Size(93, 20)
+        Me.BDefineMeasure.Size = New System.Drawing.Size(127, 20)
         Me.BDefineMeasure.Text = "Define Measure"
         Me.BDefineMeasure.ToolTipText = "This will allow you to create/remove/define measures."
         '
@@ -2002,7 +2009,7 @@ Partial Class MainWindow
         Me.BInsertOrRemoveSpaceMN.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BInsertOrRemoveSpaceMN.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BInsertOrRemoveSpaceMN.Name = "BInsertOrRemoveSpaceMN"
-        Me.BInsertOrRemoveSpaceMN.Size = New System.Drawing.Size(122, 20)
+        Me.BInsertOrRemoveSpaceMN.Size = New System.Drawing.Size(168, 20)
         Me.BInsertOrRemoveSpaceMN.Text = "Insert/Remove Space"
         Me.BInsertOrRemoveSpaceMN.ToolTipText = "This will insert/remove space at the bottom of your selection."
         '
@@ -2012,7 +2019,7 @@ Partial Class MainWindow
         Me.BInsertOrRemoveSpaceM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BInsertOrRemoveSpaceM.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BInsertOrRemoveSpaceM.Name = "BInsertOrRemoveSpaceM"
-        Me.BInsertOrRemoveSpaceM.Size = New System.Drawing.Size(92, 20)
+        Me.BInsertOrRemoveSpaceM.Size = New System.Drawing.Size(123, 20)
         Me.BInsertOrRemoveSpaceM.Text = "(Measure Only)"
         Me.BInsertOrRemoveSpaceM.ToolTipText = "This will insert/remove measure length at the bottom of your selection."
         '
@@ -2022,7 +2029,7 @@ Partial Class MainWindow
         Me.BInsertOrRemoveSpaceN.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.BInsertOrRemoveSpaceN.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BInsertOrRemoveSpaceN.Name = "BInsertOrRemoveSpaceN"
-        Me.BInsertOrRemoveSpaceN.Size = New System.Drawing.Size(78, 20)
+        Me.BInsertOrRemoveSpaceN.Size = New System.Drawing.Size(104, 20)
         Me.BInsertOrRemoveSpaceN.Text = "(Notes Only)"
         Me.BInsertOrRemoveSpaceN.ToolTipText = "This will insert/remove space at the bottom of your time selection for the notes." &
     ""
@@ -2030,11 +2037,12 @@ Partial Class MainWindow
         'FStatus
         '
         Me.FStatus.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar
+        Me.FStatus.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.FStatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FSC, Me.FSW, Me.FSM, Me.FSP1, Me.FSP3, Me.FSP2, Me.FSP4, Me.TimeStatusLabel, Me.FST, Me.FSE})
         Me.FStatus.Location = New System.Drawing.Point(0, 0)
         Me.FStatus.Name = "FStatus"
         Me.FStatus.ShowItemToolTips = True
-        Me.FStatus.Size = New System.Drawing.Size(1267, 22)
+        Me.FStatus.Size = New System.Drawing.Size(1267, 26)
         Me.FStatus.SizingGrip = False
         Me.FStatus.TabIndex = 62
         Me.FStatus.Text = "Status"
@@ -2043,7 +2051,7 @@ Partial Class MainWindow
         '
         Me.FSC.AutoSize = False
         Me.FSC.Name = "FSC"
-        Me.FSC.Size = New System.Drawing.Size(70, 17)
+        Me.FSC.Size = New System.Drawing.Size(70, 20)
         Me.FSC.Text = "BPM"
         Me.FSC.ToolTipText = "Column Caption"
         '
@@ -2052,7 +2060,7 @@ Partial Class MainWindow
         Me.FSW.AutoSize = False
         Me.FSW.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.FSW.Name = "FSW"
-        Me.FSW.Size = New System.Drawing.Size(40, 17)
+        Me.FSW.Size = New System.Drawing.Size(40, 20)
         Me.FSW.Text = "01"
         Me.FSW.ToolTipText = "Note Index"
         '
@@ -2061,7 +2069,7 @@ Partial Class MainWindow
         Me.FSM.AutoSize = False
         Me.FSM.ForeColor = System.Drawing.Color.Teal
         Me.FSM.Name = "FSM"
-        Me.FSM.Size = New System.Drawing.Size(40, 17)
+        Me.FSM.Size = New System.Drawing.Size(40, 20)
         Me.FSM.Text = "000"
         Me.FSM.ToolTipText = "Measure Index"
         '
@@ -2070,7 +2078,7 @@ Partial Class MainWindow
         Me.FSP1.AutoSize = False
         Me.FSP1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSP1.Name = "FSP1"
-        Me.FSP1.Size = New System.Drawing.Size(170, 17)
+        Me.FSP1.Size = New System.Drawing.Size(170, 20)
         Me.FSP1.Text = "9.41176470588235 / 9999"
         Me.FSP1.ToolTipText = "Grid Resolution"
         '
@@ -2080,7 +2088,7 @@ Partial Class MainWindow
         Me.FSP3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSP3.ForeColor = System.Drawing.Color.Maroon
         Me.FSP3.Name = "FSP3"
-        Me.FSP3.Size = New System.Drawing.Size(85, 17)
+        Me.FSP3.Size = New System.Drawing.Size(85, 20)
         Me.FSP3.Text = "9999 / 9999"
         Me.FSP3.ToolTipText = "Reduced Resolution"
         '
@@ -2090,7 +2098,7 @@ Partial Class MainWindow
         Me.FSP2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.FSP2.ForeColor = System.Drawing.Color.Green
         Me.FSP2.Name = "FSP2"
-        Me.FSP2.Size = New System.Drawing.Size(170, 17)
+        Me.FSP2.Size = New System.Drawing.Size(170, 20)
         Me.FSP2.Text = "112.941176470588 / 9999"
         Me.FSP2.ToolTipText = "Measure Resolution"
         '
@@ -2098,14 +2106,14 @@ Partial Class MainWindow
         '
         Me.FSP4.AutoSize = False
         Me.FSP4.Name = "FSP4"
-        Me.FSP4.Size = New System.Drawing.Size(115, 17)
+        Me.FSP4.Size = New System.Drawing.Size(115, 20)
         Me.FSP4.Text = "112.941176470588"
         Me.FSP4.ToolTipText = "Absolute Position"
         '
         'TimeStatusLabel
         '
         Me.TimeStatusLabel.Name = "TimeStatusLabel"
-        Me.TimeStatusLabel.Size = New System.Drawing.Size(55, 17)
+        Me.TimeStatusLabel.Size = New System.Drawing.Size(80, 20)
         Me.TimeStatusLabel.Text = "00:00:000"
         '
         'FST
@@ -2113,14 +2121,14 @@ Partial Class MainWindow
         Me.FST.ForeColor = System.Drawing.Color.Olive
         Me.FST.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FST.Name = "FST"
-        Me.FST.Size = New System.Drawing.Size(64, 17)
+        Me.FST.Size = New System.Drawing.Size(88, 20)
         Me.FST.Text = "Length = 0"
         '
         'FSE
         '
         Me.FSE.ForeColor = System.Drawing.Color.Red
         Me.FSE.Name = "FSE"
-        Me.FSE.Size = New System.Drawing.Size(32, 17)
+        Me.FSE.Size = New System.Drawing.Size(45, 20)
         Me.FSE.Text = "Error"
         '
         'TimerMiddle
@@ -2137,11 +2145,11 @@ Partial Class MainWindow
         Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.SpL)
         Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.PMainR)
         Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.PMainL)
-        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1267, 661)
+        Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(1267, 675)
         Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStripContainer1.Name = "ToolStripContainer1"
-        Me.ToolStripContainer1.Size = New System.Drawing.Size(1267, 759)
+        Me.ToolStripContainer1.Size = New System.Drawing.Size(1267, 755)
         Me.ToolStripContainer1.TabIndex = 65
         Me.ToolStripContainer1.Text = "ToolStripContainer1"
         '
@@ -2162,7 +2170,7 @@ Partial Class MainWindow
         Me.PMain.ForeColor = System.Drawing.Color.White
         Me.PMain.Location = New System.Drawing.Point(5, 0)
         Me.PMain.Name = "PMain"
-        Me.PMain.Size = New System.Drawing.Size(1257, 661)
+        Me.PMain.Size = New System.Drawing.Size(1257, 675)
         Me.PMain.TabIndex = 58
         Me.PMain.TabStop = True
         Me.PMain.Tag = "1"
@@ -2176,7 +2184,7 @@ Partial Class MainWindow
         Me.PMainIn.ForeColor = System.Drawing.Color.White
         Me.PMainIn.Location = New System.Drawing.Point(0, 0)
         Me.PMainIn.Name = "PMainIn"
-        Me.PMainIn.Size = New System.Drawing.Size(1240, 644)
+        Me.PMainIn.Size = New System.Drawing.Size(1240, 658)
         Me.PMainIn.TabIndex = 0
         Me.PMainIn.TabStop = True
         Me.PMainIn.Tag = "1"
@@ -2199,7 +2207,7 @@ Partial Class MainWindow
         Me.MainPanelScroll.Maximum = 591
         Me.MainPanelScroll.Minimum = -10000
         Me.MainPanelScroll.Name = "MainPanelScroll"
-        Me.MainPanelScroll.Size = New System.Drawing.Size(17, 644)
+        Me.MainPanelScroll.Size = New System.Drawing.Size(17, 658)
         Me.MainPanelScroll.SmallChange = 12
         Me.MainPanelScroll.TabIndex = 2
         Me.MainPanelScroll.Tag = "1"
@@ -2209,7 +2217,7 @@ Partial Class MainWindow
         Me.HS.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar
         Me.HS.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.HS.LargeChange = 777
-        Me.HS.Location = New System.Drawing.Point(0, 644)
+        Me.HS.Location = New System.Drawing.Point(0, 658)
         Me.HS.Maximum = 1233
         Me.HS.Name = "HS"
         Me.HS.Size = New System.Drawing.Size(1257, 17)
@@ -2223,7 +2231,7 @@ Partial Class MainWindow
         Me.SpR.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SpR.Location = New System.Drawing.Point(1262, 0)
         Me.SpR.Name = "SpR"
-        Me.SpR.Size = New System.Drawing.Size(5, 661)
+        Me.SpR.Size = New System.Drawing.Size(5, 675)
         Me.SpR.TabIndex = 59
         Me.SpR.TabStop = False
         Me.SpR.UseVisualStyleBackColor = True
@@ -2236,7 +2244,7 @@ Partial Class MainWindow
         Me.SpL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SpL.Location = New System.Drawing.Point(0, 0)
         Me.SpL.Name = "SpL"
-        Me.SpL.Size = New System.Drawing.Size(5, 661)
+        Me.SpL.Size = New System.Drawing.Size(5, 675)
         Me.SpL.TabIndex = 60
         Me.SpL.TabStop = False
         Me.SpL.UseVisualStyleBackColor = True
@@ -2253,7 +2261,7 @@ Partial Class MainWindow
         Me.PMainR.ForeColor = System.Drawing.Color.White
         Me.PMainR.Location = New System.Drawing.Point(1267, 0)
         Me.PMainR.Name = "PMainR"
-        Me.PMainR.Size = New System.Drawing.Size(0, 661)
+        Me.PMainR.Size = New System.Drawing.Size(0, 675)
         Me.PMainR.TabIndex = 56
         Me.PMainR.Tag = "2"
         '
@@ -2265,7 +2273,7 @@ Partial Class MainWindow
         Me.PMainInR.ForeColor = System.Drawing.Color.White
         Me.PMainInR.Location = New System.Drawing.Point(0, 0)
         Me.PMainInR.Name = "PMainInR"
-        Me.PMainInR.Size = New System.Drawing.Size(0, 644)
+        Me.PMainInR.Size = New System.Drawing.Size(0, 658)
         Me.PMainInR.TabIndex = 0
         Me.PMainInR.TabStop = True
         Me.PMainInR.Tag = "2"
@@ -2278,7 +2286,7 @@ Partial Class MainWindow
         Me.RightPanelScroll.Maximum = 591
         Me.RightPanelScroll.Minimum = -10000
         Me.RightPanelScroll.Name = "RightPanelScroll"
-        Me.RightPanelScroll.Size = New System.Drawing.Size(17, 644)
+        Me.RightPanelScroll.Size = New System.Drawing.Size(17, 658)
         Me.RightPanelScroll.SmallChange = 12
         Me.RightPanelScroll.TabIndex = 2
         Me.RightPanelScroll.Tag = "2"
@@ -2287,7 +2295,7 @@ Partial Class MainWindow
         '
         Me.HSR.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.HSR.LargeChange = 777
-        Me.HSR.Location = New System.Drawing.Point(0, 644)
+        Me.HSR.Location = New System.Drawing.Point(0, 658)
         Me.HSR.Maximum = 1233
         Me.HSR.Name = "HSR"
         Me.HSR.Size = New System.Drawing.Size(0, 17)
@@ -2305,7 +2313,7 @@ Partial Class MainWindow
         Me.PMainL.ForeColor = System.Drawing.Color.White
         Me.PMainL.Location = New System.Drawing.Point(0, 0)
         Me.PMainL.Name = "PMainL"
-        Me.PMainL.Size = New System.Drawing.Size(0, 661)
+        Me.PMainL.Size = New System.Drawing.Size(0, 675)
         Me.PMainL.TabIndex = 54
         Me.PMainL.Tag = "0"
         '
@@ -2317,7 +2325,7 @@ Partial Class MainWindow
         Me.PMainInL.ForeColor = System.Drawing.Color.White
         Me.PMainInL.Location = New System.Drawing.Point(0, 0)
         Me.PMainInL.Name = "PMainInL"
-        Me.PMainInL.Size = New System.Drawing.Size(0, 644)
+        Me.PMainInL.Size = New System.Drawing.Size(0, 658)
         Me.PMainInL.TabIndex = 0
         Me.PMainInL.TabStop = True
         Me.PMainInL.Tag = "0"
@@ -2330,7 +2338,7 @@ Partial Class MainWindow
         Me.LeftPanelScroll.Maximum = 591
         Me.LeftPanelScroll.Minimum = -10000
         Me.LeftPanelScroll.Name = "LeftPanelScroll"
-        Me.LeftPanelScroll.Size = New System.Drawing.Size(17, 644)
+        Me.LeftPanelScroll.Size = New System.Drawing.Size(17, 658)
         Me.LeftPanelScroll.SmallChange = 12
         Me.LeftPanelScroll.TabIndex = 2
         Me.LeftPanelScroll.Tag = "0"
@@ -2339,7 +2347,7 @@ Partial Class MainWindow
         '
         Me.HSL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.HSL.LargeChange = 777
-        Me.HSL.Location = New System.Drawing.Point(0, 644)
+        Me.HSL.Location = New System.Drawing.Point(0, 658)
         Me.HSL.Maximum = 1233
         Me.HSL.Name = "HSL"
         Me.HSL.Size = New System.Drawing.Size(0, 17)
@@ -2350,9 +2358,10 @@ Partial Class MainWindow
         '
         Me.TBTab.BackColor = System.Drawing.SystemColors.Control
         Me.TBTab.Dock = System.Windows.Forms.DockStyle.None
-        Me.TBTab.Location = New System.Drawing.Point(3, 48)
+        Me.TBTab.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.TBTab.Location = New System.Drawing.Point(4, 27)
         Me.TBTab.Name = "TBTab"
-        Me.TBTab.Size = New System.Drawing.Size(111, 25)
+        Me.TBTab.Size = New System.Drawing.Size(112, 25)
         Me.TBTab.TabIndex = 65
         '
         'POptionsResizer
@@ -2567,7 +2576,7 @@ Partial Class MainWindow
         Me.POptions.Dock = System.Windows.Forms.DockStyle.Top
         Me.POptions.Location = New System.Drawing.Point(0, 0)
         Me.POptions.Name = "POptions"
-        Me.POptions.Size = New System.Drawing.Size(183, 2048)
+        Me.POptions.Size = New System.Drawing.Size(179, 2083)
         Me.POptions.TabIndex = 29
         '
         'POExpansion
@@ -2577,9 +2586,9 @@ Partial Class MainWindow
         Me.POExpansion.Controls.Add(Me.POExpansionInner)
         Me.POExpansion.Controls.Add(Me.POExpansionSwitch)
         Me.POExpansion.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POExpansion.Location = New System.Drawing.Point(0, 1753)
+        Me.POExpansion.Location = New System.Drawing.Point(0, 1788)
         Me.POExpansion.Name = "POExpansion"
-        Me.POExpansion.Size = New System.Drawing.Size(183, 295)
+        Me.POExpansion.Size = New System.Drawing.Size(179, 295)
         Me.POExpansion.TabIndex = 6
         '
         'POExpansionInner
@@ -2591,7 +2600,7 @@ Partial Class MainWindow
         Me.POExpansionInner.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POExpansionInner.Location = New System.Drawing.Point(0, 20)
         Me.POExpansionInner.Name = "POExpansionInner"
-        Me.POExpansionInner.Size = New System.Drawing.Size(183, 275)
+        Me.POExpansionInner.Size = New System.Drawing.Size(179, 275)
         Me.POExpansionInner.TabIndex = 7
         Me.POExpansionInner.Visible = False
         '
@@ -2602,7 +2611,7 @@ Partial Class MainWindow
         Me.BExpansion.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BExpansion.Location = New System.Drawing.Point(0, 245)
         Me.BExpansion.Name = "BExpansion"
-        Me.BExpansion.Size = New System.Drawing.Size(183, 25)
+        Me.BExpansion.Size = New System.Drawing.Size(179, 25)
         Me.BExpansion.TabIndex = 1003
         Me.BExpansion.Text = "#RANDOM Editor"
         Me.BExpansion.UseVisualStyleBackColor = True
@@ -2617,7 +2626,7 @@ Partial Class MainWindow
         Me.TExpansion.Multiline = True
         Me.TExpansion.Name = "TExpansion"
         Me.TExpansion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TExpansion.Size = New System.Drawing.Size(183, 245)
+        Me.TExpansion.Size = New System.Drawing.Size(179, 245)
         Me.TExpansion.TabIndex = 1002
         Me.TExpansion.WordWrap = False
         '
@@ -2629,7 +2638,7 @@ Partial Class MainWindow
         Me.POExpansionResizer.Location = New System.Drawing.Point(0, 270)
         Me.POExpansionResizer.Margin = New System.Windows.Forms.Padding(0)
         Me.POExpansionResizer.Name = "POExpansionResizer"
-        Me.POExpansionResizer.Size = New System.Drawing.Size(183, 5)
+        Me.POExpansionResizer.Size = New System.Drawing.Size(179, 5)
         Me.POExpansionResizer.TabIndex = 65
         Me.POExpansionResizer.TabStop = False
         Me.POExpansionResizer.UseVisualStyleBackColor = True
@@ -2643,7 +2652,7 @@ Partial Class MainWindow
         Me.POExpansionSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POExpansionSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POExpansionSwitch.Name = "POExpansionSwitch"
-        Me.POExpansionSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POExpansionSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POExpansionSwitch.TabIndex = 1001
         Me.POExpansionSwitch.TabStop = False
         Me.POExpansionSwitch.Text = "Expansion Code"
@@ -2658,9 +2667,9 @@ Partial Class MainWindow
         Me.POBeat.Controls.Add(Me.POBeatInner)
         Me.POBeat.Controls.Add(Me.POBeatSwitch)
         Me.POBeat.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POBeat.Location = New System.Drawing.Point(0, 1483)
+        Me.POBeat.Location = New System.Drawing.Point(0, 1518)
         Me.POBeat.Name = "POBeat"
-        Me.POBeat.Size = New System.Drawing.Size(183, 270)
+        Me.POBeat.Size = New System.Drawing.Size(179, 270)
         Me.POBeat.TabIndex = 5
         '
         'POBeatInner
@@ -2681,7 +2690,7 @@ Partial Class MainWindow
         Me.POBeatInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POBeatInner.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.POBeatInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POBeatInner.Size = New System.Drawing.Size(183, 250)
+        Me.POBeatInner.Size = New System.Drawing.Size(179, 250)
         Me.POBeatInner.TabIndex = 6
         Me.POBeatInner.Visible = False
         '
@@ -2693,10 +2702,10 @@ Partial Class MainWindow
         Me.POBeatExpander.Dock = System.Windows.Forms.DockStyle.Top
         Me.POBeatExpander.FlatAppearance.BorderSize = 0
         Me.POBeatExpander.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.POBeatExpander.Location = New System.Drawing.Point(0, 54)
+        Me.POBeatExpander.Location = New System.Drawing.Point(0, 64)
         Me.POBeatExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POBeatExpander.Name = "POBeatExpander"
-        Me.POBeatExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POBeatExpander.Size = New System.Drawing.Size(179, 30)
         Me.POBeatExpander.TabIndex = 901
         Me.POBeatExpander.TabStop = False
         Me.POBeatExpander.Text = "Expand..."
@@ -2712,7 +2721,7 @@ Partial Class MainWindow
         Me.POBeatResizer.Location = New System.Drawing.Point(0, 245)
         Me.POBeatResizer.Margin = New System.Windows.Forms.Padding(0)
         Me.POBeatResizer.Name = "POBeatResizer"
-        Me.POBeatResizer.Size = New System.Drawing.Size(183, 5)
+        Me.POBeatResizer.Size = New System.Drawing.Size(179, 5)
         Me.POBeatResizer.TabIndex = 64
         Me.POBeatResizer.TabStop = False
         Me.POBeatResizer.UseVisualStyleBackColor = True
@@ -2739,17 +2748,17 @@ Partial Class MainWindow
         Me.TableLayoutPanel7.RowCount = 2
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(183, 54)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(179, 64)
         Me.TableLayoutPanel7.TabIndex = 63
         '
         'nBeatD
         '
         Me.nBeatD.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.nBeatD.Location = New System.Drawing.Point(66, 3)
+        Me.nBeatD.Location = New System.Drawing.Point(67, 3)
         Me.nBeatD.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.nBeatD.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nBeatD.Name = "nBeatD"
-        Me.nBeatD.Size = New System.Drawing.Size(45, 23)
+        Me.nBeatD.Size = New System.Drawing.Size(43, 27)
         Me.nBeatD.TabIndex = 803
         Me.nBeatD.Value = New Decimal(New Integer() {4, 0, 0, 0})
         '
@@ -2758,10 +2767,10 @@ Partial Class MainWindow
         Me.BBeatApplyV.AutoSize = True
         Me.BBeatApplyV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BBeatApplyV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BBeatApplyV.Location = New System.Drawing.Point(114, 29)
+        Me.BBeatApplyV.Location = New System.Drawing.Point(113, 34)
         Me.BBeatApplyV.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.BBeatApplyV.Name = "BBeatApplyV"
-        Me.BBeatApplyV.Size = New System.Drawing.Size(66, 25)
+        Me.BBeatApplyV.Size = New System.Drawing.Size(63, 30)
         Me.BBeatApplyV.TabIndex = 806
         Me.BBeatApplyV.Text = "Apply"
         Me.BBeatApplyV.UseVisualStyleBackColor = True
@@ -2773,7 +2782,7 @@ Partial Class MainWindow
         Me.nBeatN.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.nBeatN.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nBeatN.Name = "nBeatN"
-        Me.nBeatN.Size = New System.Drawing.Size(45, 23)
+        Me.nBeatN.Size = New System.Drawing.Size(43, 27)
         Me.nBeatN.TabIndex = 802
         Me.nBeatN.Value = New Decimal(New Integer() {4, 0, 0, 0})
         '
@@ -2782,10 +2791,10 @@ Partial Class MainWindow
         Me.BBeatApply.AutoSize = True
         Me.BBeatApply.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BBeatApply.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BBeatApply.Location = New System.Drawing.Point(114, 2)
+        Me.BBeatApply.Location = New System.Drawing.Point(113, 2)
         Me.BBeatApply.Margin = New System.Windows.Forms.Padding(0, 2, 3, 2)
         Me.BBeatApply.Name = "BBeatApply"
-        Me.BBeatApply.Size = New System.Drawing.Size(66, 25)
+        Me.BBeatApply.Size = New System.Drawing.Size(63, 30)
         Me.BBeatApply.TabIndex = 804
         Me.BBeatApply.Text = "Apply"
         Me.BBeatApply.UseVisualStyleBackColor = True
@@ -2794,10 +2803,10 @@ Partial Class MainWindow
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(51, 7)
+        Me.Label7.Location = New System.Drawing.Point(49, 7)
         Me.Label7.Margin = New System.Windows.Forms.Padding(0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(12, 15)
+        Me.Label7.Size = New System.Drawing.Size(15, 20)
         Me.Label7.TabIndex = 31
         Me.Label7.Text = "/"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2806,10 +2815,10 @@ Partial Class MainWindow
         '
         Me.TableLayoutPanel7.SetColumnSpan(Me.tBeatValue, 3)
         Me.tBeatValue.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tBeatValue.Location = New System.Drawing.Point(3, 30)
+        Me.tBeatValue.Location = New System.Drawing.Point(3, 35)
         Me.tBeatValue.Margin = New System.Windows.Forms.Padding(3, 1, 3, 0)
         Me.tBeatValue.Name = "tBeatValue"
-        Me.tBeatValue.Size = New System.Drawing.Size(108, 23)
+        Me.tBeatValue.Size = New System.Drawing.Size(107, 27)
         Me.tBeatValue.TabIndex = 805
         Me.tBeatValue.Text = "1"
         '
@@ -2818,13 +2827,13 @@ Partial Class MainWindow
         Me.LBeat.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LBeat.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBeat.IntegralHeight = False
-        Me.LBeat.ItemHeight = 14
+        Me.LBeat.ItemHeight = 18
         Me.LBeat.Items.AddRange(New Object() {"000: 15.984375 (1023/64)"})
-        Me.LBeat.Location = New System.Drawing.Point(3, 155)
+        Me.LBeat.Location = New System.Drawing.Point(3, 185)
         Me.LBeat.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.LBeat.Name = "LBeat"
         Me.LBeat.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.LBeat.Size = New System.Drawing.Size(177, 90)
+        Me.LBeat.Size = New System.Drawing.Size(173, 60)
         Me.LBeat.TabIndex = 906
         '
         'POBeatPart2
@@ -2838,7 +2847,7 @@ Partial Class MainWindow
         Me.POBeatPart2.Controls.Add(Me.CBeatMeasure, 0, 1)
         Me.POBeatPart2.Controls.Add(Me.CBeatPreserve, 0, 0)
         Me.POBeatPart2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.POBeatPart2.Location = New System.Drawing.Point(0, 79)
+        Me.POBeatPart2.Location = New System.Drawing.Point(0, 94)
         Me.POBeatPart2.Margin = New System.Windows.Forms.Padding(0)
         Me.POBeatPart2.Name = "POBeatPart2"
         Me.POBeatPart2.RowCount = 4
@@ -2846,17 +2855,17 @@ Partial Class MainWindow
         Me.POBeatPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POBeatPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POBeatPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POBeatPart2.Size = New System.Drawing.Size(183, 76)
+        Me.POBeatPart2.Size = New System.Drawing.Size(179, 91)
         Me.POBeatPart2.TabIndex = 66
         Me.POBeatPart2.Visible = False
         '
         'CBeatScale
         '
         Me.CBeatScale.AutoSize = True
-        Me.CBeatScale.Location = New System.Drawing.Point(3, 57)
+        Me.CBeatScale.Location = New System.Drawing.Point(3, 67)
         Me.CBeatScale.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBeatScale.Name = "CBeatScale"
-        Me.CBeatScale.Size = New System.Drawing.Size(151, 19)
+        Me.CBeatScale.Size = New System.Drawing.Size(173, 24)
         Me.CBeatScale.TabIndex = 905
         Me.CBeatScale.Text = "Scale to measure length"
         Me.CBeatScale.UseVisualStyleBackColor = True
@@ -2865,10 +2874,10 @@ Partial Class MainWindow
         '
         Me.CBeatCut.AutoEllipsis = True
         Me.CBeatCut.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CBeatCut.Location = New System.Drawing.Point(3, 38)
+        Me.CBeatCut.Location = New System.Drawing.Point(3, 48)
         Me.CBeatCut.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBeatCut.Name = "CBeatCut"
-        Me.CBeatCut.Size = New System.Drawing.Size(177, 19)
+        Me.CBeatCut.Size = New System.Drawing.Size(173, 19)
         Me.CBeatCut.TabIndex = 904
         Me.CBeatCut.Text = "Keep measure position and cut overflow"
         Me.CBeatCut.UseVisualStyleBackColor = True
@@ -2876,10 +2885,10 @@ Partial Class MainWindow
         'CBeatMeasure
         '
         Me.CBeatMeasure.AutoSize = True
-        Me.CBeatMeasure.Location = New System.Drawing.Point(3, 19)
+        Me.CBeatMeasure.Location = New System.Drawing.Point(3, 24)
         Me.CBeatMeasure.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBeatMeasure.Name = "CBeatMeasure"
-        Me.CBeatMeasure.Size = New System.Drawing.Size(145, 19)
+        Me.CBeatMeasure.Size = New System.Drawing.Size(173, 24)
         Me.CBeatMeasure.TabIndex = 903
         Me.CBeatMeasure.Text = "Keep measure position"
         Me.CBeatMeasure.UseVisualStyleBackColor = True
@@ -2891,7 +2900,7 @@ Partial Class MainWindow
         Me.CBeatPreserve.Location = New System.Drawing.Point(3, 0)
         Me.CBeatPreserve.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBeatPreserve.Name = "CBeatPreserve"
-        Me.CBeatPreserve.Size = New System.Drawing.Size(145, 19)
+        Me.CBeatPreserve.Size = New System.Drawing.Size(173, 24)
         Me.CBeatPreserve.TabIndex = 902
         Me.CBeatPreserve.TabStop = True
         Me.CBeatPreserve.Text = "Keep absolute position"
@@ -2906,7 +2915,7 @@ Partial Class MainWindow
         Me.POBeatSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POBeatSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POBeatSwitch.Name = "POBeatSwitch"
-        Me.POBeatSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POBeatSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POBeatSwitch.TabIndex = 801
         Me.POBeatSwitch.TabStop = False
         Me.POBeatSwitch.Text = "Beat"
@@ -2923,9 +2932,9 @@ Partial Class MainWindow
         Me.POWAV.Controls.Add(Me.POWAVInner)
         Me.POWAV.Controls.Add(Me.POWAVSwitch)
         Me.POWAV.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POWAV.Location = New System.Drawing.Point(0, 943)
+        Me.POWAV.Location = New System.Drawing.Point(0, 978)
         Me.POWAV.Name = "POWAV"
-        Me.POWAV.Size = New System.Drawing.Size(183, 540)
+        Me.POWAV.Size = New System.Drawing.Size(179, 540)
         Me.POWAV.TabIndex = 4
         '
         'POBMP
@@ -2938,7 +2947,7 @@ Partial Class MainWindow
         Me.POBMP.Dock = System.Windows.Forms.DockStyle.Top
         Me.POBMP.Location = New System.Drawing.Point(0, 270)
         Me.POBMP.Name = "POBMP"
-        Me.POBMP.Size = New System.Drawing.Size(183, 270)
+        Me.POBMP.Size = New System.Drawing.Size(179, 270)
         Me.POBMP.TabIndex = 602
         '
         'POBMPInner
@@ -2959,7 +2968,7 @@ Partial Class MainWindow
         Me.POBMPInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POBMPInner.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.POBMPInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POBMPInner.Size = New System.Drawing.Size(183, 250)
+        Me.POBMPInner.Size = New System.Drawing.Size(179, 250)
         Me.POBMPInner.TabIndex = 5
         '
         'POBMPExpander
@@ -2973,7 +2982,7 @@ Partial Class MainWindow
         Me.POBMPExpander.Location = New System.Drawing.Point(0, 30)
         Me.POBMPExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POBMPExpander.Name = "POBMPExpander"
-        Me.POBMPExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POBMPExpander.Size = New System.Drawing.Size(179, 30)
         Me.POBMPExpander.TabIndex = 701
         Me.POBMPExpander.TabStop = False
         Me.POBMPExpander.Text = "Expand..."
@@ -2985,12 +2994,12 @@ Partial Class MainWindow
         Me.LBMP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LBMP.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBMP.IntegralHeight = False
-        Me.LBMP.ItemHeight = 14
-        Me.LBMP.Location = New System.Drawing.Point(3, 93)
+        Me.LBMP.ItemHeight = 18
+        Me.LBMP.Location = New System.Drawing.Point(3, 108)
         Me.LBMP.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.LBMP.Name = "LBMP"
         Me.LBMP.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.LBMP.Size = New System.Drawing.Size(177, 152)
+        Me.LBMP.Size = New System.Drawing.Size(173, 137)
         Me.LBMP.TabIndex = 704
         '
         'FlowLayoutPanel4
@@ -3015,7 +3024,7 @@ Partial Class MainWindow
         Me.POBMPResizer.Location = New System.Drawing.Point(0, 245)
         Me.POBMPResizer.Margin = New System.Windows.Forms.Padding(0)
         Me.POBMPResizer.Name = "POBMPResizer"
-        Me.POBMPResizer.Size = New System.Drawing.Size(183, 5)
+        Me.POBMPResizer.Size = New System.Drawing.Size(179, 5)
         Me.POBMPResizer.TabIndex = 33
         Me.POBMPResizer.TabStop = False
         Me.POBMPResizer.UseVisualStyleBackColor = True
@@ -3029,13 +3038,13 @@ Partial Class MainWindow
         Me.POBMPPart2.Controls.Add(Me.CBMPMultiSelect, 0, 0)
         Me.POBMPPart2.Controls.Add(Me.CBMPChangeLabel, 0, 1)
         Me.POBMPPart2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.POBMPPart2.Location = New System.Drawing.Point(0, 55)
+        Me.POBMPPart2.Location = New System.Drawing.Point(0, 60)
         Me.POBMPPart2.Margin = New System.Windows.Forms.Padding(0)
         Me.POBMPPart2.Name = "POBMPPart2"
         Me.POBMPPart2.RowCount = 2
         Me.POBMPPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POBMPPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POBMPPart2.Size = New System.Drawing.Size(183, 38)
+        Me.POBMPPart2.Size = New System.Drawing.Size(179, 48)
         Me.POBMPPart2.TabIndex = 35
         Me.POBMPPart2.Visible = False
         '
@@ -3047,7 +3056,7 @@ Partial Class MainWindow
         Me.CBMPMultiSelect.Location = New System.Drawing.Point(3, 0)
         Me.CBMPMultiSelect.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBMPMultiSelect.Name = "CBMPMultiSelect"
-        Me.CBMPMultiSelect.Size = New System.Drawing.Size(154, 19)
+        Me.CBMPMultiSelect.Size = New System.Drawing.Size(173, 24)
         Me.CBMPMultiSelect.TabIndex = 702
         Me.CBMPMultiSelect.Text = "Allow Multiple Selection"
         Me.CBMPMultiSelect.UseVisualStyleBackColor = True
@@ -3057,10 +3066,10 @@ Partial Class MainWindow
         Me.CBMPChangeLabel.AutoSize = True
         Me.CBMPChangeLabel.Checked = True
         Me.CBMPChangeLabel.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CBMPChangeLabel.Location = New System.Drawing.Point(3, 19)
+        Me.CBMPChangeLabel.Location = New System.Drawing.Point(3, 24)
         Me.CBMPChangeLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CBMPChangeLabel.Name = "CBMPChangeLabel"
-        Me.CBMPChangeLabel.Size = New System.Drawing.Size(155, 19)
+        Me.CBMPChangeLabel.Size = New System.Drawing.Size(173, 24)
         Me.CBMPChangeLabel.TabIndex = 703
         Me.CBMPChangeLabel.Text = "Synchronize Note Labels"
         Me.CBMPChangeLabel.UseVisualStyleBackColor = True
@@ -3076,7 +3085,7 @@ Partial Class MainWindow
         Me.POBMPSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POBMPSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POBMPSwitch.Name = "POBMPSwitch"
-        Me.POBMPSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POBMPSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POBMPSwitch.TabIndex = 601
         Me.POBMPSwitch.TabStop = False
         Me.POBMPSwitch.Text = "#BMP (Images List)"
@@ -3102,7 +3111,7 @@ Partial Class MainWindow
         Me.POWAVInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POWAVInner.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.POWAVInner.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POWAVInner.Size = New System.Drawing.Size(183, 250)
+        Me.POWAVInner.Size = New System.Drawing.Size(179, 250)
         Me.POWAVInner.TabIndex = 5
         '
         'POWAVExpander
@@ -3116,7 +3125,7 @@ Partial Class MainWindow
         Me.POWAVExpander.Location = New System.Drawing.Point(0, 30)
         Me.POWAVExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POWAVExpander.Name = "POWAVExpander"
-        Me.POWAVExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POWAVExpander.Size = New System.Drawing.Size(179, 30)
         Me.POWAVExpander.TabIndex = 701
         Me.POWAVExpander.TabStop = False
         Me.POWAVExpander.Text = "Expand..."
@@ -3128,12 +3137,12 @@ Partial Class MainWindow
         Me.LWAV.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LWAV.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LWAV.IntegralHeight = False
-        Me.LWAV.ItemHeight = 14
-        Me.LWAV.Location = New System.Drawing.Point(3, 93)
+        Me.LWAV.ItemHeight = 18
+        Me.LWAV.Location = New System.Drawing.Point(3, 108)
         Me.LWAV.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.LWAV.Name = "LWAV"
         Me.LWAV.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.LWAV.Size = New System.Drawing.Size(177, 152)
+        Me.LWAV.Size = New System.Drawing.Size(173, 137)
         Me.LWAV.TabIndex = 704
         '
         'FlowLayoutPanel3
@@ -3160,7 +3169,7 @@ Partial Class MainWindow
         Me.POWAVResizer.Location = New System.Drawing.Point(0, 245)
         Me.POWAVResizer.Margin = New System.Windows.Forms.Padding(0)
         Me.POWAVResizer.Name = "POWAVResizer"
-        Me.POWAVResizer.Size = New System.Drawing.Size(183, 5)
+        Me.POWAVResizer.Size = New System.Drawing.Size(179, 5)
         Me.POWAVResizer.TabIndex = 33
         Me.POWAVResizer.TabStop = False
         Me.POWAVResizer.UseVisualStyleBackColor = True
@@ -3174,13 +3183,13 @@ Partial Class MainWindow
         Me.POWAVPart2.Controls.Add(Me.CWAVMultiSelect, 0, 0)
         Me.POWAVPart2.Controls.Add(Me.CWAVChangeLabel, 0, 1)
         Me.POWAVPart2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.POWAVPart2.Location = New System.Drawing.Point(0, 55)
+        Me.POWAVPart2.Location = New System.Drawing.Point(0, 60)
         Me.POWAVPart2.Margin = New System.Windows.Forms.Padding(0)
         Me.POWAVPart2.Name = "POWAVPart2"
         Me.POWAVPart2.RowCount = 2
         Me.POWAVPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POWAVPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POWAVPart2.Size = New System.Drawing.Size(183, 38)
+        Me.POWAVPart2.Size = New System.Drawing.Size(179, 48)
         Me.POWAVPart2.TabIndex = 35
         Me.POWAVPart2.Visible = False
         '
@@ -3192,7 +3201,7 @@ Partial Class MainWindow
         Me.CWAVMultiSelect.Location = New System.Drawing.Point(3, 0)
         Me.CWAVMultiSelect.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CWAVMultiSelect.Name = "CWAVMultiSelect"
-        Me.CWAVMultiSelect.Size = New System.Drawing.Size(154, 19)
+        Me.CWAVMultiSelect.Size = New System.Drawing.Size(173, 24)
         Me.CWAVMultiSelect.TabIndex = 702
         Me.CWAVMultiSelect.Text = "Allow Multiple Selection"
         Me.CWAVMultiSelect.UseVisualStyleBackColor = True
@@ -3202,10 +3211,10 @@ Partial Class MainWindow
         Me.CWAVChangeLabel.AutoSize = True
         Me.CWAVChangeLabel.Checked = True
         Me.CWAVChangeLabel.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CWAVChangeLabel.Location = New System.Drawing.Point(3, 19)
+        Me.CWAVChangeLabel.Location = New System.Drawing.Point(3, 24)
         Me.CWAVChangeLabel.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CWAVChangeLabel.Name = "CWAVChangeLabel"
-        Me.CWAVChangeLabel.Size = New System.Drawing.Size(155, 19)
+        Me.CWAVChangeLabel.Size = New System.Drawing.Size(173, 24)
         Me.CWAVChangeLabel.TabIndex = 703
         Me.CWAVChangeLabel.Text = "Synchronize Note Labels"
         Me.CWAVChangeLabel.UseVisualStyleBackColor = True
@@ -3221,7 +3230,7 @@ Partial Class MainWindow
         Me.POWAVSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POWAVSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POWAVSwitch.Name = "POWAVSwitch"
-        Me.POWAVSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POWAVSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POWAVSwitch.TabIndex = 601
         Me.POWAVSwitch.TabStop = False
         Me.POWAVSwitch.Text = "#WAV (Sounds List)"
@@ -3236,9 +3245,9 @@ Partial Class MainWindow
         Me.POWaveForm.Controls.Add(Me.POWaveFormInner)
         Me.POWaveForm.Controls.Add(Me.POWaveFormSwitch)
         Me.POWaveForm.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POWaveForm.Location = New System.Drawing.Point(0, 700)
+        Me.POWaveForm.Location = New System.Drawing.Point(0, 727)
         Me.POWaveForm.Name = "POWaveForm"
-        Me.POWaveForm.Size = New System.Drawing.Size(183, 243)
+        Me.POWaveForm.Size = New System.Drawing.Size(179, 251)
         Me.POWaveForm.TabIndex = 3
         '
         'POWaveFormInner
@@ -3251,7 +3260,7 @@ Partial Class MainWindow
         Me.POWaveFormInner.Dock = System.Windows.Forms.DockStyle.Top
         Me.POWaveFormInner.Location = New System.Drawing.Point(0, 20)
         Me.POWaveFormInner.Name = "POWaveFormInner"
-        Me.POWaveFormInner.Size = New System.Drawing.Size(183, 223)
+        Me.POWaveFormInner.Size = New System.Drawing.Size(179, 231)
         Me.POWaveFormInner.TabIndex = 29
         Me.POWaveFormInner.Visible = False
         '
@@ -3279,7 +3288,7 @@ Partial Class MainWindow
         Me.POWaveFormPart2.Controls.Add(Me.TWWidth2, 1, 1)
         Me.POWaveFormPart2.Controls.Add(Me.TWPrecision2, 1, 2)
         Me.POWaveFormPart2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POWaveFormPart2.Location = New System.Drawing.Point(0, 83)
+        Me.POWaveFormPart2.Location = New System.Drawing.Point(0, 91)
         Me.POWaveFormPart2.Name = "POWaveFormPart2"
         Me.POWaveFormPart2.RowCount = 5
         Me.POWaveFormPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
@@ -3287,18 +3296,18 @@ Partial Class MainWindow
         Me.POWaveFormPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
         Me.POWaveFormPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
         Me.POWaveFormPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
-        Me.POWaveFormPart2.Size = New System.Drawing.Size(183, 140)
+        Me.POWaveFormPart2.Size = New System.Drawing.Size(179, 140)
         Me.POWaveFormPart2.TabIndex = 5
         '
         'TWSaturation
         '
         Me.TWSaturation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWSaturation.Increment = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.TWSaturation.Location = New System.Drawing.Point(137, 112)
+        Me.TWSaturation.Location = New System.Drawing.Point(134, 112)
         Me.TWSaturation.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWSaturation.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.TWSaturation.Name = "TWSaturation"
-        Me.TWSaturation.Size = New System.Drawing.Size(43, 23)
+        Me.TWSaturation.Size = New System.Drawing.Size(42, 27)
         Me.TWSaturation.TabIndex = 511
         '
         'PictureBox2
@@ -3316,11 +3325,11 @@ Partial Class MainWindow
         '
         Me.TWTransparency.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWTransparency.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.TWTransparency.Location = New System.Drawing.Point(137, 84)
+        Me.TWTransparency.Location = New System.Drawing.Point(134, 84)
         Me.TWTransparency.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWTransparency.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.TWTransparency.Name = "TWTransparency"
-        Me.TWTransparency.Size = New System.Drawing.Size(43, 23)
+        Me.TWTransparency.Size = New System.Drawing.Size(42, 27)
         Me.TWTransparency.TabIndex = 509
         Me.TWTransparency.Value = New Decimal(New Integer() {80, 0, 0, 0})
         '
@@ -3339,10 +3348,10 @@ Partial Class MainWindow
         '
         Me.TWPrecision.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWPrecision.Increment = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.TWPrecision.Location = New System.Drawing.Point(137, 56)
+        Me.TWPrecision.Location = New System.Drawing.Point(134, 56)
         Me.TWPrecision.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWPrecision.Name = "TWPrecision"
-        Me.TWPrecision.Size = New System.Drawing.Size(43, 23)
+        Me.TWPrecision.Size = New System.Drawing.Size(42, 27)
         Me.TWPrecision.TabIndex = 507
         Me.TWPrecision.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
@@ -3361,11 +3370,11 @@ Partial Class MainWindow
         '
         Me.TWWidth.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWWidth.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.TWWidth.Location = New System.Drawing.Point(137, 28)
+        Me.TWWidth.Location = New System.Drawing.Point(134, 28)
         Me.TWWidth.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWWidth.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.TWWidth.Name = "TWWidth"
-        Me.TWWidth.Size = New System.Drawing.Size(43, 23)
+        Me.TWWidth.Size = New System.Drawing.Size(42, 27)
         Me.TWWidth.TabIndex = 505
         Me.TWWidth.Value = New Decimal(New Integer() {200, 0, 0, 0})
         '
@@ -3384,11 +3393,11 @@ Partial Class MainWindow
         '
         Me.TWLeft.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWLeft.Increment = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.TWLeft.Location = New System.Drawing.Point(137, 0)
+        Me.TWLeft.Location = New System.Drawing.Point(134, 0)
         Me.TWLeft.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWLeft.Maximum = New Decimal(New Integer() {800, 0, 0, 0})
         Me.TWLeft.Name = "TWLeft"
-        Me.TWLeft.Size = New System.Drawing.Size(43, 23)
+        Me.TWLeft.Size = New System.Drawing.Size(42, 27)
         Me.TWLeft.TabIndex = 503
         Me.TWLeft.Value = New Decimal(New Integer() {50, 0, 0, 0})
         '
@@ -3411,7 +3420,7 @@ Partial Class MainWindow
         Me.TWSaturation2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWSaturation2.Maximum = 1000
         Me.TWSaturation2.Name = "TWSaturation2"
-        Me.TWSaturation2.Size = New System.Drawing.Size(107, 28)
+        Me.TWSaturation2.Size = New System.Drawing.Size(104, 28)
         Me.TWSaturation2.SmallChange = 50
         Me.TWSaturation2.TabIndex = 510
         Me.TWSaturation2.TickFrequency = 200
@@ -3424,7 +3433,7 @@ Partial Class MainWindow
         Me.TWLeft2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWLeft2.Maximum = 800
         Me.TWLeft2.Name = "TWLeft2"
-        Me.TWLeft2.Size = New System.Drawing.Size(107, 28)
+        Me.TWLeft2.Size = New System.Drawing.Size(104, 28)
         Me.TWLeft2.SmallChange = 10
         Me.TWLeft2.TabIndex = 502
         Me.TWLeft2.TickFrequency = 100
@@ -3438,7 +3447,7 @@ Partial Class MainWindow
         Me.TWTransparency2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWTransparency2.Maximum = 255
         Me.TWTransparency2.Name = "TWTransparency2"
-        Me.TWTransparency2.Size = New System.Drawing.Size(107, 28)
+        Me.TWTransparency2.Size = New System.Drawing.Size(104, 28)
         Me.TWTransparency2.SmallChange = 8
         Me.TWTransparency2.TabIndex = 508
         Me.TWTransparency2.TickFrequency = 64
@@ -3452,7 +3461,7 @@ Partial Class MainWindow
         Me.TWWidth2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWWidth2.Maximum = 1000
         Me.TWWidth2.Name = "TWWidth2"
-        Me.TWWidth2.Size = New System.Drawing.Size(107, 28)
+        Me.TWWidth2.Size = New System.Drawing.Size(104, 28)
         Me.TWWidth2.SmallChange = 10
         Me.TWWidth2.TabIndex = 504
         Me.TWWidth2.TickFrequency = 100
@@ -3466,7 +3475,7 @@ Partial Class MainWindow
         Me.TWPrecision2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWPrecision2.Maximum = 100
         Me.TWPrecision2.Name = "TWPrecision2"
-        Me.TWPrecision2.Size = New System.Drawing.Size(107, 28)
+        Me.TWPrecision2.Size = New System.Drawing.Size(104, 28)
         Me.TWPrecision2.TabIndex = 506
         Me.TWPrecision2.TickFrequency = 5
         Me.TWPrecision2.Value = 1
@@ -3479,10 +3488,10 @@ Partial Class MainWindow
         Me.POWaveFormExpander.Dock = System.Windows.Forms.DockStyle.Top
         Me.POWaveFormExpander.FlatAppearance.BorderSize = 0
         Me.POWaveFormExpander.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.POWaveFormExpander.Location = New System.Drawing.Point(0, 58)
+        Me.POWaveFormExpander.Location = New System.Drawing.Point(0, 61)
         Me.POWaveFormExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POWaveFormExpander.Name = "POWaveFormExpander"
-        Me.POWaveFormExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POWaveFormExpander.Size = New System.Drawing.Size(179, 30)
         Me.POWaveFormExpander.TabIndex = 501
         Me.POWaveFormExpander.TabStop = False
         Me.POWaveFormExpander.Text = "Expand..."
@@ -3503,7 +3512,7 @@ Partial Class MainWindow
         Me.POWaveFormPart1.RowCount = 2
         Me.POWaveFormPart1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POWaveFormPart1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.POWaveFormPart1.Size = New System.Drawing.Size(183, 58)
+        Me.POWaveFormPart1.Size = New System.Drawing.Size(179, 61)
         Me.POWaveFormPart1.TabIndex = 4
         '
         'TableLayoutPanel1
@@ -3521,7 +3530,7 @@ Partial Class MainWindow
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(183, 30)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(179, 33)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -3543,7 +3552,7 @@ Partial Class MainWindow
         Me.TWFileName.Location = New System.Drawing.Point(81, 3)
         Me.TWFileName.Name = "TWFileName"
         Me.TWFileName.ReadOnly = True
-        Me.TWFileName.Size = New System.Drawing.Size(99, 23)
+        Me.TWFileName.Size = New System.Drawing.Size(95, 27)
         Me.TWFileName.TabIndex = 405
         Me.TWFileName.Text = "(None)"
         '
@@ -3559,12 +3568,12 @@ Partial Class MainWindow
         Me.TableLayoutPanel6.Controls.Add(Me.TWPosition2, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.TWPosition, 2, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(0, 30)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(0, 33)
         Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(183, 28)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(179, 28)
         Me.TableLayoutPanel6.TabIndex = 1
         '
         'PictureBox1
@@ -3587,7 +3596,7 @@ Partial Class MainWindow
         Me.TWPosition2.Margin = New System.Windows.Forms.Padding(0)
         Me.TWPosition2.Maximum = 960
         Me.TWPosition2.Name = "TWPosition2"
-        Me.TWPosition2.Size = New System.Drawing.Size(91, 28)
+        Me.TWPosition2.Size = New System.Drawing.Size(89, 28)
         Me.TWPosition2.TabIndex = 406
         Me.TWPosition2.TickFrequency = 192
         '
@@ -3596,11 +3605,11 @@ Partial Class MainWindow
         Me.TWPosition.DecimalPlaces = 2
         Me.TWPosition.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TWPosition.Enabled = False
-        Me.TWPosition.Location = New System.Drawing.Point(121, 0)
+        Me.TWPosition.Location = New System.Drawing.Point(119, 0)
         Me.TWPosition.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.TWPosition.Maximum = New Decimal(New Integer() {192000, 0, 0, 0})
         Me.TWPosition.Name = "TWPosition"
-        Me.TWPosition.Size = New System.Drawing.Size(59, 23)
+        Me.TWPosition.Size = New System.Drawing.Size(57, 27)
         Me.TWPosition.TabIndex = 407
         '
         'POWaveFormSwitch
@@ -3612,7 +3621,7 @@ Partial Class MainWindow
         Me.POWaveFormSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POWaveFormSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POWaveFormSwitch.Name = "POWaveFormSwitch"
-        Me.POWaveFormSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POWaveFormSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POWaveFormSwitch.TabIndex = 401
         Me.POWaveFormSwitch.TabStop = False
         Me.POWaveFormSwitch.Text = "WaveForm"
@@ -3627,9 +3636,9 @@ Partial Class MainWindow
         Me.POGrid.Controls.Add(Me.POGridInner)
         Me.POGrid.Controls.Add(Me.POGridSwitch)
         Me.POGrid.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POGrid.Location = New System.Drawing.Point(0, 470)
+        Me.POGrid.Location = New System.Drawing.Point(0, 475)
         Me.POGrid.Name = "POGrid"
-        Me.POGrid.Size = New System.Drawing.Size(183, 230)
+        Me.POGrid.Size = New System.Drawing.Size(179, 252)
         Me.POGrid.TabIndex = 2
         '
         'POGridInner
@@ -3642,7 +3651,7 @@ Partial Class MainWindow
         Me.POGridInner.Dock = System.Windows.Forms.DockStyle.Top
         Me.POGridInner.Location = New System.Drawing.Point(0, 20)
         Me.POGridInner.Name = "POGridInner"
-        Me.POGridInner.Size = New System.Drawing.Size(183, 210)
+        Me.POGridInner.Size = New System.Drawing.Size(179, 232)
         Me.POGridInner.TabIndex = 3
         '
         'POGridPart2
@@ -3654,13 +3663,13 @@ Partial Class MainWindow
         Me.POGridPart2.Controls.Add(Me.TableLayoutPanel5, 0, 1)
         Me.POGridPart2.Controls.Add(Me.TableLayoutPanel4, 0, 0)
         Me.POGridPart2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POGridPart2.Location = New System.Drawing.Point(0, 152)
+        Me.POGridPart2.Location = New System.Drawing.Point(0, 170)
         Me.POGridPart2.Name = "POGridPart2"
         Me.POGridPart2.RowCount = 2
         Me.POGridPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POGridPart2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POGridPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.POGridPart2.Size = New System.Drawing.Size(183, 58)
+        Me.POGridPart2.Size = New System.Drawing.Size(179, 62)
         Me.POGridPart2.TabIndex = 1
         '
         'TableLayoutPanel5
@@ -3673,12 +3682,12 @@ Partial Class MainWindow
         Me.TableLayoutPanel5.Controls.Add(Me.FlowLayoutPanel2, 1, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 29)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 33)
         Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(183, 29)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(179, 29)
         Me.TableLayoutPanel5.TabIndex = 46
         '
         'FlowLayoutPanel2
@@ -3688,9 +3697,9 @@ Partial Class MainWindow
         Me.FlowLayoutPanel2.Controls.Add(Me.cVSLockL)
         Me.FlowLayoutPanel2.Controls.Add(Me.cVSLock)
         Me.FlowLayoutPanel2.Controls.Add(Me.cVSLockR)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(114, 3)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(142, 3)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(66, 23)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(34, 23)
         Me.FlowLayoutPanel2.TabIndex = 72
         Me.FlowLayoutPanel2.WrapContents = False
         '
@@ -3700,7 +3709,7 @@ Partial Class MainWindow
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Location = New System.Drawing.Point(3, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(105, 29)
+        Me.Label5.Size = New System.Drawing.Size(133, 29)
         Me.Label5.TabIndex = 303
         Me.Label5.Text = "Vertical Scroll Lock"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3720,7 +3729,7 @@ Partial Class MainWindow
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(183, 29)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(179, 33)
         Me.TableLayoutPanel4.TabIndex = 44
         '
         'Label1
@@ -3729,7 +3738,7 @@ Partial Class MainWindow
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(126, 29)
+        Me.Label1.Size = New System.Drawing.Size(155, 33)
         Me.Label1.TabIndex = 302
         Me.Label1.Text = "Number of B Columns"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -3737,11 +3746,11 @@ Partial Class MainWindow
         'CGB
         '
         Me.CGB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CGB.Location = New System.Drawing.Point(135, 3)
+        Me.CGB.Location = New System.Drawing.Point(164, 3)
         Me.CGB.Maximum = New Decimal(New Integer() {999, 0, 0, 0})
         Me.CGB.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.CGB.Name = "CGB"
-        Me.CGB.Size = New System.Drawing.Size(45, 23)
+        Me.CGB.Size = New System.Drawing.Size(12, 27)
         Me.CGB.TabIndex = 302
         Me.CGB.Value = New Decimal(New Integer() {15, 0, 0, 0})
         '
@@ -3753,10 +3762,10 @@ Partial Class MainWindow
         Me.POGridExpander.Dock = System.Windows.Forms.DockStyle.Top
         Me.POGridExpander.FlatAppearance.BorderSize = 0
         Me.POGridExpander.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.POGridExpander.Location = New System.Drawing.Point(0, 127)
+        Me.POGridExpander.Location = New System.Drawing.Point(0, 140)
         Me.POGridExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POGridExpander.Name = "POGridExpander"
-        Me.POGridExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POGridExpander.Size = New System.Drawing.Size(179, 30)
         Me.POGridExpander.TabIndex = 301
         Me.POGridExpander.TabStop = False
         Me.POGridExpander.Text = "Expand..."
@@ -3782,7 +3791,7 @@ Partial Class MainWindow
         Me.POGridPart1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POGridPart1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.POGridPart1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.POGridPart1.Size = New System.Drawing.Size(183, 127)
+        Me.POGridPart1.Size = New System.Drawing.Size(179, 140)
         Me.POGridPart1.TabIndex = 0
         '
         'TableLayoutPanel3
@@ -3800,13 +3809,13 @@ Partial Class MainWindow
         Me.TableLayoutPanel3.Controls.Add(Me.CGWidth2, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.CGWidth, 2, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 30)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 33)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(183, 56)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(179, 56)
         Me.TableLayoutPanel3.TabIndex = 12
         '
         'PictureBox9
@@ -3829,7 +3838,7 @@ Partial Class MainWindow
         Me.CGHeight2.Maximum = 20
         Me.CGHeight2.Minimum = 1
         Me.CGHeight2.Name = "CGHeight2"
-        Me.CGHeight2.Size = New System.Drawing.Size(107, 28)
+        Me.CGHeight2.Size = New System.Drawing.Size(104, 28)
         Me.CGHeight2.TabIndex = 205
         Me.CGHeight2.TickFrequency = 2
         Me.CGHeight2.Value = 4
@@ -3839,12 +3848,12 @@ Partial Class MainWindow
         Me.CGHeight.DecimalPlaces = 2
         Me.CGHeight.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CGHeight.Increment = New Decimal(New Integer() {25, 0, 0, 131072})
-        Me.CGHeight.Location = New System.Drawing.Point(137, 0)
+        Me.CGHeight.Location = New System.Drawing.Point(134, 0)
         Me.CGHeight.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.CGHeight.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
         Me.CGHeight.Minimum = New Decimal(New Integer() {25, 0, 0, 131072})
         Me.CGHeight.Name = "CGHeight"
-        Me.CGHeight.Size = New System.Drawing.Size(43, 23)
+        Me.CGHeight.Size = New System.Drawing.Size(42, 27)
         Me.CGHeight.TabIndex = 206
         Me.CGHeight.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -3868,7 +3877,7 @@ Partial Class MainWindow
         Me.CGWidth2.Maximum = 20
         Me.CGWidth2.Minimum = 1
         Me.CGWidth2.Name = "CGWidth2"
-        Me.CGWidth2.Size = New System.Drawing.Size(107, 28)
+        Me.CGWidth2.Size = New System.Drawing.Size(104, 28)
         Me.CGWidth2.TabIndex = 207
         Me.CGWidth2.TickFrequency = 2
         Me.CGWidth2.Value = 4
@@ -3878,22 +3887,22 @@ Partial Class MainWindow
         Me.CGWidth.DecimalPlaces = 2
         Me.CGWidth.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CGWidth.Increment = New Decimal(New Integer() {25, 0, 0, 131072})
-        Me.CGWidth.Location = New System.Drawing.Point(137, 28)
+        Me.CGWidth.Location = New System.Drawing.Point(134, 28)
         Me.CGWidth.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.CGWidth.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
         Me.CGWidth.Minimum = New Decimal(New Integer() {25, 0, 0, 131072})
         Me.CGWidth.Name = "CGWidth"
-        Me.CGWidth.Size = New System.Drawing.Size(43, 23)
+        Me.CGWidth.Size = New System.Drawing.Size(42, 27)
         Me.CGWidth.TabIndex = 208
         Me.CGWidth.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'CGDisableVertical
         '
         Me.CGDisableVertical.AutoSize = True
-        Me.CGDisableVertical.Location = New System.Drawing.Point(3, 108)
+        Me.CGDisableVertical.Location = New System.Drawing.Point(3, 116)
         Me.CGDisableVertical.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.CGDisableVertical.Name = "CGDisableVertical"
-        Me.CGDisableVertical.Size = New System.Drawing.Size(162, 19)
+        Me.CGDisableVertical.Size = New System.Drawing.Size(173, 24)
         Me.CGDisableVertical.TabIndex = 210
         Me.CGDisableVertical.Text = "Disable vertical moves (D)"
         Me.CGDisableVertical.UseVisualStyleBackColor = True
@@ -3903,10 +3912,10 @@ Partial Class MainWindow
         Me.CGSnap.AutoSize = True
         Me.CGSnap.Checked = True
         Me.CGSnap.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CGSnap.Location = New System.Drawing.Point(3, 89)
+        Me.CGSnap.Location = New System.Drawing.Point(3, 92)
         Me.CGSnap.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
         Me.CGSnap.Name = "CGSnap"
-        Me.CGSnap.Size = New System.Drawing.Size(109, 19)
+        Me.CGSnap.Size = New System.Drawing.Size(137, 24)
         Me.CGSnap.TabIndex = 209
         Me.CGSnap.Text = "Snap to grid (G)"
         Me.CGSnap.UseVisualStyleBackColor = True
@@ -3930,14 +3939,14 @@ Partial Class MainWindow
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(183, 30)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(179, 33)
         Me.TableLayoutPanel2.TabIndex = 11
         '
         'PictureBox7
         '
         Me.PictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox7.Image = Global.iBMSC.My.Resources.Resources.lgpartition
-        Me.PictureBox7.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox7.Location = New System.Drawing.Point(3, 4)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(24, 24)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -3951,18 +3960,18 @@ Partial Class MainWindow
         Me.CGDivide.Maximum = New Decimal(New Integer() {1920, 0, 0, 0})
         Me.CGDivide.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.CGDivide.Name = "CGDivide"
-        Me.CGDivide.Size = New System.Drawing.Size(58, 23)
+        Me.CGDivide.Size = New System.Drawing.Size(56, 27)
         Me.CGDivide.TabIndex = 202
         Me.CGDivide.Value = New Decimal(New Integer() {16, 0, 0, 0})
         '
         'CGSub
         '
         Me.CGSub.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CGSub.Location = New System.Drawing.Point(97, 3)
+        Me.CGSub.Location = New System.Drawing.Point(95, 3)
         Me.CGSub.Maximum = New Decimal(New Integer() {1920, 0, 0, 0})
         Me.CGSub.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.CGSub.Name = "CGSub"
-        Me.CGSub.Size = New System.Drawing.Size(58, 23)
+        Me.CGSub.Size = New System.Drawing.Size(56, 27)
         Me.CGSub.TabIndex = 203
         Me.CGSub.Value = New Decimal(New Integer() {4, 0, 0, 0})
         '
@@ -3970,7 +3979,7 @@ Partial Class MainWindow
         '
         Me.BGSlash.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.BGSlash.Image = Global.iBMSC.My.Resources.Resources.Shortcut
-        Me.BGSlash.Location = New System.Drawing.Point(158, 4)
+        Me.BGSlash.Location = New System.Drawing.Point(154, 5)
         Me.BGSlash.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.BGSlash.Name = "BGSlash"
         Me.BGSlash.Size = New System.Drawing.Size(22, 22)
@@ -3988,7 +3997,7 @@ Partial Class MainWindow
         Me.POGridSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POGridSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POGridSwitch.Name = "POGridSwitch"
-        Me.POGridSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POGridSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POGridSwitch.TabIndex = 201
         Me.POGridSwitch.TabStop = False
         Me.POGridSwitch.Text = "Grid"
@@ -4005,7 +4014,7 @@ Partial Class MainWindow
         Me.POHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.POHeader.Location = New System.Drawing.Point(0, 0)
         Me.POHeader.Name = "POHeader"
-        Me.POHeader.Size = New System.Drawing.Size(183, 470)
+        Me.POHeader.Size = New System.Drawing.Size(179, 475)
         Me.POHeader.TabIndex = 1
         '
         'POHeaderInner
@@ -4018,7 +4027,7 @@ Partial Class MainWindow
         Me.POHeaderInner.Dock = System.Windows.Forms.DockStyle.Top
         Me.POHeaderInner.Location = New System.Drawing.Point(0, 20)
         Me.POHeaderInner.Name = "POHeaderInner"
-        Me.POHeaderInner.Size = New System.Drawing.Size(183, 450)
+        Me.POHeaderInner.Size = New System.Drawing.Size(179, 455)
         Me.POHeaderInner.TabIndex = 2
         '
         'POHeaderPart2
@@ -4050,7 +4059,7 @@ Partial Class MainWindow
         Me.POHeaderPart2.Controls.Add(Me.THSubTitle, 1, 0)
         Me.POHeaderPart2.Controls.Add(Me.THSubArtist, 1, 1)
         Me.POHeaderPart2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.POHeaderPart2.Location = New System.Drawing.Point(0, 250)
+        Me.POHeaderPart2.Location = New System.Drawing.Point(0, 255)
         Me.POHeaderPart2.Name = "POHeaderPart2"
         Me.POHeaderPart2.RowCount = 8
         Me.POHeaderPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
@@ -4063,14 +4072,14 @@ Partial Class MainWindow
         Me.POHeaderPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.POHeaderPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.POHeaderPart2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.POHeaderPart2.Size = New System.Drawing.Size(183, 200)
+        Me.POHeaderPart2.Size = New System.Drawing.Size(179, 200)
         Me.POHeaderPart2.TabIndex = 102
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(158, 125)
+        Me.Label13.Location = New System.Drawing.Point(154, 125)
         Me.Label13.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(25, 25)
@@ -4084,7 +4093,7 @@ Partial Class MainWindow
         Me.THExRank.Location = New System.Drawing.Point(70, 125)
         Me.THExRank.Margin = New System.Windows.Forms.Padding(0)
         Me.THExRank.Name = "THExRank"
-        Me.THExRank.Size = New System.Drawing.Size(85, 23)
+        Me.THExRank.Size = New System.Drawing.Size(81, 27)
         Me.THExRank.TabIndex = 114
         '
         'CHLnObj
@@ -4097,16 +4106,16 @@ Partial Class MainWindow
         Me.CHLnObj.Location = New System.Drawing.Point(70, 175)
         Me.CHLnObj.Margin = New System.Windows.Forms.Padding(0)
         Me.CHLnObj.Name = "CHLnObj"
-        Me.CHLnObj.Size = New System.Drawing.Size(113, 23)
+        Me.CHLnObj.Size = New System.Drawing.Size(109, 28)
         Me.CHLnObj.TabIndex = 119
         '
         'Label23
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label23.Location = New System.Drawing.Point(22, 125)
+        Me.Label23.Location = New System.Drawing.Point(11, 125)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(45, 25)
+        Me.Label23.Size = New System.Drawing.Size(56, 25)
         Me.Label23.TabIndex = 113
         Me.Label23.Text = "ExRank"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4118,16 +4127,16 @@ Partial Class MainWindow
         Me.THComment.Location = New System.Drawing.Point(70, 150)
         Me.THComment.Margin = New System.Windows.Forms.Padding(0)
         Me.THComment.Name = "THComment"
-        Me.THComment.Size = New System.Drawing.Size(113, 23)
+        Me.THComment.Size = New System.Drawing.Size(109, 27)
         Me.THComment.TabIndex = 117
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label24.Location = New System.Drawing.Point(26, 175)
+        Me.Label24.Location = New System.Drawing.Point(16, 175)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(41, 25)
+        Me.Label24.Size = New System.Drawing.Size(51, 25)
         Me.Label24.TabIndex = 118
         Me.Label24.Text = "LNObj"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4136,9 +4145,9 @@ Partial Class MainWindow
         '
         Me.Label15.AutoSize = True
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label15.Location = New System.Drawing.Point(18, 0)
+        Me.Label15.Location = New System.Drawing.Point(4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(49, 25)
+        Me.Label15.Size = New System.Drawing.Size(63, 25)
         Me.Label15.TabIndex = 100
         Me.Label15.Text = "SubTitle"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4147,7 +4156,7 @@ Partial Class MainWindow
         '
         Me.BHStageFile.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BHStageFile.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BHStageFile.Location = New System.Drawing.Point(158, 50)
+        Me.BHStageFile.Location = New System.Drawing.Point(154, 50)
         Me.BHStageFile.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.BHStageFile.Name = "BHStageFile"
         Me.BHStageFile.Size = New System.Drawing.Size(25, 25)
@@ -4159,7 +4168,7 @@ Partial Class MainWindow
         '
         Me.BHBanner.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BHBanner.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BHBanner.Location = New System.Drawing.Point(158, 75)
+        Me.BHBanner.Location = New System.Drawing.Point(154, 75)
         Me.BHBanner.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.BHBanner.Name = "BHBanner"
         Me.BHBanner.Size = New System.Drawing.Size(25, 25)
@@ -4182,7 +4191,7 @@ Partial Class MainWindow
         '
         Me.BHBackBMP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BHBackBMP.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BHBackBMP.Location = New System.Drawing.Point(158, 100)
+        Me.BHBackBMP.Location = New System.Drawing.Point(154, 100)
         Me.BHBackBMP.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.BHBackBMP.Name = "BHBackBMP"
         Me.BHBackBMP.Size = New System.Drawing.Size(25, 25)
@@ -4194,9 +4203,9 @@ Partial Class MainWindow
         '
         Me.Label17.AutoSize = True
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label17.Location = New System.Drawing.Point(12, 25)
+        Me.Label17.Location = New System.Drawing.Point(3, 25)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(55, 25)
+        Me.Label17.Size = New System.Drawing.Size(64, 25)
         Me.Label17.TabIndex = 102
         Me.Label17.Text = "SubArtist"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4205,9 +4214,9 @@ Partial Class MainWindow
         '
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label16.Location = New System.Drawing.Point(10, 50)
+        Me.Label16.Location = New System.Drawing.Point(20, 50)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(57, 25)
+        Me.Label16.Size = New System.Drawing.Size(47, 25)
         Me.Label16.TabIndex = 104
         Me.Label16.Text = "Stage File"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4216,9 +4225,9 @@ Partial Class MainWindow
         '
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label12.Location = New System.Drawing.Point(23, 75)
+        Me.Label12.Location = New System.Drawing.Point(12, 75)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(44, 25)
+        Me.Label12.Size = New System.Drawing.Size(55, 25)
         Me.Label12.TabIndex = 107
         Me.Label12.Text = "Banner"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4229,16 +4238,16 @@ Partial Class MainWindow
         Me.THBackBMP.Location = New System.Drawing.Point(70, 100)
         Me.THBackBMP.Margin = New System.Windows.Forms.Padding(0)
         Me.THBackBMP.Name = "THBackBMP"
-        Me.THBackBMP.Size = New System.Drawing.Size(85, 23)
+        Me.THBackBMP.Size = New System.Drawing.Size(81, 27)
         Me.THBackBMP.TabIndex = 111
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label11.Location = New System.Drawing.Point(7, 100)
+        Me.Label11.Location = New System.Drawing.Point(27, 100)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(60, 25)
+        Me.Label11.Size = New System.Drawing.Size(40, 25)
         Me.Label11.TabIndex = 110
         Me.Label11.Text = "Back BMP"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4249,7 +4258,7 @@ Partial Class MainWindow
         Me.THBanner.Location = New System.Drawing.Point(70, 75)
         Me.THBanner.Margin = New System.Windows.Forms.Padding(0)
         Me.THBanner.Name = "THBanner"
-        Me.THBanner.Size = New System.Drawing.Size(85, 23)
+        Me.THBanner.Size = New System.Drawing.Size(81, 27)
         Me.THBanner.TabIndex = 108
         '
         'THStageFile
@@ -4258,7 +4267,7 @@ Partial Class MainWindow
         Me.THStageFile.Location = New System.Drawing.Point(70, 50)
         Me.THStageFile.Margin = New System.Windows.Forms.Padding(0)
         Me.THStageFile.Name = "THStageFile"
-        Me.THStageFile.Size = New System.Drawing.Size(85, 23)
+        Me.THStageFile.Size = New System.Drawing.Size(81, 27)
         Me.THStageFile.TabIndex = 105
         '
         'THSubTitle
@@ -4268,7 +4277,7 @@ Partial Class MainWindow
         Me.THSubTitle.Location = New System.Drawing.Point(70, 0)
         Me.THSubTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.THSubTitle.Name = "THSubTitle"
-        Me.THSubTitle.Size = New System.Drawing.Size(113, 23)
+        Me.THSubTitle.Size = New System.Drawing.Size(109, 27)
         Me.THSubTitle.TabIndex = 101
         '
         'THSubArtist
@@ -4278,7 +4287,7 @@ Partial Class MainWindow
         Me.THSubArtist.Location = New System.Drawing.Point(70, 25)
         Me.THSubArtist.Margin = New System.Windows.Forms.Padding(0)
         Me.THSubArtist.Name = "THSubArtist"
-        Me.THSubArtist.Size = New System.Drawing.Size(113, 23)
+        Me.THSubArtist.Size = New System.Drawing.Size(109, 27)
         Me.THSubArtist.TabIndex = 103
         '
         'POHeaderExpander
@@ -4292,7 +4301,7 @@ Partial Class MainWindow
         Me.POHeaderExpander.Location = New System.Drawing.Point(0, 225)
         Me.POHeaderExpander.Margin = New System.Windows.Forms.Padding(0)
         Me.POHeaderExpander.Name = "POHeaderExpander"
-        Me.POHeaderExpander.Size = New System.Drawing.Size(183, 25)
+        Me.POHeaderExpander.Size = New System.Drawing.Size(179, 30)
         Me.POHeaderExpander.TabIndex = 101
         Me.POHeaderExpander.TabStop = False
         Me.POHeaderExpander.Text = "Expand..."
@@ -4340,7 +4349,7 @@ Partial Class MainWindow
         Me.POHeaderPart1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.POHeaderPart1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.POHeaderPart1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.POHeaderPart1.Size = New System.Drawing.Size(183, 225)
+        Me.POHeaderPart1.Size = New System.Drawing.Size(179, 225)
         Me.POHeaderPart1.TabIndex = 25
         '
         'CHDifficulty
@@ -4353,16 +4362,16 @@ Partial Class MainWindow
         Me.CHDifficulty.Location = New System.Drawing.Point(70, 150)
         Me.CHDifficulty.Margin = New System.Windows.Forms.Padding(0)
         Me.CHDifficulty.Name = "CHDifficulty"
-        Me.CHDifficulty.Size = New System.Drawing.Size(113, 23)
+        Me.CHDifficulty.Size = New System.Drawing.Size(109, 28)
         Me.CHDifficulty.TabIndex = 13
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label3.Location = New System.Drawing.Point(38, 0)
+        Me.Label3.Location = New System.Drawing.Point(29, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 25)
+        Me.Label3.Size = New System.Drawing.Size(38, 25)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Title"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4371,7 +4380,7 @@ Partial Class MainWindow
         '
         Me.Label25.AutoSize = True
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label25.Location = New System.Drawing.Point(158, 200)
+        Me.Label25.Location = New System.Drawing.Point(154, 200)
         Me.Label25.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(25, 25)
@@ -4389,16 +4398,16 @@ Partial Class MainWindow
         Me.CHRank.Location = New System.Drawing.Point(70, 125)
         Me.CHRank.Margin = New System.Windows.Forms.Padding(0)
         Me.CHRank.Name = "CHRank"
-        Me.CHRank.Size = New System.Drawing.Size(113, 23)
+        Me.CHRank.Size = New System.Drawing.Size(109, 28)
         Me.CHRank.TabIndex = 11
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label10.Location = New System.Drawing.Point(3, 125)
+        Me.Label10.Location = New System.Drawing.Point(10, 125)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 25)
+        Me.Label10.Size = New System.Drawing.Size(57, 25)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "JudgeRank"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4413,16 +4422,16 @@ Partial Class MainWindow
         Me.CHPlayer.Location = New System.Drawing.Point(70, 100)
         Me.CHPlayer.Margin = New System.Windows.Forms.Padding(0)
         Me.CHPlayer.Name = "CHPlayer"
-        Me.CHPlayer.Size = New System.Drawing.Size(113, 23)
+        Me.CHPlayer.Size = New System.Drawing.Size(109, 28)
         Me.CHPlayer.TabIndex = 9
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label4.Location = New System.Drawing.Point(32, 25)
+        Me.Label4.Location = New System.Drawing.Point(23, 25)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(35, 25)
+        Me.Label4.Size = New System.Drawing.Size(44, 25)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "Artist"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4434,7 +4443,7 @@ Partial Class MainWindow
         Me.THGenre.Location = New System.Drawing.Point(70, 50)
         Me.THGenre.Margin = New System.Windows.Forms.Padding(0)
         Me.THGenre.Name = "THGenre"
-        Me.THGenre.Size = New System.Drawing.Size(113, 23)
+        Me.THGenre.Size = New System.Drawing.Size(109, 27)
         Me.THGenre.TabIndex = 5
         '
         'THTotal
@@ -4443,7 +4452,7 @@ Partial Class MainWindow
         Me.THTotal.Location = New System.Drawing.Point(70, 200)
         Me.THTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.THTotal.Name = "THTotal"
-        Me.THTotal.Size = New System.Drawing.Size(85, 23)
+        Me.THTotal.Size = New System.Drawing.Size(81, 27)
         Me.THTotal.TabIndex = 17
         '
         'THBPM
@@ -4457,7 +4466,7 @@ Partial Class MainWindow
         Me.THBPM.Maximum = New Decimal(New Integer() {655359999, 0, 0, 262144})
         Me.THBPM.Minimum = New Decimal(New Integer() {1, 0, 0, 262144})
         Me.THBPM.Name = "THBPM"
-        Me.THBPM.Size = New System.Drawing.Size(113, 23)
+        Me.THBPM.Size = New System.Drawing.Size(109, 27)
         Me.THBPM.TabIndex = 7
         Me.THBPM.Value = New Decimal(New Integer() {120, 0, 0, 0})
         '
@@ -4465,9 +4474,9 @@ Partial Class MainWindow
         '
         Me.Label20.AutoSize = True
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label20.Location = New System.Drawing.Point(35, 200)
+        Me.Label20.Location = New System.Drawing.Point(25, 200)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(32, 25)
+        Me.Label20.Size = New System.Drawing.Size(42, 25)
         Me.Label20.TabIndex = 16
         Me.Label20.Text = "Total"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4476,9 +4485,9 @@ Partial Class MainWindow
         '
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label2.Location = New System.Drawing.Point(29, 50)
+        Me.Label2.Location = New System.Drawing.Point(19, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 25)
+        Me.Label2.Size = New System.Drawing.Size(48, 25)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Genre"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4490,7 +4499,7 @@ Partial Class MainWindow
         Me.THArtist.Location = New System.Drawing.Point(70, 25)
         Me.THArtist.Margin = New System.Windows.Forms.Padding(0)
         Me.THArtist.Name = "THArtist"
-        Me.THArtist.Size = New System.Drawing.Size(113, 23)
+        Me.THArtist.Size = New System.Drawing.Size(109, 27)
         Me.THArtist.TabIndex = 3
         '
         'THTitle
@@ -4500,16 +4509,16 @@ Partial Class MainWindow
         Me.THTitle.Location = New System.Drawing.Point(70, 0)
         Me.THTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.THTitle.Name = "THTitle"
-        Me.THTitle.Size = New System.Drawing.Size(113, 23)
+        Me.THTitle.Size = New System.Drawing.Size(109, 27)
         Me.THTitle.TabIndex = 1
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label9.Location = New System.Drawing.Point(35, 75)
+        Me.Label9.Location = New System.Drawing.Point(28, 75)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(32, 25)
+        Me.Label9.Size = New System.Drawing.Size(39, 25)
         Me.Label9.TabIndex = 6
         Me.Label9.Text = "BPM"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4518,9 +4527,9 @@ Partial Class MainWindow
         '
         Me.Label8.AutoSize = True
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label8.Location = New System.Drawing.Point(28, 100)
+        Me.Label8.Location = New System.Drawing.Point(18, 100)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 25)
+        Me.Label8.Size = New System.Drawing.Size(49, 25)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Player"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4529,9 +4538,9 @@ Partial Class MainWindow
         '
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label6.Location = New System.Drawing.Point(8, 175)
+        Me.Label6.Location = New System.Drawing.Point(24, 175)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(59, 25)
+        Me.Label6.Size = New System.Drawing.Size(43, 25)
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Play Level"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4543,16 +4552,16 @@ Partial Class MainWindow
         Me.THPlayLevel.Location = New System.Drawing.Point(70, 175)
         Me.THPlayLevel.Margin = New System.Windows.Forms.Padding(0)
         Me.THPlayLevel.Name = "THPlayLevel"
-        Me.THPlayLevel.Size = New System.Drawing.Size(113, 23)
+        Me.THPlayLevel.Size = New System.Drawing.Size(109, 27)
         Me.THPlayLevel.TabIndex = 15
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label21.Location = New System.Drawing.Point(12, 150)
+        Me.Label21.Location = New System.Drawing.Point(5, 150)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(55, 25)
+        Me.Label21.Size = New System.Drawing.Size(62, 25)
         Me.Label21.TabIndex = 12
         Me.Label21.Text = "Difficulty"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -4568,7 +4577,7 @@ Partial Class MainWindow
         Me.POHeaderSwitch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.POHeaderSwitch.Location = New System.Drawing.Point(0, 0)
         Me.POHeaderSwitch.Name = "POHeaderSwitch"
-        Me.POHeaderSwitch.Size = New System.Drawing.Size(183, 20)
+        Me.POHeaderSwitch.Size = New System.Drawing.Size(179, 20)
         Me.POHeaderSwitch.TabIndex = 1
         Me.POHeaderSwitch.TabStop = False
         Me.POHeaderSwitch.Text = "Header"

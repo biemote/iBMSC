@@ -57,7 +57,8 @@ Partial Public Class MainWindow
         If GetColumn(5).Width = 0 Then
             gXKeyMode = "PMS"
             gXKeyCol = {niA2, niA3, niA4, niA5, niA6, niD2, niD3, niD4, niD5}
-            If CHPlayer.SelectedIndex = 0 Then CHPlayer.SelectedIndex = 2
+            'If CHPlayer.SelectedIndex = 0 Then CHPlayer.SelectedIndex = 2
+            '不要擅自改这个啦!!! 求你了!!!
             POBFlip.Visible = False
         ElseIf CHPlayer.SelectedIndex <> 0 Then
             gXKeyMode = "DP"
